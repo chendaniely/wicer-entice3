@@ -12,8 +12,6 @@
 \end{center}
 
 <<depressed>>=
-config_pt_depressed_30 <- 15
-
 corners <- create_corner_points(spacing = 0.3)
 square_coords <- apply(X = corners, MARGIN = 2,
                        FUN = function(x){create_unit_square(c(x[[1]], x[[2]]))})
@@ -24,11 +22,29 @@ colored_blue <- unlist(lapply(X = 1:config_pt_depressed_30,
 colored_white <- unlist(lapply(X = 1:(30 - config_pt_depressed_30),
                                FUN = function(x){rep(0, 4)}))
 d$g <- unlist(lapply(X = 1:30, FUN = function(x){rep(x, 4)}))
-d$c <- c(colored_blue, colored_white)
+
+if (config_pt_depressed_30 > 0 &  config_pt_depressed_30 < 30) {
+    d$c <- c(colored_blue, colored_white)
+} else if (config_pt_depressed_30 == 0) {
+    d$c <- c(colored_white)
+} else if (config_pt_depressed_30 == 30) {
+    d$c <- c(colored_blue)
+}
+
+# d$c <- c(colored_blue, colored_white)
 d$x <- d$V1
 d$y <- d$V2
 
-center_coords <- get_square_center(d[d$g == config_pt_depressed_30, ][1, 1:2])
+# center_coords <- get_square_center(d[d$g == config_pt_depressed_30, ][1, 1:2])
+if (config_pt_depressed_30 > 0 ) {
+    center_coords <- get_square_center(d[d$g == config_pt_depressed_30, ][1, 1:2])
+} else {
+    center_coords <-
+        list(structure(list(V1 = 0.5), .Names = "V1",
+                       row.names = 1L, class = "data.frame"),
+    structure(list(V2 = 5.7), .Names = "V2",
+              row.names = 1L, class = "data.frame"))
+}
 @
 
 <<>>=
@@ -67,15 +83,23 @@ pt_depressed <- ggplot() +
              size = 6,
              # family="Myriad Pro",
              colour = "white")
+@
+
+<<results='hide'>>=
 png("src/days_feeling_depressed/depressed_30.png", width = fig_width, height = fig_height, res = 300)
 pt_depressed
 dev.off()
 @
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 <<results = 'hide'>>=
 # set variables so the code doesn't have to change
-config_sex_age_depressed_30 <- 7
-
 corners <- create_corner_points(spacing = 0.3)
 square_coords <- apply(X = corners, MARGIN = 2,
                        FUN = function(x){create_unit_square(c(x[[1]], x[[2]]))})
@@ -86,11 +110,28 @@ colored_blue <- unlist(lapply(X = 1:config_sex_age_depressed_30,
 colored_white <- unlist(lapply(X = 1:(30 - config_sex_age_depressed_30),
                                FUN = function(x){rep(0, 4)}))
 d$g <- unlist(lapply(X = 1:30, FUN = function(x){rep(x, 4)}))
-d$c <- c(colored_blue, colored_white)
+
+if (config_sex_age_depressed_30 > 0 &  config_sex_age_depressed_30 < 30){
+    d$c <- c(colored_blue, colored_white)
+} else if (config_sex_age_depressed_30 == 0){
+    d$c <- c(colored_white)
+} else if (config_sex_age_depressed_30 == 30){
+    d$c <- c(colored_blue)
+}
+
 d$x <- d$V1
 d$y <- d$V2
 
-center_coords <- get_square_center(d[d$g == config_sex_age_depressed_30, ][1, 1:2])
+# center_coords <- get_square_center(d[d$g == config_sex_age_depressed_30, ][1, 1:2])
+if (config_sex_age_depressed_30 > 0 ){
+    center_coords <- get_square_center(d[d$g == config_sex_age_depressed_30, ][1, 1:2])
+} else {
+    center_coords <-
+        list(structure(list(V1 = 0.5), .Names = "V1",
+                       row.names = 1L, class = "data.frame"),
+    structure(list(V2 = 5.7), .Names = "V2",
+              row.names = 1L, class = "data.frame"))
+}
 
 square_plot_max <- ceiling(max(d$x, d$y))
 
@@ -122,7 +163,9 @@ sex_age_depressed <- ggplot() +
              size = 6,
              # family="Myriad Pro",
              colour = "white")
+@
 
+<<results='hide'>>=
 png("src/days_feeling_depressed/sex_age_depressed_30.png", width = fig_width, height = fig_height, res = 300)
 sex_age_depressed
 dev.off()
@@ -152,5 +195,16 @@ dev.off()
 \end{center}
 \end{minipage}
 \end{table}
+
+\newpage
+
+\begin{center}
+\Huge Days feeling sad, blue, or depressed in the last 30 days
+\end{center}
+
+\Large You reported feeling sad, blue, or depressed for \Sexpr{config_pt_depressed_30} out of 30 days.\\
+
+\Large \Sexpr{get_men_women(config_pt_sex)} in your age group reported being sad, blue,
+or depressed for an average of \Sexpr{config_sex_age_depressed_30} out of 30 days.
 
 \newpage
