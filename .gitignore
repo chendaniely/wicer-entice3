@@ -1,3 +1,9 @@
+# project ignore
+.Rproj.user
+.Rhistory
+
+###############################################################################
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
@@ -124,5 +130,3 @@ sympy-plots-for-*.tex/
 # WinEdt
 *.bak
 *.sav
-.Rproj.user
-/.Rhistory
