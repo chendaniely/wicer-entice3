@@ -59,7 +59,7 @@ calculate_bmi_cat_coord <- function(bmi_value, pt_sex){
     pt_bmi_cat <- calculate_pt_bmi_cat(bmi_value)
     coords <- list()
     # x_coord <- NULL
-    if (tolower(pt_sex) == 'male') {
+    if (tolower(pt_sex) == 'male' | pt_sex == 1) {
         y_coord <- 15.5
         coords$y <- y_coord
         if (tolower(pt_bmi_cat) == 'underweight') {
