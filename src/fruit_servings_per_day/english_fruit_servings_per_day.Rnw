@@ -1,8 +1,6 @@
 \Sexpr{set_parent('src/master.Rnw')}
 \Sexpr{opts_knit$set(self.contained=FALSE)}
 
-\graphicspath{{./days_feeling_anxious/}}
-
 <<>>=
 # print(getwd())
 @
