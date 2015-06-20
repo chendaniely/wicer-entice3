@@ -1,0 +1,50 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+\graphicspath{{./depression_symptoms_a/}}
+
+<<>>=
+# print(getwd())
+@
+
+\begin{center}
+\Huge{Depression Symptoms A}
+\end{center}
+
+<<Depression Symptoms A, results='hide'>>=
+pt_stat <- get_depression_symptom_image(config_pt_depression_a, 'pt')
+other_stat <- get_depression_symptom_image(config_sex_age_depression_a, 'other')
+@
+
+
+\begin{figure}[H]
+\begin{minipage}[b]{0.5\linewidth}
+\centering
+\includegraphics[width=0.75\textwidth]{depression_symptoms_a_pt}
+\caption*{\large{You\\
+\Sexpr{stri_trans_totitle(pt_stat)}\\
+\phantom{blank line of text}}}
+
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}[b]{0.5\linewidth}
+\centering
+\includegraphics[width=0.75\textwidth]{depression_symptoms_a_other}
+\caption*{\large{Other \Sexpr{tolower(get_men_women(config_pt_sex))}\\
+in your age group\\
+\Sexpr{stri_trans_totitle(other_stat)}}}
+\end{minipage}
+\end{figure}
+
+\newpage
+
+\begin{center}
+\Huge{Depression Symptoms A}
+\end{center}
+
+\Large{
+Your level of depression symptoms was \Sexpr{pt_stat}.\\
+
+The level of depression symptoms for
+\Sexpr{tolower(get_men_women(config_pt_sex))}
+in your age group was \Sexpr{other_stat}.

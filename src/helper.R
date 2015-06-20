@@ -208,37 +208,36 @@ get_square_center <- function(bottom_list_coord){
 }
 
 get_depression_symptom_image <- function(depression_value, depression_type){
-    to_image <-  sprintf('depression_symptoms_a_%s.png', depression_type)
-    if(depression_value >= 0 & depression_value <= 4){
+    img_stress_base <-
+        sprintf("EnTICE3_2/Depression Symptoms A/%s_Blue Gauge ",
+                convert_language_single(config_pt_language))
+    to_image <-  sprintf('src/depression_symptoms_a/depression_symptoms_a_%s.png',
+                         depression_type)
+    if (depression_value >= 0 & depression_value <= 4) {
         # print("Very Low")
         return_stat <- "very low"
-        file.copy(
-            from = '../../EnTICE3_2/Depression Symptoms A/E_Blue Gauge Very Low.png',
-            to = to_image, overwrite = TRUE)
+        file.copy(from = paste0(img_stress_base, 'Very Low.png'),
+                  to = to_image, overwrite = TRUE)
     } else if(depression_value >= 5 & depression_value <= 9){
         # print("Low")
         return_stat <- "low"
-        file.copy(
-            from = '../../EnTICE3_2/Depression Symptoms A/E_Blue Gauge Low.png',
-            to = to_image, overwrite = TRUE)
+        file.copy(from = paste0(img_stress_base, 'Low.png'),
+                  to = to_image, overwrite = TRUE)
     } else if(depression_value >= 10 & depression_value <= 14){
         # print("Moderate")
         return_stat <- "moderate"
-        file.copy(
-            from = '../../EnTICE3_2/Depression Symptoms A/E_Blue Gauge Moderate.png',
-            to = to_image, overwrite = TRUE)
+        file.copy(from = paste0(img_stress_base, 'Moderate.png'),
+                  to = to_image, overwrite = TRUE)
     } else if(depression_value >= 15 & depression_value <= 19){
         # print("High")
         return_stat <- "high"
-        file.copy(
-            from = '../../EnTICE3_2/Depression Symptoms A/E_Blue Gauge High.png',
-            to = to_image, overwrite = TRUE)
+        file.copy(from = paste0(img_stress_base, 'High.png'),
+                  to = to_image, overwrite = TRUE)
     } else if(depression_value >= 20 & depression_value <= 27){
         # print("Very High")
         return_stat <- "very high"
-        file.copy(
-            from = '../../EnTICE3_2/Depression Symptoms A/E_Blue Gauge Very High.png',
-            to = to_image, overwrite = TRUE)
+        file.copy(from = paste0(img_stress_base, 'Very High.png'),
+                  to = to_image, overwrite = TRUE)
     }
     return(return_stat)
 }

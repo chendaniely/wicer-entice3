@@ -105,6 +105,9 @@ print(data_config_pt_name)
 <<beverage_recommendations, child="beverage_recommendations/english_beverage_recommendations.Rnw">>=
 @
 
+<<depression_symptoms_a, child="depression_symptoms_a/english_depression_symptoms_a.Rnw">>=
+@
+
 \end{document}
 
 <<results='hide'>>=
