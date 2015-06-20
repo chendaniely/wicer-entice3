@@ -67,7 +67,9 @@ print(data_config_pt_name)
 
 \newpage
 
-<<body_mass_index,child="body_mass_index/english_body_mass_index.Rnw">>=
+<<body_mass_index, child="body_mass_index/english_body_mass_index.Rnw">>=
+@
+
 @
 
 
