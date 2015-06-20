@@ -61,6 +61,8 @@ source('src/helper.R')
 \begin{document}
 
 <<>>=
+t(as.matrix(data_pt_selected))
+
 print(getwd())
 print(data_config_pt_name)
 @
