@@ -73,6 +73,7 @@ print(data_config_pt_name)
 <<waist_measurement, child="waist_measurement/english_waist_measurement.Rnw">>=
 @
 
+<<days_feeling_depressed, child="days_feeling_depressed/english_days_feeling_depressed.Rnw">>=
 @
 
 
