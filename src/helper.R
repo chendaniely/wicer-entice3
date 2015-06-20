@@ -99,13 +99,13 @@ calculate_waist_indicator_bounds <- function(waist_value, pt_sex){
 }
 
 calculate_pt_waist_cat <- function(waist_value, pt_sex) {
-    if (tolower(pt_sex) == "male") {
+    if (tolower(pt_sex) == "male" | pt_sex == 1) {
         if (waist_value < 40) {
             return('lower')
         } else {
             return('higher')
         }
-    } else if (tolower(pt_sex)  == 'female') {
+    } else if (tolower(pt_sex)  == 'female' | pt_sex == 2) {
         if (waist_value < 35) {
             return('lower')
         } else{
@@ -119,7 +119,7 @@ calculate_pt_waist_cat <- function(waist_value, pt_sex) {
 calculate_waist_cat_coord <- function(waist_value, pt_sex){
     pt_waist_cat <- calculate_pt_waist_cat(waist_value, pt_sex)
     x_coord <- NULL
-    if (tolower(pt_sex) == 'male') {
+    if (tolower(pt_sex) == 'male' | pt_sex == 1) {
         y_coord <- 14
         coords <- list()
         coords$y <- y_coord
@@ -128,7 +128,7 @@ calculate_waist_cat_coord <- function(waist_value, pt_sex){
         } else if (pt_waist_cat == 'higher') {
             coords$x <- 13.5
         }
-    } else if (tolower(pt_sex) == 'female') {
+    } else if (tolower(pt_sex) == 'female' | pt_sex == 2) {
         y_coord <- 13.5
         coords <- list()
         coords$y <- y_coord
@@ -138,7 +138,6 @@ calculate_waist_cat_coord <- function(waist_value, pt_sex){
             coords$x <- 13.5
         }
     }
-
     return(coords)
 }
 
