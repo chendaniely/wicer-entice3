@@ -66,6 +66,7 @@ data_config_pt_age <- data_pt_selected$age
 data_pt_selected$sex <- data_pt_selected$Sex
 data_config_pt_sex <- ifelse(data_pt_selected$sex == "M", "Male", "Female")
 data_config_pt_sex_depressed <- ifelse(data_pt_selected$sex == "M", "M", "F")
+data_config_pt_sex_anxious <- data_config_pt_sex_depressed
 
 data_config_pt_bmi_value <- round(data_pt_selected$bmi_kgm2, digits = 1)
 
@@ -92,8 +93,9 @@ data_config_sex_age_depressed_30 <- data_pt %>%
 data_config_pt_anxious_30 <- data_pt_selected$cdc30_anxious
 data_config_sex_age_anxious_30 <- data_pt %>%
     group_by(sex, age_group) %>%
-    summarize(avg = mean(cdc30_anxious, na.rm=TRUE)) %>%
-    filter(sex == data_config_pt_sex,
+    summarize(avg = mean(cdc30_anxious, na.rm = TRUE)) %>%
+    # filter(sex == data_config_pt_sex,
+    filter(sex == data_config_pt_sex_anxious,
            age_group == data_pt_selected$age_group) %>%
     data.frame() %>%
     select(avg) %>%
