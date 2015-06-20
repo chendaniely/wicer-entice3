@@ -1,6 +1,12 @@
 # project ignore
 .Rproj.user
 .Rhistory
+data/*
+src/*.pdf
+src/figure/*
+
+# knitr intermediate
+*.tex
 
 ###############################################################################
 
