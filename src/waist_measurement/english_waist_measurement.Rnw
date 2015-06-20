@@ -60,3 +60,5 @@ risk to heart health.\\
 
 \Large Measurements below \Sexpr{waist_higher} inches are associated with lower
 risk to heart health.
+
+\newpage

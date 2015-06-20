@@ -72,3 +72,5 @@ BMI categories:
 \end{itemize}
 
 Your BMI was \Sexpr{config_pt_bmi_value}
+
+\newpage
