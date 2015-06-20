@@ -1,0 +1,60 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+<<>>=
+# print(getwd())
+@
+
+\section{Vegetable Servings per Day}
+<<vegetable>>=
+df <-  data.frame(pt = config_pt_vegetable_servings_per_day,
+                  other = config_sex_age_vegetable_servings_per_day,
+                  min = config_min_vegetable_servings_per_day)
+df <- melt(df)
+@
+
+<<vegetable_plot>>=
+x_axis_names <- c('You',
+                  sprintf('Other %s in your age group', config_pt_sex),
+                  'Minimum recommended')
+
+ggplot(data = df) +
+    geom_bar(aes(x = x_axis_names, y = value),
+             stat="identity",
+             color=color_green_referencerange_bargraph_colverleaf,
+             fill=color_green_referencerange_bargraph_colverleaf,
+             width=.5) +
+    scale_y_continuous(expand = c(0,0), limits = c(0, max(df$value + 1))) +
+    geom_text(aes(x = x_axis_names,
+                  y = ifelse(value <= 0.3, value + 0.12, value / 2),
+                  label = value), size = 10) +
+    theme_bw() +
+    ylab("servings") +
+    xlab("") +
+    labs(title = "Vegetable Servings per Day") +
+    theme(panel.border = element_blank(),
+          panel.grid.major.x = element_blank(),
+          plot.title = element_text(size = rel(3)),
+          axis.line = element_line(
+              colour = color_green_referencerange_bargraph_colverleaf,
+              size = 2))
+@
+
+\newpage
+
+\begin{center}
+\Huge{Vegetable Servings per Day}
+\end{center}
+
+\Huge{You reported eating about \Sexpr{df[df$variable == 'pt', 'value']} servings
+of fruit per day.} \\
+
+\Sexpr{get_men_women(config_pt_sex)} in your age group reported eating an
+average of \Sexpr{df[df$variable == 'other', 'value']} servings of fruit per
+day. \\
+
+It is recommended that \Sexpr{tolower(get_men_women(config_pt_sex))} your age
+eat a minimum of \Sexpr{df[df$variable == 'min', 'value']} servings of
+fruit per day.
+
+\newpage
