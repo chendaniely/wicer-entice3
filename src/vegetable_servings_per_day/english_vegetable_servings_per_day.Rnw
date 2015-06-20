@@ -5,7 +5,6 @@
 # print(getwd())
 @
 
-\section{Vegetable Servings per Day}
 <<vegetable>>=
 df <-  data.frame(pt = config_pt_vegetable_servings_per_day,
                   other = config_sex_age_vegetable_servings_per_day,
