@@ -4,6 +4,7 @@
 data/*
 src/*.pdf
 src/figure/*
+src/*/*.png
 
 # knitr intermediate
 *.tex
