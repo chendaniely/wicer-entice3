@@ -96,6 +96,9 @@ print(data_config_pt_name)
 <<composite_beverage_servings, child="composite_beverage_servings/english_composite_beverage_servings.Rnw">>=
 @
 
+<<composite_30_day_measures, child="composite_30_day_measures/english_composite_30_day_measures.Rnw">>=
+@
+
 
 \end{document}
 
