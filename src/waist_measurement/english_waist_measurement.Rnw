@@ -1,0 +1,62 @@
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+\Sexpr{set_parent('src/master.Rnw')}
+
+<<>>=
+# print(getwd())
+@
+
+<<waist>>=
+#config_pt_sex <- 1
+#config_pt_waist_in <- 46
+
+dummy <- data.frame(x = c(0, 20), y = c(0, 20))
+
+base_image_g <- get_base_waist_image(gender = config_pt_sex,
+                                     language = config_pt_language)
+indicator_g <- create_grob_from_png_dir(
+    'EnTICE3_2/Waist Measurement/Waist measurement indicator box.png')
+
+@
+
+<<waist_plot>>=
+indicator_bounds <- calculate_waist_indicator_bounds(config_pt_waist_in,
+                                                     config_pt_sex)
+cat_text_coords <- calculate_waist_cat_coord(config_pt_waist_in, config_pt_sex)
+
+ggplot(data = dummy, aes(x = x, y = y)) +
+    geom_point(alpha = 1/1000000000) +
+    theme_nothing() +
+    annotation_custom(base_image_g, xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf) +
+    annotation_custom(indicator_g,
+                      xmin=indicator_bounds$x_min, xmax=indicator_bounds$x_max,
+                      ymin=indicator_bounds$y_min, ymax=indicator_bounds$y_max) +
+    geom_text(aes(x = (indicator_bounds$x_min + indicator_bounds$x_max) / 2 - 0.1,
+                  y = (indicator_bounds$y_min + indicator_bounds$y_max) / 2 + 0.2,
+                  label = config_pt_waist_in)) +
+    annotate("text", label = paste0(config_pt_waist_in, '"'),
+             x = cat_text_coords$x,
+             y = cat_text_coords$y)
+@
+
+<<>>=
+if (tolower(config_pt_sex) == "male"){
+    waist_higher <- 40
+} else if (tolower(config_pt_sex) == 2){
+    waist_higher <- 35
+}
+@
+
+\newpage
+
+\begin{center}
+\Huge Waist Measurement
+\end{center}
+
+\Large Your waist measurement was \Sexpr{config_pt_waist_in} inches.\\
+
+\Large For \Sexpr{tolower(get_men_women(config_pt_sex))},
+measurements above \Sexpr{waist_higher} inches are associated with higher
+risk to heart health.\\
+
+\Large Measurements below \Sexpr{waist_higher} inches are associated with lower
+risk to heart health.
