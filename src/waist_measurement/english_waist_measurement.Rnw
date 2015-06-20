@@ -26,10 +26,14 @@ cat_text_coords <- calculate_waist_cat_coord(config_pt_waist_in, config_pt_sex)
 ggplot(data = dummy, aes(x = x, y = y)) +
     geom_point(alpha = 1/1000000000) +
     theme_nothing() +
-    annotation_custom(base_image_g, xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf) +
+    annotation_custom(base_image_g,
+                      xmin = -Inf, xmax = Inf,
+                      ymin = -Inf, ymax = Inf) +
     annotation_custom(indicator_g,
-                      xmin=indicator_bounds$x_min, xmax=indicator_bounds$x_max,
-                      ymin=indicator_bounds$y_min, ymax=indicator_bounds$y_max) +
+                      xmin = indicator_bounds$x_min,
+                      xmax = indicator_bounds$x_max,
+                      ymin = indicator_bounds$y_min,
+                      ymax = indicator_bounds$y_max) +
     geom_text(aes(x = (indicator_bounds$x_min + indicator_bounds$x_max) / 2 - 0.1,
                   y = (indicator_bounds$y_min + indicator_bounds$y_max) / 2 + 0.2,
                   label = config_pt_waist_in)) +
