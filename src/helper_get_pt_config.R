@@ -83,12 +83,14 @@ data_config_pt_waist_in <- data_pt_selected$waistcirc_inches_1
 #
 # Days feeling depresed 30
 #
+# data_config_pt_sex_depressed <- ifelse(data_pt_selected$sex == "M", "M", "F")
+# data_config_pt_sex_anxious <- data_config_pt_sex_depressed
 data_config_pt_depressed_30 <- data_pt_selected$cdc30_depressed
 data_config_sex_age_depressed_30 <- data_pt %>%
     group_by(sex, age_group) %>%
     summarize(avg = mean(cdc30_depressed, na.rm = TRUE)) %>%
-    # filter(sex == data_config_pt_sex,
-    filter(sex == data_config_pt_sex_depressed,
+    filter(sex == data_config_pt_sex,
+    #filter(sex == data_config_pt_sex_depressed,
            age_group == data_pt_selected$age_group) %>%
     data.frame() %>%
     select(avg) %>%
@@ -102,8 +104,8 @@ data_config_pt_anxious_30 <- data_pt_selected$cdc30_anxious
 data_config_sex_age_anxious_30 <- data_pt %>%
     group_by(sex, age_group) %>%
     summarize(avg = mean(cdc30_anxious, na.rm = TRUE)) %>%
-    # filter(sex == data_config_pt_sex,
-    filter(sex == data_config_pt_sex_anxious,
+    filter(sex == data_config_pt_sex,
+    # filter(sex == data_config_pt_sex_anxious,
            age_group == data_pt_selected$age_group) %>%
     data.frame() %>%
     select(avg) %>%
