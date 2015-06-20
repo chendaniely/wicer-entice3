@@ -1,16 +1,16 @@
 library(testthat)
 
 get_men_women <- function(sex_value, language='english', type='both'){
-    if (language == 'english'){
-        if(sex_value == 1){
+    if (language == 'english') {
+        if (sex_value == 1 | tolower(sex_value) == "male") {
             return('Men')
         } else {
             return('Women')
         }
-    } else if (language == 'spanish'){
-        if (sex_value == 1){
+    } else if (language == 'spanish') {
+        if (sex_value == 1 | tolower(sex_value) == "male") {
             # return(ifelse(type == 'both', 'Otros hombres', 'Hombres'))
-            if (type == 'both'){
+            if (type == 'both') {
                 return('Otros hombres')
             } else if (type == 'for') {
                 return("los hombres")
@@ -19,7 +19,7 @@ get_men_women <- function(sex_value, language='english', type='both'){
             }
         } else {
             # return(ifelse(type == 'both', 'Otras mujeres', 'Mujeres'))
-            if (type == 'both'){
+            if (type == 'both') {
                 return("Otras mujeres")
             } else if (type == 'for') {
                 return("las mujeres")
