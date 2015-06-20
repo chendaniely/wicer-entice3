@@ -1,0 +1,74 @@
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+\Sexpr{set_parent('src/master.Rnw')}
+
+\begin{center}
+\Large{\textbf{Body Mass Index (BMI)}}\\
+kg/m$^2$
+\end{center}
+
+<<>>=
+# print(getwd())
+@
+
+
+<<BMI>>=
+dummy <- data.frame(x = c(0, 21), y = c(0, 21))
+base_image_file <- sprintf(
+    "EnTICE3_2/Body Mass Index/%s%s_BMI no title.png",
+    convert_language_single(config_pt_language),
+    convert_gender_single(config_pt_sex)
+)
+base_image_g <- create_grob_from_png_dir(base_image_file)
+indicator_g <- create_grob_from_png_dir(
+    "EnTICE3_2/Body Mass Index/BMI indicator box.png")
+@
+
+<<BMI_plot, fig.height=5>>=
+# config_pt_bmi_value <- 34.5
+indicator_bounds <- calculate_bmi_indicator_bounds(config_pt_bmi_value)
+cat_text_coords <- calculate_bmi_cat_coord(config_pt_bmi_value, config_pt_sex)
+
+ggplot(data = dummy, aes(x = x, y = y)) +
+    geom_point(alpha = 1/1000000000) +
+    theme_nothing() +
+    theme(panel.grid.major = element_line(colour = "blue"),
+          panel.grid.minor = element_line(colour = "blue")) +
+    scale_x_continuous(breaks = seq(0, 21, 1)) +
+    annotation_custom(base_image_g,
+                      xmin = -Inf, xmax = Inf,
+                      ymin = -Inf, ymax = Inf) +
+    annotation_custom(indicator_g,
+                      indicator_bounds$x_min, indicator_bounds$x_max,
+                      indicator_bounds$y_min, indicator_bounds$y_max) +
+    annotate("text", label = config_pt_bmi_value,
+             x = (indicator_bounds$x_min + indicator_bounds$x_max) / 2 - 0.1,
+             y = 0.3) +
+    annotate("text", label = config_pt_bmi_value,
+             x = cat_text_coords$x,
+             y = cat_text_coords$y)
+@
+
+\begin{center}
+Body Mass Index (BMI) uses your height and weight to estimate how much body
+fat you have.
+\end{center}
+\newpage
+
+\begin{center}
+\Huge Body Mass Index\\
+kg/m$^2$
+\end{center}
+
+\Large Body Mass Index (BMI) uses your height and weight to estimate how much
+body fat you have.\\
+
+BMI categories:
+
+\begin{itemize}
+  \item[] Less than 18.5 is underweight
+  \item[] 18.5 to 24.9 is normal
+  \item[] 25.0 to 29.9 is overweight
+  \item[] Over 30.0 is obese
+\end{itemize}
+
+Your BMI was \Sexpr{config_pt_bmi_value}
