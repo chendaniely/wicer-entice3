@@ -119,7 +119,7 @@ data_config_pt_fruit_servings_per_day <-
     round(data_pt_selected$fruit_week_sm_perday, digits = 1)
 data_config_sex_age_fruit_servings_per_day <- data_pt %>%
     group_by(sex, age_group) %>%
-    summarize(avg = mean(fruit_week_sm_perday, na.rm=TRUE)) %>%
+    summarize(avg = mean(fruit_week_sm_perday, na.rm = TRUE)) %>%
     filter(sex == data_config_pt_sex,
            age_group == data_pt_selected$age_group) %>%
     data.frame() %>%
@@ -128,8 +128,7 @@ data_config_sex_age_fruit_servings_per_day <- data_pt %>%
     round(digits = 1)
 # 2 for men and for women 18-30; 1.5 for women >30
 data_config_min_fruit_servings_per_day <- calculate_fruit_servings_recommended(
-    data_config_pt_sex, data_config_pt_age
-)
+    data_config_pt_sex, data_config_pt_age)
 
 #
 # Vegetable servings per day
