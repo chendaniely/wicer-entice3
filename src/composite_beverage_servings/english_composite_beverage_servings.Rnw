@@ -1,0 +1,60 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+<<>>=
+# print(getwd())
+@
+
+<<composite_beverage_servings>>=
+df <-  data.frame(soda = config_pt_soda_wk,
+                  purejuice = config_pt_purejuice_wk,
+                  sugaryfruitdrink = config_pt_sugaryfruitdrink_wk)
+df <- melt(df)
+@
+
+<<composite_beverage_servings_plot>>=
+x_axis_names <- c('Regular (not diet) soda',
+                  '100% pure juices',
+                  'Sweetened or fruit drinks')
+
+ggplot(data = df) +
+    theme_bw() +
+    geom_bar(aes(x = as.factor(variable), y = value,
+                 fill = variable),
+             stat="identity",
+             width=.5) +
+    scale_fill_manual(values = c(
+        'soda' = color_green_referencerange_bargraph_colverleaf,
+        'purejuice' = color_red_bpfiguretext_anxiousdays,
+        'sugaryfruitdrink' = color_blue_bargraph_cloverleaf)) +
+    scale_x_discrete(breaks = c("soda", "purejuice", "sugaryfruitdrink"),
+                     labels = x_axis_names) +
+    scale_y_continuous(expand = c(0,0), limits = c(0, max(df$value + 1))) +
+    geom_text(aes(x = variable,
+                  y = ifelse(value <= 0.3, value + 0.15, value / 2),
+                  label = value), size = 10) +
+    xlab("servings per week") +
+    labs(title="Servings per Week of Beverages Containing Sugar") +
+    theme(panel.border = element_blank(),
+          panel.grid.major.y = element_blank(),
+          plot.title = element_text(size = rel(2)),
+          legend.position="none",
+          axis.title.y = element_blank()) +
+    coord_flip()
+@
+
+\newpage
+
+\begin{center}
+\Huge{Servings per Week of Beverages Containing Sugar}
+\end{center}
+
+\Huge{Per week, you reported drinking:} \\
+
+\begin{itemize}
+    \item \Sexpr{df[df$variable == 'soda', 'value']} servings of regular (not diet) soda
+    \item \Sexpr{df[df$variable == 'purejuice', 'value']} servings of 100\% pure juices, and
+    \item \Sexpr{df[df$variable == 'sugaryfruitdrink', 'value']} servings of sweetened or fruit drinks.
+\end{itemize}
+
+\newpage
