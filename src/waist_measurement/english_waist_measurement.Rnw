@@ -39,9 +39,9 @@ ggplot(data = dummy, aes(x = x, y = y)) +
 @
 
 <<>>=
-if (tolower(config_pt_sex) == "male"){
+if (tolower(config_pt_sex) == "male" | config_pt_sex == 1) {
     waist_higher <- 40
-} else if (tolower(config_pt_sex) == 2){
+} else if (tolower(config_pt_sex) == "female" | config_pt_sex == 2) {
     waist_higher <- 35
 }
 @
