@@ -167,7 +167,7 @@ get_base_waist_image <- function(gender, language){
     l <- convert_language_single(language)
 
     file_to_use <- sprintf(
-        "../../EnTICE3_2/Waist Measurement/%s%s_Waist Measure with title.png", l, g)
+        "EnTICE3_2/Waist Measurement/%s%s_Waist Measure with title.png", l, g)
     # print(file_to_use)
     expect_true(file.exists(file_to_use))
     grob <- create_grob_from_png_dir(file_to_use)
