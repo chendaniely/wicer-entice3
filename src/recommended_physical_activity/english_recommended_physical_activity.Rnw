@@ -1,0 +1,63 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+\graphicspath{{./recommended_physical_activity/}{./minutes_moderate_exercise/}}
+
+<<>>=
+# print(getwd())
+@
+
+<<Recommended Physical Activity, results='hide'>>=
+file_to_copy <- sprintf(
+    'EnTICE3_2/Recommended Physical Activity/%s_Recommended Physical Activity.png',
+    convert_language_single(config_pt_language))
+file.copy(from = file_to_copy,
+          to = 'src/recommended_physical_activity/recommended_physical_activity.png',
+          overwrite = TRUE)
+@
+
+\begin{table}[H]
+\begin{minipage}[b]{0.47\linewidth}\centering
+
+\begin{figure}[H]
+\includegraphics[scale=0.4]{moderate_exercise_plot}
+\end{figure}
+
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}[b]{0.45\linewidth}
+\centering
+
+\begin{figure}[H]
+\includegraphics[scale=0.6]{recommended_physical_activity}
+\end{figure}
+\end{minipage}
+\end{table}
+
+\newpage
+
+\begin{center}
+\Huge{Your Minutes per Week of Moderate Physical Activity} \\
+\end{center}
+
+\Large{You reported doing about \Sexpr{df[df$variable == 'pt', 'value']} minutes
+of moderate physical activity per week.}\\
+
+\Large{\Sexpr{get_men_women(config_pt_sex)}
+in your age group reported doing an average of
+\Sexpr{df[df$variable == 'other', 'value']} minutes of moderate physical
+activity per week.}
+
+\begin{center}
+\Huge{Recommendation} \\
+\end{center}
+
+\Large{Experts recommend that
+\Sexpr{tolower(get_men_women(config_pt_sex))} your age do a minimum of
+2 $\nicefrac{1}{2}$ hours (150 minutes) of
+moderate physical activity per week.\\
+
+Examples of moderate physical activity include brisk walking, light bicycling,
+and water aerobics.}
+
+\newpage

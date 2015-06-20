@@ -99,6 +99,8 @@ print(data_config_pt_name)
 <<composite_30_day_measures, child="composite_30_day_measures/english_composite_30_day_measures.Rnw">>=
 @
 
+<<recommended_physical_activity, child="recommended_physical_activity/english_recommended_physical_activity.Rnw">>=
+@
 
 \end{document}
 
