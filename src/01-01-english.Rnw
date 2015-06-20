@@ -90,6 +90,9 @@ print(data_config_pt_name)
 <<minutes_vigorous_exercise, child="minutes_vigorous_exercise/english_minutes_vigorous_exercise.Rnw">>=
 @
 
+<<minutes_moderate_exercise, child="minutes_moderate_exercise/english_minutes_moderate_exercise.Rnw">>=
+@
+
 
 \end{document}
 
