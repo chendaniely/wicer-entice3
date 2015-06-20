@@ -14,7 +14,7 @@ color_red_bpfiguretext_anxiousdays <- '#C1272C'
 # Get Basic PT information
 ###############################################################################
 config_pt_age <- data_config_pt_age
-config_pt_sex <- data_config_pt_sex # 1:'Male'; 2:'Female'
+config_pt_sex <- data_config_pt_sex # 1:'Male'; 2:'Female', standarize to 1/2
 config_pt_language <- data_config_pt_language # 'english' or 'spanish'
 config_pt_doc_group <- 2 # 1 or 2 # 1 text first; 2 graphic first
 config_pt_doc_layout <- 'a' # 'a', or 'b'
