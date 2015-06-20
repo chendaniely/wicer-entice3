@@ -1,0 +1,60 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+<<>>=
+# print(getwd())
+@
+
+<<vigorous_exercise>>=
+df <-  data.frame(pt = config_pt_mins_vigorous_physical_activity,
+                  other = config_sex_age_vigorous_physical_activity)
+df <- melt(df)
+@
+
+<<vigorous_exercise_plot>>=
+x_axis_names <- c('You',
+                  sprintf('Other %s in your age group', config_pt_sex))
+max_y <- max_y_activity(max(df$value))
+
+ggplot(data = df) +
+    geom_bar(aes(x = x_axis_names, y = value),
+             stat="identity",
+             color=color_blue_bargraph_cloverleaf,
+             fill=color_blue_bargraph_cloverleaf,
+             width=.5) +
+    scale_y_continuous(expand = c(0,0), limits = c(0, max_y),
+                       breaks = seq(0, max_y, 15)) +
+    geom_text(aes(x = x_axis_names,
+                  y = ifelse(value <= 10, value + 3, value / 2),
+                  label = value), size=10) +
+    geom_hline(yintercept=75, linetype="longdash") +
+    geom_text(aes(x = x_axis_names[1], y = 75, vjust = -1,
+                  label='Recommended Minimum')) +
+    theme_bw() +
+    ylab("minutes") +
+    xlab("") +
+    labs(title="Minutes of Vigorous Physical Activity per Week") +
+    theme(panel.border = element_blank(),
+          panel.grid.major.x = element_blank(),
+          plot.title = element_text(size = rel(2)),
+          axis.line = element_line(colour = color_blue_bargraph_cloverleaf,
+                                   size = 2))
+@
+
+\newpage
+
+\begin{center}
+\Huge{Minutes of Vigorous Physical Activity per Week}
+\end{center}
+
+\Huge{You reported doing about \Sexpr{df[df$variable == 'pt', 'value']} minutes of
+vigorous physical activity per week} \\
+
+\Sexpr{get_men_women(config_pt_sex)} in your age group reported doing an average
+of \Sexpr{df[df$variable == 'other', 'value']} minutes of vigorous physical
+activity per week\\
+
+It is recommended that \Sexpr{tolower(get_men_women(config_pt_sex))} your age
+do a minimum of 75 minutes of vigouous physical activity per week.
+
+\newpage

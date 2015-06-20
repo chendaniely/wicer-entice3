@@ -87,6 +87,9 @@ print(data_config_pt_name)
 <<vegetable_servings_per_day, child="vegetable_servings_per_day/english_vegetable_servings_per_day.Rnw">>=
 @
 
+<<minutes_vigorous_exercise, child="minutes_vigorous_exercise/english_minutes_vigorous_exercise.Rnw">>=
+@
+
 
 \end{document}
 
