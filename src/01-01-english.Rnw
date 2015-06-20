@@ -102,6 +102,9 @@ print(data_config_pt_name)
 <<recommended_physical_activity, child="recommended_physical_activity/english_recommended_physical_activity.Rnw">>=
 @
 
+<<beverage_recommendations, child="beverage_recommendations/english_beverage_recommendations.Rnw">>=
+@
+
 \end{document}
 
 <<results='hide'>>=
