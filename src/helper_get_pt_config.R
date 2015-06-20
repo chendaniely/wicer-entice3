@@ -5,72 +5,80 @@ library(readxl)
 
 source('src/helper_group_calculations.R')
 
-# for townhall
+###############################################################################
+#
+# Normalize data
+#
+###############################################################################
+
+#######################################
+# Townhall
+#######################################
 # data_pt <- read_csv(
 #     file = 'data/AdrianaComprehension_DATA_2015-05-03_2349.csv')
+
+# data_pt_w_name <- read_csv('data/Report_RSVPForTownhallListByTime_2015-06-01_1101.csv')
+# data_config_pt_name_parts <- data_pt_w_name[data_pt_w_name$`Participant ID (participant_id)` == pt_id, c("First Name (first)", "Last Name (last)")]
+# data_config_pt_name <- paste(data_config_pt_name_parts, collapse = ' ')
+
+# data_pt$age <- year(ymd(Sys.Date())) - year(mdy(data_pt$dob))
+
+#######################################
+# Entice3 Test Data
+#######################################
 
 # for entice3
 data_pt <- read_excel('data/Dummy infographics data.xlsx')
 names(data_pt)[1] <- 'name'
 
-# for townhall
-# data_pt_w_name <- read_csv('data/Report_RSVPForTownhallListByTime_2015-06-01_1101.csv')
-
-# for entice3
-# name in dataset
-
-# for townhall
-# data_config_pt_name_parts <- data_pt_w_name[data_pt_w_name$`Participant ID (participant_id)` == pt_id, c("First Name (first)", "Last Name (last)")]
-# data_config_pt_name <- paste(data_config_pt_name_parts, collapse = ' ')
-
-# for entice3
 data_config_pt_name <- pt_english
 
-# language is passed in the batch file
-# no longer needed
-# data_pt_language <- read_csv('data/language_daniel.csv')
-
-# for townhall
-# data_pt$age <- year(ymd(Sys.Date())) - year(mdy(data_pt$dob))
-
-# for entice3 renamed columns
 data_pt$age <- data_pt$Age
-data_pt$sex <- data_pt$Sex
+
+data_pt$sex <- ifelse(data_pt$Sex == "M", 1, 2)
+
 data_pt$fruit_week_sm_perday <- data_pt$fruit_wk_sm_perday
-data_pt$fruit_week_sm_perday
 
-#####
-
-data_pt$age_group <- sapply(X = data_pt$age,
-                            FUN = calculate_age_group)
 data_pt$sf_1[data_pt$sf_1 %in% c(777, 888)] <- NA
 data_pt$fatexp41[data_pt$fatexp41 %in% c(777, 888)] <- NA
 
+#######################################
+# New variables from normal data
+#######################################
+data_pt$age_group <- sapply(X = data_pt$age, FUN = calculate_age_group)
+
 ###############################################################################
-# for townhall
+#
+# Get only participant's data
+#
+###############################################################################
+
+#######################################
+# Townhall
+#######################################
 # data_pt_selected <- data_pt[data_pt$ordersm == pt_id, ]
 
-# for entice3
+#######################################
+# Entice3 Test Data
+#######################################
 data_pt_selected <- data_pt[data_pt$name == pt_id, ]
 
-# data_config_pt_language <- ifelse(
-#     data_pt_language[data_pt_language$OrderSM == pt_id, 'startlanguage'] == "en",
-#     "english", "spanish")
-
+#######################################
+# New variables from normal data
+#######################################
 data_config_pt_age <- data_pt_selected$age
+data_config_pt_sex <- data_pt_selected$sex
 
-# townhall
-# data_config_pt_sex <- data_pt_selected$sex
-
-# entice3
-data_pt_selected$sex <- data_pt_selected$Sex
-data_config_pt_sex <- ifelse(data_pt_selected$sex == "M", "Male", "Female")
-data_config_pt_sex_depressed <- ifelse(data_pt_selected$sex == "M", "M", "F")
-data_config_pt_sex_anxious <- data_config_pt_sex_depressed
-
+#
+# BMI
+#
 data_config_pt_bmi_value <- round(data_pt_selected$bmi_kgm2, digits = 1)
 
+#
+# Waist in
+#
 data_config_pt_waist_in <- data_pt_selected$waistcirc_inches_1
+
 
 #
 # Days feeling depresed 30
