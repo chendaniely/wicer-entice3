@@ -7,9 +7,9 @@
 # print(getwd())
 @
 
-\begin{center}
-\Huge{Depression Symptoms B}
-\end{center}
+% \begin{center}
+% \Huge{Depression Symptoms B}
+% \end{center}
 
 <<Depression Symptoms B>>=
 dummy <- data.frame(x=c(0,81), y=c(0, 81))
