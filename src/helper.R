@@ -244,9 +244,9 @@ get_depression_symptom_image <- function(depression_value, depression_type){
 
 get_prolong_stress_image_stat <- function(stress_value, stress_type){
     img_stress_base <-
-        sprintf("../../EnTICE3_2/Prolonged Stress/%s_Multi Gauge ",
+        sprintf("EnTICE3_2/Prolonged Stress/%s_Multi Gauge ",
                 convert_language_single(config_pt_language))
-    copy_to <- sprintf('prolonged_stress_%s.png', stress_type)
+    copy_to <- sprintf('src/prolonged_stress/prolonged_stress_%s.png', stress_type)
     if(is.na(stress_value)){
         return_stress <- "very low"
         file.copy(from = paste0(img_stress_base, "Very Low.png"),

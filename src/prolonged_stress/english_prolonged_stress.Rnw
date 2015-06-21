@@ -1,0 +1,52 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+\graphicspath{{./prolonged_stress/}}
+
+<<>>=
+# print(getwd())
+@
+
+\begin{center}
+\Huge{Prolonged Stress}
+\end{center}
+
+<<Prolonged Stress, results='hide'>>=
+# Very Low = 0-1; Low = 2; Moderate = 3; High = 4; Very High = 5
+pt_stat <- get_prolong_stress_image_stat(config_pt_stress, 'pt')
+other_stat <- get_prolong_stress_image_stat(config_sex_age_stress, 'other')
+@
+
+\begin{figure}[H]
+\begin{minipage}[b]{0.5\linewidth}
+\centering
+\includegraphics[width=0.75\textwidth]{prolonged_stress_pt}
+\caption*{\large{You\\
+\Sexpr{stri_trans_totitle(pt_stat)}\\
+\phantom{blank line of text}}}
+
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}[b]{0.5\linewidth}
+\centering
+\includegraphics[width=0.75\textwidth]{prolonged_stress_other}
+\caption*{\large{Other \Sexpr{tolower(get_men_women(config_pt_sex))}\\
+in your age group\\
+\Sexpr{stri_trans_totitle(other_stat)}}}
+\end{minipage}
+\end{figure}
+
+\newpage
+
+\begin{center}
+\Huge{Prolonged Stress}
+(lasting at least 6 months)
+\end{center}
+
+\Large{
+Your level of prolonged stress was \Sexpr{pt_stat}.\\
+
+The level of prolonged stress for \Sexpr{tolower(get_men_women(config_pt_sex))}
+in your age group was \Sexpr{other_stat}.
+
+\newpage

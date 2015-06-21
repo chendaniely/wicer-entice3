@@ -108,6 +108,9 @@ print(data_config_pt_name)
 <<depression_symptoms_a, child="depression_symptoms_a/english_depression_symptoms_a.Rnw">>=
 @
 
+<<prolonged_stress, child="prolonged_stress/english_prolonged_stress.Rnw">>=
+@
+
 \end{document}
 
 <<results='hide'>>=
