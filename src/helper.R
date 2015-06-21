@@ -280,7 +280,7 @@ get_prolong_stress_image_stat <- function(stress_value, stress_type){
 }
 
 get_overall_health_star <- function(star_value){
-    star_file <- sprintf("../../EnTICE3_2/Overall Health/%s star.png", star_value)
+    star_file <- sprintf("EnTICE3_2/Overall Health/%s star.png", star_value)
     # print(star_file)
     star_grob <- create_grob_from_png_dir(star_file)
     return(star_grob)
