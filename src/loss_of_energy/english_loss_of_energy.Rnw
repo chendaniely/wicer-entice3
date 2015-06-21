@@ -1,0 +1,81 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+\graphicspath{{./anxiety_symptoms/}}
+
+<<>>=
+print(getwd())
+@
+
+<<Feeling Run Down>>=
+# From top to bottom: Not At All = 1; A Little Bit = 2; Somewhat = 3; Quite A Bit
+# = 4; Very Much = 5
+dummy <- data.frame(x=c(0,10), y=c(0, 10))
+
+center_text_g <- create_grob_from_png_dir(
+    sprintf(
+        "EnTICE3_2/Feeling Run Down/%s_Word markers with title.png",
+        convert_language_single(config_pt_language)
+    ))
+pt_run_down_text <- get_feeling_run_down_text(config_pt_run_down)
+sex_age_run_down_text <- get_feeling_run_down_text(config_sex_age_run_down)
+
+pt_battery_g <-create_grob_from_png_dir(
+    sprintf(
+        "EnTICE3_2/Feeling Run Down/%s Battery.png",
+        pt_run_down_text
+    ))
+sex_age_battery_g <- create_grob_from_png_dir(
+    sprintf(
+        "EnTICE3_2/Feeling Run Down/%s Battery.png",
+        sex_age_run_down_text
+    ))
+@
+
+<<Feeling Run Down Plot>>=
+label_you_1 <- sprintf("You\n%s", pt_run_down_text)
+label_other_sex_age <- sprintf("Other %s in\nyour age group\n%s",
+                              get_men_women(config_pt_sex),
+                              sex_age_run_down_text)
+
+mylabels <- c(label_you_1,
+              label_other_sex_age
+)
+
+ggplot(data = dummy, aes(x = x, y = y)) +
+    geom_point(alpha = 1/1000000000) +
+    annotation_custom(center_text_g, ymin = 0.5) +
+    annotation_custom(pt_battery_g,
+                      xmin = 0.8, xmax = 3.8,
+                      ymin=0.25, ymax = 7) +
+    annotation_custom(sex_age_battery_g,
+                      xmin = 6.2, xmax = 9.2,
+                      ymin = 0.25, ymax = 7) +
+    scale_x_continuous(breaks = c(2.3, 7.75),
+                       labels = mylabels) +
+    theme(axis.text.x = element_text(size = 20, color = "black"),
+          axis.text.y = element_blank(),
+          axis.ticks.y = element_blank(),
+          panel.grid = element_blank(),
+          panel.background = element_blank()
+    ) +
+    xlab(NULL) +
+    ylab(NULL)
+@
+
+\newpage
+
+\begin{center}
+\Huge{Feeling Run Down}
+\end{center}
+
+\Large{You reported that, on average, you felt
+\Sexpr{tolower(pt_run_down_text)}
+run down.\\
+
+\Sexpr{get_men_women(config_pt_sex)}
+in your age group reported that they felt, on average,
+\Sexpr{tolower(sex_age_run_down_text)}
+run down.
+}
+\newpage

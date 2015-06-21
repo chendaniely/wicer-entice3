@@ -120,6 +120,9 @@ print(data_config_pt_name)
 <<overall_health, child="overall_health/english_overall_health.Rnw">>=
 @
 
+<<loss_of_energy, child="loss_of_energy/english_loss_of_energy.Rnw">>=
+@
+
 \end{document}
 
 <<results='hide'>>=
