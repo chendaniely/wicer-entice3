@@ -48,3 +48,5 @@ Your level of depression symptoms was \Sexpr{pt_stat}.\\
 The level of depression symptoms for
 \Sexpr{tolower(get_men_women(config_pt_sex))}
 in your age group was \Sexpr{other_stat}.
+
+\newpage
