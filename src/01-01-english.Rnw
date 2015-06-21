@@ -111,6 +111,9 @@ print(data_config_pt_name)
 <<prolonged_stress, child="prolonged_stress/english_prolonged_stress.Rnw">>=
 @
 
+<<anxiety_symptoms, child="anxiety_symptoms/english_anxiety_symptoms.Rnw">>=
+@
+
 \end{document}
 
 <<results='hide'>>=
