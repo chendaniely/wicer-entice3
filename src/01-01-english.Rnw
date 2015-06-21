@@ -123,6 +123,9 @@ print(data_config_pt_name)
 <<loss_of_energy, child="loss_of_energy/english_loss_of_energy.Rnw">>=
 @
 
+<<risks_of_high_blood_pressure, child="risks_of_high_blood_pressure/english_risks_of_high_blood_pressure.Rnw">>=
+@
+
 \end{document}
 
 <<results='hide'>>=
