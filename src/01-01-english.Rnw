@@ -126,6 +126,9 @@ print(data_config_pt_name)
 <<risks_of_high_blood_pressure, child="risks_of_high_blood_pressure/english_risks_of_high_blood_pressure.Rnw">>=
 @
 
+<<risks_of_excess_weight, child="risks_of_excess_weight/english_risks_of_excess_weight.Rnw">>=
+@
+
 \end{document}
 
 <<results='hide'>>=
