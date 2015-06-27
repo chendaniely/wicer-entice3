@@ -3,15 +3,14 @@ An Interdisciplinary Communication Tool to Support the Process of Generating Tai
 
 <!-- MarkdownTOC -->
 
-- Installation and Setup
-	- Setting up the environment
-	- Downloading the code
-- Generating Documents
-	- Single Document
-	- Multiple Documents
+- [Installation and Setup][installation-and-setup]
+	- [Setting up the environment][setting-up-the-environment]
+	- [Downloading the code][downloading-the-code]
+- [Generating Documents][generating-documents]
+	- [Single Document][single-document]
+	- [Multiple Documents][multiple-documents]
 
 <!-- /MarkdownTOC -->
-
 
 # Installation and Setup
 ## Setting up the environment
