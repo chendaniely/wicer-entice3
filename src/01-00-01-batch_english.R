@@ -8,7 +8,7 @@ clean_images <- function() {
     unlink('figure/', recursive = TRUE)
 }
 
-data_config_pt_language <- "english"
+# data_config_pt_language <- "english"
 pt_englishs <- c('Sample4') # person's name
 pt_ids <- c('Sample4') # person's ID
 
@@ -17,7 +17,7 @@ pt_english <- pt_englishs[1]
 
 for (id in pt_ids) {
     pt_id <- id
-    # data_config_pt_language <- 'english'
+    data_config_pt_language <- 'english'
     print(id)
     print(pt_id)
     output_file_name <- sprintf('output/english/%s.pdf', pt_id)
