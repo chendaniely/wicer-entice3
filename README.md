@@ -11,7 +11,7 @@ An Interdisciplinary Communication Tool to Support the Process of Generating Tai
 	- [Multiple Documents](#multiple-documents)
 
 <!-- /MarkdownTOC -->
-gi
+
 # Installation and Setup
 ## Setting up the environment
 You will need to have [R](http://cran.rstudio.com/) and a [LaTeX](http://www.latex-project.org/) installed.
