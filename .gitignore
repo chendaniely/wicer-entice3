@@ -5,6 +5,8 @@ data/*
 src/*.pdf
 src/figure/*
 src/*/*.png
+output/english/*
+output/spanish/*
 
 # knitr intermediate
 *.tex
