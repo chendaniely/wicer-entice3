@@ -5,6 +5,7 @@ clean_images <- function() {
     temp_files <- sapply(X = dirs, FUN = list.files, pattern = '*.png', full.names = TRUE)
     temp_files <- unlist(temp_files)
     sapply(X = temp_files, file.remove)
+    unlink('figure/', recursive = TRUE)
 }
 
 data_config_pt_language <- "english"
