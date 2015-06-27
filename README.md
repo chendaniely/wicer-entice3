@@ -1,17 +1,17 @@
 # wicer-entice3
 An Interdisciplinary Communication Tool to Support the Process of Generating Tailored Infographics From Electronic Health Data Using EnTICE3
 
-<!-- MarkdownTOC -->
+<!-- MarkdownTOC bracket=round depth=3-->
 
-- [Installation and Setup][installation-and-setup]
-	- [Setting up the environment][setting-up-the-environment]
-	- [Downloading the code][downloading-the-code]
-- [Generating Documents][generating-documents]
-	- [Single Document][single-document]
-	- [Multiple Documents][multiple-documents]
+- [Installation and Setup](#installation-and-setup)
+	- [Setting up the environment](#setting-up-the-environment)
+	- [Downloading the code](#downloading-the-code)
+- [Generating Documents](#generating-documents)
+	- [Single Document](#single-document)
+	- [Multiple Documents](#multiple-documents)
 
 <!-- /MarkdownTOC -->
-
+gi
 # Installation and Setup
 ## Setting up the environment
 You will need to have [R](http://cran.rstudio.com/) and a [LaTeX](http://www.latex-project.org/) installed.
