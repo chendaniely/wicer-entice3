@@ -136,11 +136,3 @@ print(data_config_pt_name)
 @
 
 \end{document}
-
-<<results='hide'>>=
-# clean up intermediates
-
-# intermediate_files <- sprintf('src/01-01-english%s', c('.log', '.synctex.gz',
-#                                                    '.tex', '-concordance.tex'))
-# file.remove(intermediate_files)
-@
