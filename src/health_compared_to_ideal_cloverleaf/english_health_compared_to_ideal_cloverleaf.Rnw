@@ -1,0 +1,108 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+\graphicspath{{./health_compated_to_ideal_cloverleaf/}}
+
+<<>>=
+# print(getwd())
+@
+
+%\section{Health Compared to Ideal Cloverleaf}
+
+<<Health Compared to Ideal Cloverleaf>>=
+# Excellent
+# Good
+# Fair
+# Poor
+
+# Fruit Veg
+# Mental Health
+# Overall Health
+# Physical Activity
+
+dummy <- data.frame(x = c(0,10), y = c(0, 10))
+fruit_g <- create_grob_from_png_dir(
+    sprintf(
+        "EnTICE3_2/Health Compared to Ideal Cloverleaf/English/E_Fruit Veg %s.png",
+        config_pt_cloverleaf_fruit
+    ))
+mental_g <- create_grob_from_png_dir(
+    sprintf(
+        "EnTICE3_2/Health Compared to Ideal Cloverleaf/English/E_Mental Health %s.png",
+        config_pt_cloverleaf_mental
+    ))
+overall_g <- create_grob_from_png_dir(
+    sprintf(
+        "EnTICE3_2/Health Compared to Ideal Cloverleaf/English/E_Overall Health %s.png",
+        config_pt_cloverleaf_overall
+    ))
+physical_g <- create_grob_from_png_dir(
+    sprintf(
+        "EnTICE3_2/Health Compared to Ideal Cloverleaf/English/E_Physical Activity %s.png",
+        config_pt_cloverleaf_physical
+    ))
+ideal_g <- create_grob_from_png_dir(
+    sprintf(
+        "EnTICE3_2/Health Compared to Ideal Cloverleaf/English/E_Ideal.png",
+        config_pt_cloverleaf_fruit
+    ))
+@
+
+\begin{center}
+\Huge Health Compared to Ideal
+\end{center}
+<<Health Compared to Ideal Cloverleaf plot, fig.height=5.5, fig.width=11>>=
+pt_overall_plot <- ggplot(data = dummy, aes(x = x, y = y)) +
+    annotation_custom(fruit_g, xmin = 5.1, xmax = 10, ymin = -0.5, ymax = 4.8) +
+    annotation_custom(mental_g, xmin = -0.15, xmax = 4.8, ymin = -0.5, ymax = 4.8) +
+    annotation_custom(overall_g, xmin = 4.9, xmax = 10, ymin = 5.1, ymax = 10.1) +
+    annotation_custom(physical_g,  xmin = -0.15, xmax = 4.9, ymin = 5.1, ymax = 10.1) +
+    geom_point(alpha = 1/1000000000) +
+    xlab("You") +
+    ylab(NULL) +
+    theme(axis.title.x = element_text(size = 30, face = "bold", color = "black"),
+          axis.text.x = element_blank(),
+          axis.text.y = element_blank(),
+          axis.ticks.x = element_blank(),
+          axis.ticks.y = element_blank(),
+          panel.grid = element_blank(),
+          panel.background = element_blank()
+    )
+
+pt_ideal_plot <- ggplot(data = dummy, aes(x = x, y = y)) +
+    geom_point(alpha = 1/1000000000) +
+    annotation_custom(ideal_g) +
+    xlab("Ideal") +
+    ylab(NULL) +
+    theme(axis.title.x = element_text(size = 30, face = "bold", color = "black"),
+          axis.text.x = element_blank(),
+          axis.text.y = element_blank(),
+          axis.ticks.x = element_blank(),
+          axis.ticks.y = element_blank(),
+          panel.grid = element_blank(),
+          panel.background = element_blank()
+    )
+
+grid.arrange(pt_overall_plot, pt_ideal_plot, ncol=2)
+@
+
+\newpage
+
+\begin{center}
+\Huge{Health Compared to Ideal}
+\end{center}
+
+The ideal level of physical activity is excellent. Your level of physical activity was
+\Sexpr{tolower(config_pt_cloverleaf_physical)}.\\
+
+The ideal overall health status is excellent. Your overall health was
+\Sexpr{tolower(config_pt_cloverleaf_overall)}.\\
+
+The ideal consumption of fruits and vegetables is excellent. Your fruit and vegetable
+consumption was
+\Sexpr{tolower(config_pt_cloverleaf_fruit)}.\\
+
+The ideal mental health status is excellent. Your mental health was
+\Sexpr{tolower(config_pt_cloverleaf_mental)}.
+
+\newpage

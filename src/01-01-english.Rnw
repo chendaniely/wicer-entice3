@@ -129,6 +129,9 @@ print(data_config_pt_name)
 <<risks_of_excess_weight, child="risks_of_excess_weight/english_risks_of_excess_weight.Rnw">>=
 @
 
+<<health_comparted_to_ideal_cloverleaf, child="health_compared_to_ideal_cloverleaf/english_health_compared_to_ideal_cloverleaf.Rnw">>=
+@
+
 \end{document}
 
 <<results='hide'>>=
