@@ -8,6 +8,16 @@ clean_images <- function() {
     unlink('figure/', recursive = TRUE)
 }
 
+clean_knitr <- function(language){
+    extensions <- c(".aux", ".log", ".pdf", ".tex")
+    if (language == 'english') {
+        files <- sprintf("src/01-01-english%s", extensions)
+    } else if (language == 'spanish') {
+        files <- sprintf("src/01-03-spanish%s", extensions)
+    }
+    file.remove(files)
+}
+
 # data_config_pt_language <- "english"
 pt_englishs <- c('Sample4') # person's name
 pt_ids <- c('Sample4') # person's ID
@@ -30,4 +40,5 @@ for (id in pt_ids) {
 
     file.copy(from = 'src/01-01-english.pdf', to = output_file_name, overwrite = TRUE)
     clean_images()
+    clean_knitr(data_config_pt_language)
 }
