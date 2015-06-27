@@ -1,12 +1,24 @@
 # wicer-entice3
 An Interdisciplinary Communication Tool to Support the Process of Generating Tailored Infographics From Electronic Health Data Using EnTICE3
 
+<!-- MarkdownTOC -->
+
+- Installation and Setup
+	- Setting up the environment
+	- Downloading the code
+- Generating Documents
+	- Single Document
+	- Multiple Documents
+
+<!-- /MarkdownTOC -->
+
+
 # Installation and Setup
 ## Setting up the environment
 You will need to have [R](http://cran.rstudio.com/) and a [LaTeX](http://www.latex-project.org/) installed.
 Having [RStudio](http://www.rstudio.com/products/rstudio/download/preview/) is highly recommended as it will make compiling and editing the code much easier.
 
-Within the R or RStudio colsole, you will need to execute the following command to install the necessary packages:
+Within the R or RStudio console, you will need to execute the following command to install the necessary packages:
 
 `install.packages(c("knitr", "ggplot2", "reshape2", "png", "grid", "gridExtra", "stringi", "testthat", "readr", "lubridate", "dplyr", "readxl"))`
 ## Downloading the code
@@ -26,6 +38,6 @@ and it should return the directory where you either cloned or unziped this repos
 
 ## Single Document
 ### English
-The single English document can you run by opening `01-01-english.Rnw` and clicking `compile PDF` in Rstudio.
+The single English document can you run by opening `01-01-english.Rnw` and clicking `compile PDF` in RStudio.
 
 ## Multiple Documents
