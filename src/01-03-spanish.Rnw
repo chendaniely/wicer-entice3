@@ -21,6 +21,7 @@ opts_knit$set(root.dir = normalizePath('../'))
 # loadfonts()
 data_config_pt_language <- "spanish"
 pt_spanish <- 'Sample2' # person's name
+pt_english <- pt_spanish
 pt_id <- 'Sample2' # person's ID
 
 source('src/helper-00-pt-config.R')
