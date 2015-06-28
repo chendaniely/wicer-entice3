@@ -28,7 +28,11 @@ source('src/helper-00-pt-config.R')
 source('src/helper.R')
 @
 
-\documentclass[12pt]{article}
+\documentclass[12pt, spanish]{article}
+\usepackage[spanish]{babel}
+\selectlanguage{spanish}
+\usepackage[utf8]{inputenc}
+
 \usepackage[landscape]{geometry}
 \usepackage{fullpage}
 \setlength{\parindent}{0pt}
