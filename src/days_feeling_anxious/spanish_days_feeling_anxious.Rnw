@@ -1,0 +1,217 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+\graphicspath{{./days_feeling_anxious/}}
+
+<<>>=
+# print(getwd())
+@
+
+\begin{center}
+\Huge Días entre los últimos 30 días sintiéndose preocupado, ansioso, o tenso\\
+\end{center}
+
+<<anxious>>=
+corners <- create_corner_points(spacing = 0.3)
+square_coords <- apply(X = corners, MARGIN = 2,
+                       FUN = function(x){create_unit_square(c(x[[1]], x[[2]]))})
+vector_coords <- unlist(square_coords)
+d <- as.data.frame(t(matrix(vector_coords, nrow = 2)))
+
+if (config_pt_anxious_30 > 0 ){
+    colored_blue <- unlist(lapply(X = 1:config_pt_anxious_30,
+                              FUN = function(x){rep(1, 4)}))
+} else {
+    colored_blue <- c(0, 0, 0, 0)
+}
+
+colored_white <- unlist(lapply(X = 1:(30 - config_pt_anxious_30),
+                               FUN = function(x){rep(0, 4)}))
+d$g <- unlist(lapply(X = 1:30, FUN = function(x){rep(x, 4)}))
+
+if (config_pt_anxious_30 > 0 & config_pt_anxious_30 < 30){
+    d$c <- c(colored_blue, colored_white)
+} else if (config_pt_anxious_30 == 0){
+    d$c <- c(colored_white)
+} else if (config_pt_anxious_30 == 30){
+    d$c <- c(colored_blue)
+}
+
+d$x <- d$V1
+d$y <- d$V2
+
+if (config_pt_anxious_30 > 0 ){
+    center_coords <- get_square_center(d[d$g == config_pt_anxious_30, ][1, 1:2])
+} else {
+    center_coords <-
+        list(structure(list(V1 = 0.5), .Names = "V1",
+                       row.names = 1L, class = "data.frame"),
+    structure(list(V2 = 5.7), .Names = "V2",
+              row.names = 1L, class = "data.frame"))
+}
+
+@
+
+<<>>=
+fig_width <- 1050
+fig_height <- fig_width
+@
+
+<<anxious_plot, results = 'hide'>>=
+square_plot_max <- ceiling(max(d$x, d$y))
+
+pt_anxious <- ggplot() +
+    theme_bw() +
+    geom_polygon(data = d, mapping = aes(x = x,
+                                         y = y,
+                                         group = g,
+                                         color = "border_blue",
+                                         fill = factor(c))) +
+    scale_color_manual(values = c("border_blue" = color_red_bpfiguretext_anxiousdays)) +
+    scale_fill_manual(values = c('0' = "white",
+                                 '1' = color_red_bpfiguretext_anxiousdays)) +
+    theme(axis.ticks = element_blank(),
+          axis.text.x = element_blank(),
+          axis.text.y = element_blank(),
+          panel.grid.minor=element_blank(),
+          panel.grid.major=element_blank(),
+          legend.position="none",
+          panel.border = element_blank(),
+          axis.title.x = element_text(size=30)) +
+    xlab("") +
+    ylab("") +
+    scale_x_continuous(limits=c(0,square_plot_max)) +
+    scale_y_continuous(limits=c(0,square_plot_max)) +
+    annotate("text", label = config_pt_anxious_30,
+             x = as.numeric(center_coords[[1]]),
+             y = as.numeric(center_coords[[2]]),
+             size = 6,
+             # family="Myriad Pro",
+             colour = "white")
+@
+
+<<results='hide'>>=
+png("src/days_feeling_anxious/anxious_30.png", width = fig_width, height = fig_height, res = 300)
+pt_anxious
+dev.off()
+@
+
+<<results = 'hide'>>=
+corners <- create_corner_points(spacing = 0.3)
+square_coords <- apply(X = corners, MARGIN = 2,
+                       FUN = function(x){create_unit_square(c(x[[1]], x[[2]]))})
+vector_coords <- unlist(square_coords)
+d <- as.data.frame(t(matrix(vector_coords, nrow = 2)))
+colored_blue <- unlist(lapply(X = 1:config_sex_age_anxious_30,
+                              FUN = function(x){rep(1, 4)}))
+colored_white <- unlist(lapply(X = 1:(30 - config_sex_age_anxious_30),
+                               FUN = function(x){rep(0, 4)}))
+d$g <- unlist(lapply(X = 1:30, FUN = function(x){rep(x, 4)}))
+
+if (config_sex_age_anxious_30 > 0 & config_sex_age_anxious_30 < 30){
+    d$c <- c(colored_blue, colored_white)
+} else if (config_sex_age_anxious_30 == 0){
+    d$c <- c(colored_white)
+} else if (config_sex_age_anxious_30 == 30){
+    d$c <- c(colored_blue)
+}
+
+d$x <- d$V1
+d$y <- d$V2
+
+#center_coords <- get_square_center(d[d$g == config_sex_age_anxious_30, ][1, 1:2])
+if (config_sex_age_anxious_30 > 0 ){
+    center_coords <- get_square_center(d[d$g == config_sex_age_anxious_30, ][1, 1:2])
+} else {
+    center_coords <-
+        list(structure(list(V1 = 0.5), .Names = "V1",
+                       row.names = 1L, class = "data.frame"),
+    structure(list(V2 = 5.7), .Names = "V2",
+              row.names = 1L, class = "data.frame"))
+}
+
+square_plot_max <- ceiling(max(d$x, d$y))
+
+sex_age_anxious <- ggplot() +
+    theme_bw() +
+    geom_polygon(data = d, mapping = aes(x = x,
+                                         y = y,
+                                         group = g,
+                                         color = "border_blue",
+                                         fill = factor(c))) +
+    scale_color_manual(values = c("border_blue" = color_red_bpfiguretext_anxiousdays)) +
+    scale_fill_manual(values = c('0' = "white",
+                                 '1' = color_red_bpfiguretext_anxiousdays)) +
+    theme(axis.ticks = element_blank(),
+          axis.text.x = element_blank(),
+          axis.text.y = element_blank(),
+          panel.grid.minor=element_blank(),
+          panel.grid.major=element_blank(),
+          legend.position="none",
+          panel.border = element_blank(),
+          axis.title.x = element_text(size=30)) +
+    xlab("") +
+    ylab("") +
+    scale_x_continuous(limits=c(0,square_plot_max)) +
+    scale_y_continuous(limits=c(0,square_plot_max)) +
+    annotate("text", label = config_sex_age_anxious_30,
+             x = as.numeric(center_coords[[1]]),
+             y = as.numeric(center_coords[[2]]),
+             size = 6,
+             # family="Myriad Pro",
+             colour = "white")
+@
+
+<<results='hide'>>=
+png("src/days_feeling_anxious/sex_age_anxious_30.png", width = fig_width, height = fig_height, res = 300)
+sex_age_anxious
+dev.off()
+@
+
+\begin{table}[H]
+\begin{minipage}[b]{0.5\linewidth}
+\begin{center}
+\begin{figure}[H]
+\centerline{\includegraphics[scale=1.25, trim=30 40 30 40, clip=true]{anxious_30}}
+\end{figure}
+\Huge Usted\\
+\Huge \Sexpr{config_pt_anxious_30 } dias\\
+\phantom{Empty space to have images align}
+\end{center}
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}[b]{0.5\linewidth}
+\centering
+\begin{center}
+\begin{figure}[H]
+\centerline{\includegraphics[scale=1.25, trim=30 40 30 60, clip=true]{sex_age_anxious_30}}
+\end{figure}
+\Huge \Sexpr{get_men_women(config_pt_sex, 'spanish')} de la misma\\
+edad que usted\\
+\Huge \Sexpr{config_sex_age_anxious_30} dias
+\end{center}
+\end{minipage}
+\end{table}
+
+\newpage
+
+\begin{center}
+\Huge Días entre los últimos 30 días sintiéndose preocupado, ansioso, o tenso\\
+\end{center}
+
+\Large Usted informó que se sintió
+\Sexpr{spanish_gender('preocupad', config_pt_sex)},
+\Sexpr{spanish_gender('ansios', config_pt_sex)}, o
+\Sexpr{spanish_gender('tens', config_pt_sex)}
+durante \Sexpr{config_pt_anxious_30}
+de 30 días.\\
+
+\Large \Sexpr{get_men_women(config_pt_sex, 'spanish')}
+de la misma edad que usted informaron que se sintieron
+\Sexpr{spanish_gender('preocupad', config_pt_sex)}s,
+\Sexpr{spanish_gender('ansios', config_pt_sex)}s, o
+\Sexpr{spanish_gender('tens', config_pt_sex)}s
+durante un promedio de \Sexpr{config_sex_age_anxious_30}
+de 30 días.
+
+\newpage
