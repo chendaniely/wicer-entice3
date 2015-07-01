@@ -1,0 +1,68 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+<<>>=
+# print(getwd())
+@
+
+<<vegetable>>=
+df <-  data.frame(pt = config_pt_vegetable_servings_per_day,
+                  other = config_sex_age_vegetable_servings_per_day,
+                  min = config_min_vegetable_servings_per_day)
+df <- melt(df)
+@
+
+<<vegetable_plot>>=
+x_axis_names <- c('Usted',
+                  sprintf('%s\nde la misma edad\nque usted',
+                          tolower(get_men_women(config_pt_sex, 'spanish'))),
+                  'Recomendación\nmínima')
+
+ggplot(data = df) +
+    geom_bar(aes(x = x_axis_names, y = value),
+             stat="identity",
+             color=color_green_referencerange_bargraph_colverleaf,
+             fill=color_green_referencerange_bargraph_colverleaf,
+             width=.5) +
+    scale_x_discrete(limits=x_axis_names) +
+    scale_y_continuous(expand = c(0,0), limits = c(0, max(df$value + 1))) +
+    geom_text(aes(x = x_axis_names,
+                  y = ifelse(value <= 0.3, value + 0.15, value / 2),
+                  label = value), size = 10) +
+    theme_bw() +
+    ylab("porciones") +
+    xlab("") +
+    labs(title = "Porciones de Vegetales por Día") +
+    theme(panel.border = element_blank(),
+          panel.grid.major.x = element_blank(),
+          plot.title = element_text(size = rel(3)),
+          panel.grid.major.x = element_blank(),
+          panel.grid.minor.y = element_blank(),
+          axis.title.x = element_text(size=20),
+          axis.text.x  = element_text(size=20),
+          axis.title.y = element_text(size=20),
+          axis.text.y  = element_text(size=20),
+          axis.line = element_line(
+              colour = color_green_referencerange_bargraph_colverleaf,
+              size = 2))
+@
+
+\newpage
+
+\begin{center}
+\Huge{Porciones de Vegetales por Día}
+\end{center}
+
+\Huge Usted informó que comió alrededor de \Sexpr{df[df$variable == 'pt', 'value']}
+porciones de vegetales por día.\\
+
+\Sexpr{get_men_women(config_pt_sex, 'spanish')}
+informaron que comieron un promedio de \Sexpr{df[df$variable == 'other', 'value']}
+porciones de vegetales por día.\\
+
+Se recomienda que \Sexpr{tolower(get_men_women(config_pt_sex, 'spanish', 'gender'))}
+de su edad coman por lo menos \Sexpr{df[df$variable == 'min', 'value']}
+porciones de vegetales por
+día
+
+\newpage
