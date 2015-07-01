@@ -1,0 +1,61 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+<<>>=
+# print(getwd())
+@
+
+<<vigorous_exercise>>=
+df <-  data.frame(pt = config_pt_mins_vigorous_physical_activity,
+                  other = config_sex_age_vigorous_physical_activity)
+df <- melt(df)
+@
+
+<<vigorous_exercise_plot>>=
+x_axis_names <- c('Usted',
+                  sprintf('%s de la misma edad que usted',
+                          get_men_women(config_pt_sex, 'spanish')))
+max_y <- max_y_activity(max(df$value))
+
+ggplot(data = df) +
+    geom_bar(aes(x = x_axis_names, y = value),
+             stat="identity",
+             color=color_blue_bargraph_cloverleaf,
+             fill=color_blue_bargraph_cloverleaf,
+             width=.5) +
+    scale_y_continuous(expand = c(0,0), limits = c(0, max_y),
+                       breaks = seq(0, max_y, 15)) +
+    geom_text(aes(x = x_axis_names,
+                  y = ifelse(value <= 10, value + 3, value / 2),
+                  label = value), size=10) +
+    geom_hline(yintercept=75, linetype="longdash") +
+    geom_text(aes(x = x_axis_names[1], y = 75, vjust = -1,
+                  label='Recomendación Mínima')) +
+    theme_bw() +
+    ylab("minutos") +
+    xlab("") +
+    labs(title="Minutos por Semana de Actividad Física Vigorosa") +
+    theme(panel.border = element_blank(),
+          panel.grid.major.x = element_blank(),
+          plot.title = element_text(size = rel(2)),
+          axis.line = element_line(colour = color_blue_bargraph_cloverleaf,
+                                   size = 2))
+@
+
+\newpage
+
+\begin{center}
+\Huge{Minutos por Semana de Actividad Física Vigorosa}
+\end{center}
+
+\Huge Usted informó que hizo alrededor de \Sexpr{df[df$variable == 'pt', 'value']}
+minutos de actividad física vigorosa por semana.\\
+
+\Sexpr{get_men_women(config_pt_sex, 'spanish')}
+de la misma edad que usted informaron que hicieron un promedio de \Sexpr{df[df$variable == 'other', 'value']}
+minutos de actividad física vigorosa por semana.\\
+
+Se recomienda que \Sexpr{tolower(get_men_women(config_pt_sex, 'spanish', 'gender'))}
+de su edad hagan por lo menos 75 minutos de actividad física vigorosa por semana.
+
+\newpage
