@@ -1,0 +1,110 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+\graphicspath{{./recommended_physical_activity/}}
+
+<<>>=
+# print(getwd())
+@
+
+<<>>=
+df <-  data.frame(pt = config_pt_mins_moderate_physical_activity,
+                  other = config_sex_age_moderate_physical_activity)
+df <- melt(df)
+@
+
+<<>>=
+x_axis_names <- c('Usted',
+                  sprintf('%s de la\nmisma edad que usted',
+                          get_men_women(config_pt_sex, 'spanish')))
+max_y <- max_y_activity(max(df$value), allowed_min = 180)
+
+moderate_exercise_plot <- ggplot(data = df) +
+    geom_bar(aes(x = x_axis_names, y = value),
+             stat="identity",
+             color=color_blue_bargraph_cloverleaf,
+             fill=color_blue_bargraph_cloverleaf,
+             width=.5) +
+    scale_x_discrete(limits=c(x_axis_names[1], x_axis_names[2])) +
+    scale_y_continuous(expand = c(0,0), limits = c(0, max_y),
+                       breaks = seq(0, max_y, 30)) +
+    geom_text(aes(x = x_axis_names,
+                  y = ifelse(value <= 10, value + 15, value / 2),
+                  label = value), size=10) +
+    geom_hline(yintercept=150, linetype="longdash") +
+    geom_text(aes(x = x_axis_names[1], y = 150, vjust = -1,
+                  label='Recomendación Mínima')) +
+    theme_bw() +
+    ylab("minutos") +
+    xlab("") +
+    # labs(title="Sus Minutos por Semana de Actividad Física Moderada") +
+    theme(panel.border = element_blank(),
+          panel.grid.major.x = element_blank(),
+          panel.grid.minor.y = element_blank(),
+          plot.title = element_text(size = rel(2)),
+          axis.title.x = element_text(size=30),
+          axis.text.x  = element_text(size=30),
+          axis.title.y = element_text(size=30),
+          axis.text.y  = element_text(size=30),
+          axis.line = element_line(colour = color_blue_bargraph_cloverleaf,
+                                   size = 2))
+@
+
+<<results='hide'>>=
+png(filename = 'src/recommended_physical_activity/moderate_exercise_plot.png', width = 800, height = 600)
+moderate_exercise_plot
+dev.off()
+@
+
+<<Recommended Physical Activity, results='hide'>>=
+file_to_copy <- sprintf(
+    'EnTICE3_2/Recommended Physical Activity/%s_Recommended Physical Activity.png',
+    convert_language_single(config_pt_language))
+file.copy(from = file_to_copy,
+          to = 'src/recommended_physical_activity/recommended_physical_activity.png',
+          overwrite = TRUE)
+@
+
+\begin{table}[H]
+\begin{minipage}[b]{0.47\linewidth}\centering
+\Huge Sus Minutos por Semana de Actividad Física Moderada
+
+\begin{figure}[H]
+\includegraphics[scale=0.4]{moderate_exercise_plot}
+\end{figure}
+
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}[b]{0.45\linewidth}
+\centering
+
+\begin{figure}[H]
+\includegraphics[scale=0.6]{recommended_physical_activity}
+\end{figure}
+\end{minipage}
+\end{table}
+
+\newpage
+
+\begin{center}
+\Huge{Sus Minutos por Semana de Actividad Física Moderada} \\
+\end{center}
+
+\Large Usted informó que hizo alrededor de \Sexpr{df[df$variable == 'pt', 'value']}
+minutos de actividad física moderada por semana.\\
+
+\Large \Sexpr{get_men_women(config_pt_sex, 'spanish')}
+de la misma edad que usted informaron que hicieron un promedio de \Sexpr{df[df$variable == 'other', 'value']}
+minutos de actividad física moderada por semana.
+
+\begin{center}
+\Huge{Recomendación} \\
+\end{center}
+
+\Large Los expertos recomiendan que \Sexpr{tolower(get_men_women(config_pt_sex, 'spanish', 'gender'))}
+de su edad hagan por lo menos 2 $\nicefrac{1}{2}$ horas (150 minutos) de actividad física moderada por semana.\\
+
+Ejemplos de actividad física moderada incluyen marcha apresurada, ciclismo a velocidad
+ligera, y aeróbico acuático.
+
+\newpage
