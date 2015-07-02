@@ -1,0 +1,52 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+\graphicspath{{./depression_symptoms_a/}}
+
+<<>>=
+# print(getwd())
+@
+
+\begin{center}
+\Huge{Síntomas de Depresión A}
+\end{center}
+
+<<Depression Symptoms A, results='hide'>>=
+pt_stat <- get_depression_symptom_image(config_pt_depression_a, 'pt')
+other_stat <- get_depression_symptom_image(config_sex_age_depression_a, 'other')
+@
+
+
+\begin{figure}[H]
+\begin{minipage}[b]{0.5\linewidth}
+\centering
+\includegraphics[width=0.75\textwidth]{depression_symptoms_a_pt}
+\caption*{\large{Usted\\
+\Sexpr{stri_trans_totitle(translate_dial_spanish(pt_stat))}\\
+\phantom{blank line of text}}}
+
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}[b]{0.5\linewidth}
+\centering
+\includegraphics[width=0.75\textwidth]{depression_symptoms_a_other}
+\caption*{\large{\Sexpr{get_men_women(config_pt_sex, 'spanish')}\\
+de la misma edad que usted\\
+\Sexpr{stri_trans_totitle(translate_dial_spanish(other_stat))}}}
+\end{minipage}
+\end{figure}
+
+\newpage
+
+\begin{center}
+\Huge{Síntomas de Depresión A}
+\end{center}
+
+\Large{
+Su nivel de síntomas de depresión fue \Sexpr{pt_stat}.\\
+
+El nivel de síntomas de depresión de
+\Sexpr{tolower(get_men_women(config_pt_sex, 'spanish'))}
+de la misma edad que usted fue \Sexpr{other_stat}.
+
+\newpage
