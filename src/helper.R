@@ -387,7 +387,7 @@ translate_dial_spanish <- function(english_text){
     } else if (english_text == 'low') {
         return('bajo')
     } else if (english_text == 'moderate') {
-        return("moderado,")
+        return("moderado")
     } else if (english_text == 'high') {
         return("alto")
     } else if (english_text == 'very high'){
