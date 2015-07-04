@@ -1,0 +1,52 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+\graphicspath{{./anxiety_symptoms/}}
+
+<<>>=
+# print(getwd())
+@
+
+<<Anxiety Symptoms>>=
+dummy <- data.frame(x=c(0,81), y=c(0, 81))
+
+base_image_g <- create_grob_from_png_dir(
+    sprintf(
+        "EnTICE3_2/Anxiety Depression Gradient Bar/%s_Gradient Bar with word anchors.png",
+        convert_language_single(config_pt_language)
+    ))
+
+arrow_start <- config_pt_anxiety - 10
+@
+
+<<Anxiety Symptoms Plot>>=
+ggplot(data = dummy, aes(x = x, y = y)) +
+    geom_point(alpha = 1/1000000000) +
+    annotation_custom(base_image_g, xmin=-1, xmax=81, ymin=-10, ymax=60) +
+    geom_segment(aes(x = arrow_start, y = 60,
+                     xend = arrow_start, yend = 22, size=0.01),
+                 arrow = arrow(length = unit(0.75, "cm")),
+                 size = 1.5) +
+    annotate("text", label = sprintf("Su\nPuntuación de\nSíntomas\n%s",
+                                     config_pt_anxiety),
+             x = arrow_start,
+             y = 72.5) +
+    theme_nothing_text() +
+    theme(legend.position="none") +
+    theme(axis.title = element_blank(), axis.text = element_blank()) +
+    theme(plot.title = element_text(size = 30, colour = "black")) +
+    labs(title = "Síntomas de Ansiedad")
+@
+
+\newpage
+
+\begin{center}
+\Huge{Síntomas de Ansiedad}
+\end{center}
+
+\Large La puntación de síntomas de ansiedad tiene un rango de 10 (mejor) a 90 (peor). Una
+puntación de 50 es el promedio.\\
+
+Su puntuación de síntomas de ansiedad fue \Sexpr{config_pt_anxiety}.
+
+\newpage
