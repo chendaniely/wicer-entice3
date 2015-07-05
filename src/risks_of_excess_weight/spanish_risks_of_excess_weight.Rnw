@@ -1,0 +1,103 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+\graphicspath{{./risks_of_excess_weight/}}
+
+<<>>=
+# print(getwd())
+@
+
+
+<<Risks of Excess Weight, results='hide'>>=
+file.copy(from = sprintf(
+    'EnTICE3_2/Risks of Excess Weight/%s%s_Risks of Excess Weight.png',
+    convert_language_single(config_pt_language),
+    convert_gender_single(config_pt_sex)),
+    to = 'src/risks_of_excess_weight/risks_excess_weight_right.png',
+    overwrite = TRUE)
+@
+
+<<results='hide'>>=
+dummy <- data.frame(x=c(0,10), y=c(0, 10))
+
+bmi_cat_location_x <- function(bmi_cat){
+    if (bmi_cat == 'underweight'){
+        return(2.4)
+    } else if (bmi_cat == 'normal'){
+        return(4.2)
+    } else if (bmi_cat == 'overweight'){
+        return(6)
+    } else if (bmi_cat == 'obese'){
+        return(7.8)
+    }
+}
+
+image_file <- sprintf(
+    "EnTICE3_2/Risks of Excess Weight/%s%s_%s.png",
+    convert_language_single(config_pt_language),
+    convert_gender_single(config_pt_sex),
+    config_pt_bmi_cat
+)
+
+base_image_g <- create_grob_from_png_dir(image_file)
+
+bmi_plot_small <- ggplot(data = dummy, aes(x = x, y = y)) +
+    geom_point(alpha = 1/1000000000) +
+    theme_nothing() +
+    annotation_custom(base_image_g) +
+    annotate("text", label = config_pt_bmi_value, x = 5, y = 6.75, size = 7.5) +
+    annotate("text", label = config_pt_bmi_value,
+             x = bmi_cat_location_x(config_pt_bmi_cat),
+             y = 0.9, size = 7.5)
+
+png('src/risks_of_excess_weight/risks_excess_weight_left.png')
+bmi_plot_small
+dev.off()
+@
+
+
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{cc}
+    \begin{minipage}{.4\textwidth}
+    \textbf{Su Índice de Masa Corporal (BMI)}\\
+    kg/m$^2$\\
+      \includegraphics[scale=0.65]{risks_excess_weight_left}\\
+      El índice de masa corporal (BMI
+en inglés) utiliza su estatura y peso
+para estimar cuanta grasa corporal
+usted tiene.
+    \end{minipage}
+    &
+    \begin{minipage}{.6\textwidth}
+      \includegraphics[height=5in]{risks_excess_weight_right}
+    \end{minipage}
+    \\
+  \end{tabular}
+\end{table}
+
+\newpage
+
+Su BMI fue de \Sexpr{config_pt_bmi_value }\\
+
+El índice de masa corporal (BMI
+en inglés) utiliza su estatura y peso
+para estimar cuanta grasa corporal
+usted tiene.\\
+
+Categorías de BMI:\\
+Menos de 18.5 es Bajo Peso\\
+De 18.5 a 24.9 es Normal\\
+De 25.0 a 29.9 es Sobrepeso\\
+Más de 30.0 es \Sexpr{spanish_gender('Obes', config_pt_sex)}\\
+
+Los riesgos de exceso de peso incluyen:
+\begin{itemize}
+    \item Enfermedades del corazón (enfermedades cardiovasculares)
+    \item Presión arterial alta (hipertensión)
+    \item Artritis (osteoartritis)
+    \item Diabetes tipo 2 (diabetes mellitus tipo 2)
+    \item Cánceres del esófago, páncreas, riñón, colon y recto
+\end{itemize}
+
+\newpage
