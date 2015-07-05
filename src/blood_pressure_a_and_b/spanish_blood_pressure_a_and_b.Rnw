@@ -1,0 +1,62 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+\graphicspath{{./blood_pressure_a_and_b/}}
+
+<<>>=
+# print(getwd())
+@
+
+%\section{Blood Pressure A \& B}
+
+<<Blood Pressure A & B>>=
+dummy <- data.frame(x=c(0,100), y=c(0, 100))
+
+pt_bp_s_cat <- calculate_pt_bp_s_cat(config_pt_bp_s)
+pt_bp_d_cat <- calculate_pt_bp_d_cat(config_pt_bp_d)
+
+pt_bp_s_color <- calculate_pt_bp_stoplight_color(pt_bp_s_cat)
+pt_bp_d_color <- calculate_pt_bp_stoplight_color(pt_bp_d_cat)
+
+base_image_g <- create_grob_from_png_dir(
+    sprintf(
+        "EnTICE3_2/Blood Pressure A & B/%s_BP A&B graphic.png",
+        convert_language_single(config_pt_language)
+    ))
+
+stoplight_s_g <- create_grob_from_png_dir(
+    sprintf(
+        "EnTICE3_2/Blood Pressure A & B/%s stoplight.png",
+        pt_bp_s_color
+    ))
+
+stoplight_d_g <- create_grob_from_png_dir(
+    sprintf(
+        "EnTICE3_2/Blood Pressure A & B/%s stoplight.png",
+        pt_bp_d_color
+    ))
+
+@
+
+<<Blood Pressure A & B plot>>=
+ggplot(data = dummy, aes(x = x, y = y)) +
+    geom_point(alpha = 1/1000000000) +
+
+    annotation_custom(base_image_g) +
+    annotation_custom(stoplight_s_g, xmin = 45, xmax = 85, ymin = 50) +
+    annotation_custom(stoplight_d_g, xmin = 45, xmax = 85, ymin = 5) +
+    annotate("text", label = config_pt_bp_s, x = 34.5, y = 74, size = 15) +
+    annotate("text", label = config_pt_bp_s, x = 34.5, y = 20, size = 15) +
+    annotate("text", label = config_pt_bp_d, x = 34.5, y = 60, size = 15) +
+    annotate("text", label = config_pt_bp_d, x = 34.5, y = 6, size = 15) +
+    xlab(NULL) +
+    ylab(NULL) +
+    theme(axis.title.x = element_blank(),
+          axis.text.x = element_blank(),
+          axis.text.y = element_blank(),
+          axis.ticks.x = element_blank(),
+          axis.ticks.y = element_blank(),
+          panel.grid = element_blank(),
+          panel.background = element_blank()
+    )
+@
