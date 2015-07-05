@@ -1,0 +1,99 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+<<>>=
+# print(getwd())
+@
+
+\begin{center}
+\Huge{Su Salud en General}
+\end{center}
+
+<<Overall Health>>=
+# Poor = 5-6; Fair = 4; Good = 3; Very Good = 2; Excellent =1
+dummy <- data.frame(x=c(0,100), y=c(0, 100))
+
+you_1 <- ifelse(config_pt_overall <= 6, "Full", "Empty")
+you_2 <- ifelse(config_pt_overall <= 4, "Full", "Empty")
+you_3 <- ifelse(config_pt_overall <= 3, "Full", "Empty")
+you_4 <- ifelse(config_pt_overall <= 2, "Full", "Empty")
+you_5 <- ifelse(config_pt_overall <= 1, "Full", "Empty")
+
+other_1 <- ifelse(config_sex_age_overall <= 6, "Full", "Empty")
+other_2 <- ifelse(config_sex_age_overall <= 4, "Full", "Empty")
+other_3 <- ifelse(config_sex_age_overall <= 3, "Full", "Empty")
+other_4 <- ifelse(config_sex_age_overall <= 2, "Full", "Empty")
+other_5 <- ifelse(config_sex_age_overall <= 1, "Full", "Empty")
+
+you_1_g <- get_overall_health_star(you_1)
+you_2_g <- get_overall_health_star(you_2)
+you_3_g <- get_overall_health_star(you_3)
+you_4_g <- get_overall_health_star(you_4)
+you_5_g <- get_overall_health_star(you_5)
+
+other_1_g <- get_overall_health_star(other_1)
+other_2_g <- get_overall_health_star(other_2)
+other_3_g <- get_overall_health_star(other_3)
+other_4_g <- get_overall_health_star(other_4)
+other_5_g <- get_overall_health_star(other_5)
+
+# empty_star_g <- create_grob_from_png_dir(
+#     "../../EnTICE3_2/Overall Health/Empty star.png")
+#
+# full_star_g <- create_grob_from_png_dir(
+#     "../../EnTICE3_2/Overall Health/Full star.png")
+
+@
+
+<<Overall Health Plot, fig.height=5.5>>=
+ggplot(data = dummy, aes(x = x, y = y)) +
+    geom_point(alpha = 1/1000000000) +
+    theme_nothing() +
+
+    annotate("text", size = 7, label = "Mala", x = 28, y = 95) +
+    annotate("text", size = 7, label = "Regular", x = 44, y = 95) +
+    annotate("text", size = 7, label = "Buena", x = 59.5, y = 95) +
+    annotate("text", size = 7, label = "Muy Buena", x = 75, y = 95) +
+    annotate("text", size = 7, label = "Excelente", x = 92, y = 95) +
+
+    annotation_custom(you_1_g, xmin=20, xmax=35, ymin=55, ymax=90) +
+    annotation_custom(you_2_g, xmin=36, xmax=51, ymin=55, ymax=90) +
+    annotation_custom(you_3_g, xmin=52, xmax=67, ymin=55, ymax=90) +
+    annotation_custom(you_4_g, xmin=68, xmax=83, ymin=55, ymax=90) +
+    annotation_custom(you_5_g, xmin=84, xmax=99, ymin=55, ymax=90) +
+
+    annotation_custom(other_1_g, xmin=20, xmax=35, ymin=15, ymax=50) +
+    annotation_custom(other_2_g, xmin=36, xmax=51, ymin=15, ymax=50) +
+    annotation_custom(other_3_g, xmin=52, xmax=67, ymin=15, ymax=50) +
+    annotation_custom(other_4_g, xmin=68, xmax=83, ymin=15, ymax=50) +
+    annotation_custom(other_5_g, xmin=84, xmax=99, ymin=15, ymax=50) +
+
+    annotate("text",
+             label = sprintf("Usted\n%s",
+                             get_overall_health_text(config_pt_overall, 'spanish')),
+             x = 10,
+             y = 75,
+             size = 5) +
+    annotate("text",
+             label = sprintf("%s de la\nmisma edad que\nusted\n%s",
+                             get_men_women(config_pt_sex, 'spanish'),
+                             get_overall_health_text(config_sex_age_overall, 'spanish')),
+             x = 10,
+             y = 30,
+             size = 5)
+@
+
+\newpage
+
+\begin{center}
+\Huge{Su Salud en General}
+\end{center}
+
+\Large Usted informó que su salud en general estaba
+\Sexpr{tolower(get_overall_health_text(config_pt_overall, 'spanish'))}\\
+
+\Sexpr{get_men_women(config_pt_sex, 'spanish')}
+de la misma edad que usted informaron que su salud en general estaba
+\Sexpr{tolower(get_overall_health_text(config_sex_age_overall, 'spanish'))}.
+
+\newpage
