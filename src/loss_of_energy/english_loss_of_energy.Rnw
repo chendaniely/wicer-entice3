@@ -2,7 +2,7 @@
 \Sexpr{opts_knit$set(self.contained=FALSE)}
 
 <<>>=
-print(getwd())
+# print(getwd())
 @
 
 <<Feeling Run Down>>=
