@@ -411,3 +411,16 @@ translate_rundown_spanish <- function(english_text){
         return("Muchisimo")
     }
 }
+
+translate_cloverleaf_spanish <- function(english_text) {
+    english_text <- tolower(english_text)
+    if (english_text == 'excellent') {
+    return("Excelente")
+    } else if (english_text == 'very good') {
+        return('Muy bajo')
+    } else if (english_text == 'good') {
+        return('Bueno')
+    } else if (english_text == 'poor') {
+        return('Muy bajo')
+    }
+}
