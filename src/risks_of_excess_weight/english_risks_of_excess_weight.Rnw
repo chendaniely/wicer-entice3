@@ -60,9 +60,10 @@ dev.off()
   \centering
   \begin{tabular}{cc}
     \begin{minipage}{.4\textwidth}
-    \textbf{Body Mass Index (BMI)}\\
+    \centering
+    \large \textbf{Body Mass Index (BMI)}\\
     kg/m$^2$\\
-      \includegraphics[scale=0.65]{risks_excess_weight_left}\\
+    \makebox[\textwidth]{\includegraphics[scale=0.65]{risks_excess_weight_left}}\\
       Body Mass Index (BMI) uses your height and weight to estimate how much body
 fat you have.
     \end{minipage}

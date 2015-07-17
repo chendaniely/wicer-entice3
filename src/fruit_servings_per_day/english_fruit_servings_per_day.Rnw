@@ -13,20 +13,21 @@ df <- melt(df)
 @
 
 <<fruit_plot>>=
-x_axis_names <- c('You',
-                  sprintf('Other %s in your age group', get_men_women(config_pt_sex)),
-                  'Minimum recommended')
+x_axis_names <- c('You\n',
+                  sprintf('Other %s\nin your age group', get_men_women(config_pt_sex)),
+                  'Minimum\nrecommended')
 
 ggplot(data = df) +
     geom_bar(aes(x = x_axis_names, y = value),
-             stat="identity",
-             color=color_green_referencerange_bargraph_colverleaf,
-             fill=color_green_referencerange_bargraph_colverleaf,
-             width=.5) +
+             stat = "identity",
+             color = color_green_referencerange_bargraph_colverleaf,
+             fill = color_green_referencerange_bargraph_colverleaf,
+             width = .5) +
+    scale_x_discrete(limits = x_axis_names) +
     scale_y_continuous(expand = c(0,0), limits = c(0, max(df$value + 1))) +
     geom_text(aes(x = x_axis_names,
                   y = ifelse(value <= 0.3, value + 0.12, value / 2),
-                  label = value), size=10) +
+                  label = value), size = 10) +
     theme_bw() +
     ylab("servings") +
     xlab("") +
@@ -34,6 +35,9 @@ ggplot(data = df) +
     theme(panel.border = element_blank(),
           plot.title = element_text(size = rel(3)),
           panel.grid.major.x = element_blank(),
+          axis.title.y = element_text(size = rel(2), vjust = 0.75),
+          axis.text.x  = element_text(size = rel(2), vjust = -0.5),
+          axis.text.y  = element_text(size = rel(1.5), hjust = -0.5),
           axis.line = element_line(
               colour = color_green_referencerange_bargraph_colverleaf,
               size = 2))

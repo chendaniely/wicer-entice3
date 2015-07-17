@@ -72,16 +72,16 @@ calculate_bmi_cat_coord <- function(bmi_value, pt_sex){
             coords$x <- 17.65
         }
     } else {
-        y_coord <- 15.5
+        y_coord <- 15.0
         coords$y <- y_coord
         if (tolower(pt_bmi_cat) == 'underweight') {
-            coords$x <- 2.9
+            coords$x <- 2.8
         } else if (tolower(pt_bmi_cat) == 'normal') {
             coords$x <- 7.6
         } else if (tolower(pt_bmi_cat) == 'overweight') {
             coords$x <- 12.8
         } else if (tolower(pt_bmi_cat) == 'obese') {
-            coords$x <- 17.65
+            coords$x <- 19.0
         }
     }
     return(coords)

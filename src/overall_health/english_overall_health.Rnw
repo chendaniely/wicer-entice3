@@ -6,7 +6,7 @@
 @
 
 \begin{center}
-\Huge{Overall health}
+\Huge{Overall Health}
 \end{center}
 
 <<Overall Health>>=
@@ -68,19 +68,14 @@ ggplot(data = dummy, aes(x = x, y = y)) +
     annotation_custom(other_4_g, xmin=68, xmax=83, ymin=15, ymax=50) +
     annotation_custom(other_5_g, xmin=84, xmax=99, ymin=15, ymax=50) +
 
+    annotate("text", label = "You", x = 10, y = 75, size = 7) +
+    annotate("text", label = get_overall_health_text(config_pt_overall), x = 10, y = 70, size = 5) +
+
     annotate("text",
-             label = sprintf("You\n%s",
-                             get_overall_health_text(config_pt_overall)),
-             x = 10,
-             y = 75,
-             size = 5) +
-    annotate("text",
-             label = sprintf("Other %s in\nyour age group\n%s",
-                             get_men_women(config_pt_sex),
-                             get_overall_health_text(config_sex_age_overall)),
-             x = 10,
-             y = 30,
-             size = 5)
+             label = sprintf("Other %s in\nyour age group", get_men_women(config_pt_sex)),
+             x = 10, y = 30, size = 6) +
+    annotate("text", label = get_overall_health_text(config_sex_age_overall), x = 10, y = 20, size = 5)
+
 @
 
 \newpage

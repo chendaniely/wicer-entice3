@@ -15,7 +15,7 @@ df <- melt(df)
 <<composite_30_plot>>=
 x_axis_names <- c('Feeling very healthy\nand full of energy',
                   'Physical health\nwas not good',
-                  'Mental health was not good')
+                  'Mental health\nwas not good')
 
 ggplot(data = df) +
     theme_bw() +
@@ -33,11 +33,14 @@ ggplot(data = df) +
     geom_text(aes(x = variable,
                   y = ifelse(value <= 0.3, value + 0.15, value / 2),
                   label = value), size=10) +
-    xlab("days") +
+    ylab("days") +
     labs(title="Number of days in the last 30 days...") +
     theme(panel.border = element_blank(),
           panel.grid.major.y = element_blank(),
           plot.title = element_text(size = rel(2)),
+          axis.title.x = element_text(size = rel(2), vjust = 0.75),
+          axis.text.x  = element_text(size = rel(2), vjust = -0.5),
+          axis.text.y  = element_text(size = rel(2)),
           legend.position="none",
           axis.title.y = element_blank()) +
     coord_flip()
