@@ -20,6 +20,18 @@ file.copy(from = file_to_copy,
 df <-  data.frame(pt = config_pt_mins_moderate_physical_activity,
                   other = config_sex_age_moderate_physical_activity)
 df <- melt(df)
+
+# df$value <- c(0, 0)
+
+df$text <- df$value
+max_y <- max_y_activity(max(df$value))
+
+y_axix_range <- max_y
+min_bar_height <- y_axix_range * 0.03
+min_center_bar_height <- y_axix_range * 0.1
+df$value <- ifelse(df$value == 0, min_bar_height, df$value)
+df$text_y <- sapply(X = df$text, FUN = y_axis_text_height,
+                    min_bar_height, min_center_bar_height, 'fruit_servings_per_day')
 @
 
 <<moderate_exercise_plot_recommended>>=
@@ -34,20 +46,22 @@ moderate_exercise_plot <- ggplot(data = df) +
              color=color_blue_bargraph_cloverleaf,
              fill=color_blue_bargraph_cloverleaf,
              width = .5) +
-    scale_x_discrete(limits=c(x_axis_names[1], x_axis_names[2])) +
+    scale_x_discrete(limits = c(x_axis_names[1], x_axis_names[2])) +
     scale_y_continuous(expand = c(0,0), limits = c(0, max_y),
                        breaks = seq(0, max_y, 30)) +
     geom_text(aes(x = x_axis_names,
-                  y = ifelse(value <= 10, value + 7, value / 2),
-                  label = value), size = 15) +
-    geom_hline(yintercept=150, linetype="longdash") +
-    geom_text(aes(x = x_axis_names[1], y = 150, vjust = -1,
+                  y = text_y,
+                  label = text), size = 15) +
+    geom_hline(yintercept = 150, linetype = "longdash") +
+    geom_text(aes(x = x_axis_names[2], y = 150, vjust = -.25,
+                  #hjust = -0.00000000000000000001,
                   label = 'Recommended Minimum'), size = rel(10)) +
     theme_bw() +
     ylab("minutes") +
     xlab("") +
     theme(panel.border = element_blank(),
           panel.grid.major.x = element_blank(),
+          panel.grid.minor.y = element_blank(),
           plot.title = element_text(size = rel(2)),
           axis.title.y = element_text(size = rel(3), vjust = 0.75),
           axis.text.x  = element_text(size = rel(3), vjust = -0.5),

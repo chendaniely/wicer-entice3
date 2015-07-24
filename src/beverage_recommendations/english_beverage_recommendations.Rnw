@@ -25,8 +25,20 @@ df <-  data.frame(soda = config_pt_soda_wk,
                   purejuice = config_pt_purejuice_wk)
 df <- melt(df)
 
-x_axis_names <- c('Regular\n(not diet) soda',
-                  '100% pure juices')
+df$text <- df$value
+y_axix_range <- y_axis_range(max(df$value), 'beverage_recommendations')
+
+min_bar_height <- y_axix_range * 0.01
+min_center_bar_height <- y_axix_range * 0.1
+df$value <- ifelse(df$value == 0, min_bar_height, df$value)
+df$text_y <- sapply(X = df$text, FUN = y_axis_text_height,
+                    min_bar_height, min_center_bar_height, 'beverage_recommendations')
+@
+
+
+<<>>=
+x_axis_names <- c('\nRegular\n(not diet) soda',
+                  '\n100% pure juices')
 
 beverage_recommendation_plot <- ggplot(data = df) +
     theme_bw() +
@@ -39,13 +51,13 @@ beverage_recommendation_plot <- ggplot(data = df) +
         'purejuice' = color_blue_bargraph_cloverleaf)) +
     scale_x_discrete(breaks = c("soda", "purejuice"),
                      labels = x_axis_names) +
-    scale_y_continuous(expand = c(0,0), limits = c(0, max(df$value + 1))) +
+    scale_y_continuous(expand = c(0,0), limits = c(0, y_axix_range)) +
     geom_text(aes(x = variable,
-                  y = ifelse(value <= 1, value + 0.15, value / 2),
-                  label = value)) +
+                  y = text_y,
+                  label = text), size = 10) +
     xlab(NULL) +
-    ylab("servings") +
-    ggtitle("Your Servings per Week\nof Beverages Containing Sugar") +
+    ylab("servings\n") +
+    ggtitle("Your Servings per Week\nof Beverages Containing Sugar\n") +
     theme(panel.border = element_blank(),
           panel.grid.major.y = element_blank(),
           panel.grid.minor.y = element_blank(),
@@ -57,7 +69,9 @@ beverage_recommendation_plot <- ggplot(data = df) +
           axis.title.y = element_text(size=20),
           axis.text.y  = element_text(size=20),
           legend.position="none",
-          axis.title.y = element_blank())
+          axis.title.y = element_blank(),
+          axis.line = element_line(size = 1),
+          axis.line.x = element_blank())
 @
 
 <<results='hide'>>=

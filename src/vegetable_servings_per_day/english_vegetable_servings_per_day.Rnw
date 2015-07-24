@@ -10,30 +10,40 @@ df <-  data.frame(pt = config_pt_vegetable_servings_per_day,
                   other = config_sex_age_vegetable_servings_per_day,
                   min = config_min_vegetable_servings_per_day)
 df <- melt(df)
+# df$value <- c(0, 1, 20)
+df$text <- df$value
+y_axix_range <- y_axis_range(max(df$value), 'vegetable_servings_per_day')
+min_bar_height <- y_axix_range * 0.03
+min_center_bar_height <- y_axix_range * 0.1
+df$value <- ifelse(df$value == 0, min_bar_height, df$value)
+df$text_y <- sapply(X = df$text, FUN = y_axis_text_height,
+                    min_bar_height, min_center_bar_height, 'fruit_servings_per_day')
+
 @
 
 <<vegetable_plot>>=
-x_axis_names <- c('You\n',
-                  sprintf('Other %s\nin your age group', get_men_women(config_pt_sex)),
-                  'Minimum\nrecommended')
+x_axis_names <- c('\nYou\n',
+                  sprintf('\nOther %s\nin your age group', get_men_women(config_pt_sex)),
+                  '\nMinimum\nrecommended')
 
 ggplot(data = df) +
     geom_bar(aes(x = x_axis_names, y = value),
-             stat="identity",
-             color=color_green_referencerange_bargraph_colverleaf,
-             fill=color_green_referencerange_bargraph_colverleaf,
-             width=.5) +
+             stat = "identity",
+             color = color_green_referencerange_bargraph_colverleaf,
+             fill = color_green_referencerange_bargraph_colverleaf,
+             width = .5) +
     scale_x_discrete(limits = x_axis_names) +
-    scale_y_continuous(expand = c(0,0), limits = c(0, max(df$value + 1))) +
+    scale_y_continuous(expand = c(0,0), limits = c(0, y_axix_range)) +
     geom_text(aes(x = x_axis_names,
-                  y = ifelse(value <= 0.3, value + 0.2, value / 2),
-                  label = value), size = 10) +
+                  y = text_y,
+                  label = text), size = 10) +
     theme_bw() +
-    ylab("servings") +
+    ylab("servings\n") +
     xlab("") +
-    labs(title = "Vegetable Servings per Day") +
+    labs(title = "Vegetable Servings per Day\n") +
     theme(panel.border = element_blank(),
           panel.grid.major.x = element_blank(),
+          panel.grid.minor = element_blank(),
           plot.title = element_text(size = rel(3)),
           axis.title.y = element_text(size = rel(2), vjust = 0.75),
           axis.text.x  = element_text(size = rel(2), vjust = -0.5),

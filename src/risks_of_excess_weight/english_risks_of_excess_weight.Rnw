@@ -61,11 +61,11 @@ dev.off()
   \begin{tabular}{cc}
     \begin{minipage}{.4\textwidth}
     \centering
-    \large \textbf{Body Mass Index (BMI)}\\
+    \Large \textbf{Body Mass Index (BMI)}\\
     kg/m$^2$\\
     \makebox[\textwidth]{\includegraphics[scale=0.65]{risks_excess_weight_left}}\\
-      Body Mass Index (BMI) uses your height and weight to estimate how much body
-fat you have.
+      \normalsize{Body Mass Index (BMI) uses your height and weight to estimate how much body
+fat you have.}
     \end{minipage}
     &
     \begin{minipage}{.6\textwidth}

@@ -39,6 +39,88 @@ max_y_activity <- function(max_value, allowed_min=90){
     }
 }
 
+y_axis_range <- function(max_value, plot_type) {
+    if (plot_type == 'fruit_servings_per_day') {
+        if (max_value < 2) {
+            return(2)
+        } else {
+            return(round(max_value + 1))
+        }
+    } else if (plot_type == 'vegetable_servings_per_day') {
+        if (max_value < 3) {
+            return(3)
+        } else {
+            return(round(max_value + 1))
+        }
+    } else if (plot_type == 'composite_beverage_servings') {
+        if (max_value < 4) {
+            return(5)
+        } else {
+            return(round(max_value + 1))
+        }
+    } else if (plot_type == 'composite_30') {
+        return(30)
+    } else if (plot_type == 'beverage_recommendations') {
+        if (max_value < 4) {
+            return(5)
+        } else {
+            return(round(max_value + 1))
+        }
+    } else {
+        stop("Unknown plot type")
+    }
+}
+
+y_axis_text_height <- function(value, min_bar_height, min_center_bar_height, plot_type) {
+    if (plot_type == 'fruit_servings_per_day') {
+        if (value <= min_center_bar_height) {
+            y <- value + min_center_bar_height / 2
+            y
+        }
+        if (value <= min_bar_height) {
+            zero <- (value + min_center_bar_height)
+            (y + zero) / 2
+        } else {
+            value / 2
+        }
+    } else if (plot_type == 'composite_beverage_servings') {
+        if (value <= min_center_bar_height) {
+            y <- value + min_center_bar_height / 2
+            y
+        }
+        if (value <= min_bar_height) {
+            zero <- (value + min_center_bar_height)
+            (y + zero) / 6
+        } else {
+            value / 2
+        }
+    } else if (plot_type == 'moderate_exercise') {
+        if (value <= min_center_bar_height) {
+            y <- value + min_center_bar_height / 2
+            y
+        }
+        if (value <= min_bar_height) {
+            zero <- (value + min_center_bar_height)
+            (y + zero) / 6
+        } else {
+            value / 2
+        }
+    } else if (plot_type == 'beverage_recommendations') {
+        if (value <= min_center_bar_height) {
+            y <- value + min_center_bar_height / 2
+            y
+        }
+        if (value <= min_bar_height) {
+            zero <- (value + min_center_bar_height)
+            (y + zero) / 3
+        } else {
+            value / 2
+        }
+    } else {
+        stop("unknown plot_type")
+    }
+}
+
 create_grob_from_png_dir <- function(png_dir){
     image <- readPNG(png_dir)
     g <- rasterGrob(image, interpolate=TRUE)
@@ -415,7 +497,7 @@ translate_rundown_spanish <- function(english_text){
 translate_cloverleaf_spanish <- function(english_text) {
     english_text <- tolower(english_text)
     if (english_text == 'excellent') {
-    return("Excelente")
+        return("Excelente")
     } else if (english_text == 'very good') {
         return('Muy bajo')
     } else if (english_text == 'good') {

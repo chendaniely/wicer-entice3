@@ -19,9 +19,11 @@ opts_knit$set(root.dir = normalizePath('../'))
 <<echo=FALSE, results='hide', warning=FALSE, message=FALSE>>=
 # font_import()
 # loadfonts()
+
+# comment out below 3 lines if running batch
 # data_config_pt_language <- "english"
-# pt_english <- 'Sample4' # person's name
-# pt_id <- 'Sample4' # person's ID
+# pt_english <- 'Sample1' # person's name
+# pt_id <- 'Sample1' # person's ID
 
 source('src/helper-00-pt-config.R')
 source('src/helper.R')
