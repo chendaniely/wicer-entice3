@@ -27,6 +27,7 @@ pt_ids <- c('Sample1', 'Sample4') # person's ID
 
 for (id in pt_ids) {
     pt_id <- id
+    pt_english <- id # pt name
     data_config_pt_language <- 'english'
     print(id)
     print(pt_id)
