@@ -9,6 +9,8 @@
 
 \begin{center}
 \Huge{Prolonged Stress}
+
+(lasting at least 6 months)
 \end{center}
 
 <<Prolonged Stress, results='hide'>>=
@@ -40,6 +42,7 @@ in your age group\\
 
 \begin{center}
 \Huge{Prolonged Stress}
+
 (lasting at least 6 months)
 \end{center}
 

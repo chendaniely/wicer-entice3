@@ -63,11 +63,11 @@ ggplot(data = df) +
 \Huge{Minutes of Vigorous Physical Activity per Week}
 \end{center}
 
-\Huge{You reported doing about \Sexpr{df[df$variable == 'pt', 'value']} minutes of
+\Huge{You reported doing about \Sexpr{df[df$variable == 'pt', 'text']} minutes of
 vigorous physical activity per week} \\
 
 \Sexpr{get_men_women(config_pt_sex)} in your age group reported doing an average
-of \Sexpr{df[df$variable == 'other', 'value']} minutes of vigorous physical
+of \Sexpr{df[df$variable == 'other', 'text']} minutes of vigorous physical
 activity per week\\
 
 It is recommended that \Sexpr{tolower(get_men_women(config_pt_sex))} your age

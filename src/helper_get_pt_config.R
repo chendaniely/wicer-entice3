@@ -137,16 +137,30 @@ data_config_pt_vegetable_servings_per_day <-
     round(data_pt_selected$veganddarkvege_wk_perday, digits = 1)
 data_config_sex_age_vegetable_servings_per_day <- data_pt %>%
     group_by(sex, age_group) %>%
-    summarize(avg = mean(veganddarkvege_wk_perday, na.rm=TRUE)) %>%
+    summarize(avg = mean(veganddarkvege_wk_perday, na.rm = TRUE)) %>%
     filter(sex == data_config_pt_sex,
            age_group == data_pt_selected$age_group) %>%
     data.frame() %>%
     select(avg) %>%
     as.numeric() %>%
     round(digits = 1)
-data_config_min_vegetable_servings_per_day <- calculate_vegetable_servings_recommended(
-    data_config_pt_sex, data_config_pt_age
-)
+data_config_min_vegetable_servings_per_day <-
+    calculate_vegetable_servings_recommended(data_config_pt_sex, data_config_pt_age)
+
+#
+# Vigorous physical activity
+#
+data_config_pt_mins_vigorous_physical_activity <- data_pt_selected$vig_amount_minwk
+
+data_config_sex_age_vigorous_physical_activity <- data_pt %>%
+    group_by(sex, age_group) %>%
+    summarize(avg = mean(vig_amount_minwk, na.rm = TRUE)) %>%
+    filter(sex == data_config_pt_sex,
+           age_group == data_pt_selected$age_group) %>%
+    data.frame() %>%
+    select(avg) %>%
+    as.numeric() %>%
+    round()
 
 #
 # Moderate physical activity

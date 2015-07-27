@@ -65,8 +65,8 @@ config_min_vegetable_servings_per_day <- data_config_min_vegetable_servings_per_
 ###############################################################################
 # Get Minutes of Vigorous Physical Activity per Week
 ###############################################################################
-config_pt_mins_vigorous_physical_activity <- 60
-config_sex_age_vigorous_physical_activity <- 55
+config_pt_mins_vigorous_physical_activity <- data_config_pt_mins_vigorous_physical_activity
+config_sex_age_vigorous_physical_activity <- data_config_sex_age_vigorous_physical_activity
 
 
 ###############################################################################

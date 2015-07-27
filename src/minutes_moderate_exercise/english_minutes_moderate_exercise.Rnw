@@ -19,7 +19,7 @@ min_bar_height <- y_axix_range * 0.03
 min_center_bar_height <- y_axix_range * 0.1
 df$value <- ifelse(df$value == 0, min_bar_height, df$value)
 df$text_y <- sapply(X = df$text, FUN = y_axis_text_height,
-                    min_bar_height, min_center_bar_height, 'moderate_exercise')
+                    min_bar_height, min_center_bar_height, 'fruit_servings_per_day')
 @
 
 <<moderate_exercise_plot>>=
@@ -56,6 +56,7 @@ moderate_exercise_plot <- ggplot(data = df) +
           axis.text.y  = element_text(size = rel(1.5)),
           axis.line = element_line(colour = color_blue_bargraph_cloverleaf,
                                    size = 2))
+moderate_exercise_plot
 @
 
 \newpage
@@ -64,11 +65,11 @@ moderate_exercise_plot <- ggplot(data = df) +
 \Huge{Minutes of Moderate Physical Activity per Week}
 \end{center}
 
-\Huge{You reported doing about \Sexpr{df[df$variable == 'pt', 'value']} minutes of
+\Huge{You reported doing about \Sexpr{df[df$variable == 'pt', 'text']} minutes of
 moderate physical activity per week} \\
 
 \Sexpr{get_men_women(config_pt_sex)} in your age group reported doing an average
-of \Sexpr{df[df$variable == 'other', 'value']} minutes of moderate physical
+of \Sexpr{df[df$variable == 'other', 'text']} minutes of moderate physical
 activity per week\\
 
 It is recommended that \Sexpr{tolower(get_men_women(config_pt_sex))} your age
