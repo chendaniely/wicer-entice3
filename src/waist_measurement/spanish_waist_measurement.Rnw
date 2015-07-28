@@ -58,7 +58,7 @@ if (tolower(config_pt_sex) == "male" | config_pt_sex == 1) {
 
 \Large Su medida de cintura fue de \Sexpr{config_pt_waist_in} pulgadas.\\
 
-\Large Para \Sexpr{tolower(get_men_women(config_pt_sex, 'spanish'))},
+\Large Para \Sexpr{tolower(get_men_women(config_pt_sex, 'spanish', 'for'))},
 medidas por encima de \Sexpr{waist_higher}
 pulgadas están asociadas con un mayor riesgo a
 la salud del corazón.\\

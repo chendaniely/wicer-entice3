@@ -7,33 +7,54 @@
 # print(getwd())
 @
 
-<<>>=
+<<Recommended Physical Activity, results='hide'>>=
+file_to_copy <- sprintf(
+    'EnTICE3_2/Recommended Physical Activity/%s_Recommended Physical Activity.png',
+    convert_language_single(config_pt_language))
+file.copy(from = file_to_copy,
+          to = 'src/recommended_physical_activity/recommended_physical_activity.png',
+          overwrite = TRUE)
+@
+
+<<moderate_exercise_recommended>>=
 df <-  data.frame(pt = config_pt_mins_moderate_physical_activity,
                   other = config_sex_age_moderate_physical_activity)
 df <- melt(df)
+
+# df$value <- c(0, 0)
+
+df$text <- df$value
+max_y <- max_y_activity(max(df$value))
+
+y_axix_range <- max_y
+min_bar_height <- y_axix_range * 0.03
+min_center_bar_height <- y_axix_range * 0.1
+df$value <- ifelse(df$value == 0, min_bar_height, df$value)
+df$text_y <- sapply(X = df$text, FUN = y_axis_text_height,
+                    min_bar_height, min_center_bar_height, 'fruit_servings_per_day')
 @
 
 <<>>=
-x_axis_names <- c('Usted',
+x_axis_names <- c('Usted\n',
                   sprintf('%s de la\nmisma edad que usted',
                           get_men_women(config_pt_sex, 'spanish')))
 max_y <- max_y_activity(max(df$value), allowed_min = 180)
 
 moderate_exercise_plot <- ggplot(data = df) +
     geom_bar(aes(x = x_axis_names, y = value),
-             stat="identity",
+             stat = "identity",
              color=color_blue_bargraph_cloverleaf,
              fill=color_blue_bargraph_cloverleaf,
-             width=.5) +
-    scale_x_discrete(limits=c(x_axis_names[1], x_axis_names[2])) +
+             width = .5) +
+    scale_x_discrete(limits = c(x_axis_names[1], x_axis_names[2])) +
     scale_y_continuous(expand = c(0,0), limits = c(0, max_y),
                        breaks = seq(0, max_y, 30)) +
     geom_text(aes(x = x_axis_names,
-                  y = ifelse(value <= 10, value + 15, value / 2),
-                  label = value), size=10) +
-    geom_hline(yintercept=150, linetype="longdash") +
-    geom_text(aes(x = x_axis_names[1], y = 150, vjust = -1,
-                  label='Recomendación Mínima')) +
+                  y = text_y,
+                  label = text), size = 15) +
+    geom_hline(yintercept = 150, linetype = "longdash") +
+    geom_text(aes(x = x_axis_names[2], y = 150, vjust = -.25,
+                  label='Recomendación Mínima'), size = rel(10)) +
     theme_bw() +
     ylab("minutos") +
     xlab("") +
@@ -42,10 +63,9 @@ moderate_exercise_plot <- ggplot(data = df) +
           panel.grid.major.x = element_blank(),
           panel.grid.minor.y = element_blank(),
           plot.title = element_text(size = rel(2)),
-          axis.title.x = element_text(size=30),
-          axis.text.x  = element_text(size=30),
-          axis.title.y = element_text(size=30),
-          axis.text.y  = element_text(size=30),
+          axis.title.y = element_text(size = rel(3), vjust = 0.75),
+          axis.text.x  = element_text(size = rel(3), vjust = -0.5),
+          axis.text.y  = element_text(size = rel(2)),
           axis.line = element_line(colour = color_blue_bargraph_cloverleaf,
                                    size = 2))
 @
@@ -56,18 +76,10 @@ moderate_exercise_plot
 dev.off()
 @
 
-<<Recommended Physical Activity, results='hide'>>=
-file_to_copy <- sprintf(
-    'EnTICE3_2/Recommended Physical Activity/%s_Recommended Physical Activity.png',
-    convert_language_single(config_pt_language))
-file.copy(from = file_to_copy,
-          to = 'src/recommended_physical_activity/recommended_physical_activity.png',
-          overwrite = TRUE)
-@
-
 \begin{table}[H]
 \begin{minipage}[b]{0.47\linewidth}\centering
-\Huge Sus Minutos por Semana de Actividad Física Moderada
+\Large \textbf{Sus Minutos por Semana de Actividad Física Moderada}
+\vspace{15 mm}
 
 \begin{figure}[H]
 \includegraphics[scale=0.4]{moderate_exercise_plot}
@@ -90,11 +102,11 @@ file.copy(from = file_to_copy,
 \Huge{Sus Minutos por Semana de Actividad Física Moderada} \\
 \end{center}
 
-\Large Usted informó que hizo alrededor de \Sexpr{df[df$variable == 'pt', 'value']}
+\Large Usted informó que hizo alrededor de \Sexpr{df[df$variable == 'pt', 'text']}
 minutos de actividad física moderada por semana.\\
 
 \Large \Sexpr{get_men_women(config_pt_sex, 'spanish')}
-de la misma edad que usted informaron que hicieron un promedio de \Sexpr{df[df$variable == 'other', 'value']}
+de la misma edad que usted informaron que hicieron un promedio de \Sexpr{df[df$variable == 'other', 'text']}
 minutos de actividad física moderada por semana.
 
 \begin{center}

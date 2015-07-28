@@ -60,13 +60,14 @@ dev.off()
   \centering
   \begin{tabular}{cc}
     \begin{minipage}{.4\textwidth}
-    \textbf{Su Índice de Masa Corporal (BMI)}\\
+    \centering
+    \Large \textbf{Su Índice de Masa Corporal (BMI)}\\
     kg/m$^2$\\
-      \includegraphics[scale=0.65]{risks_excess_weight_left}\\
-      El índice de masa corporal (BMI
+      \makebox[\textwidth]{\includegraphics[scale=0.65]{risks_excess_weight_left}}\\
+      \normalsize{El índice de masa corporal (BMI
 en inglés) utiliza su estatura y peso
 para estimar cuanta grasa corporal
-usted tiene.
+usted tiene.}
     \end{minipage}
     &
     \begin{minipage}{.6\textwidth}

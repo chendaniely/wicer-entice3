@@ -9,35 +9,50 @@
 df <-  data.frame(pt = config_pt_mins_vigorous_physical_activity,
                   other = config_sex_age_vigorous_physical_activity)
 df <- melt(df)
+# df$value <- c(0, 0)
+
+df$text <- df$value
+max_y <- max_y_activity(max(df$value))
+
+y_axix_range <- max_y
+min_bar_height <- y_axix_range * 0.03
+min_center_bar_height <- y_axix_range * 0.1
+df$value <- ifelse(df$value == 0, min_bar_height, df$value)
+df$text_y <- sapply(X = df$text, FUN = y_axis_text_height,
+                    min_bar_height, min_center_bar_height, 'fruit_servings_per_day')
 @
 
 <<vigorous_exercise_plot>>=
-x_axis_names <- c('Usted',
-                  sprintf('%s de la misma edad que usted',
+x_axis_names <- c('\nUsted',
+                  sprintf('\n%s de la\nmisma edad que usted',
                           get_men_women(config_pt_sex, 'spanish')))
 max_y <- max_y_activity(max(df$value))
 
 ggplot(data = df) +
     geom_bar(aes(x = x_axis_names, y = value),
-             stat="identity",
-             color=color_blue_bargraph_cloverleaf,
-             fill=color_blue_bargraph_cloverleaf,
-             width=.5) +
-    scale_y_continuous(expand = c(0,0), limits = c(0, max_y),
-                       breaks = seq(0, max_y, 15)) +
+             stat = "identity",
+             color = color_blue_bargraph_cloverleaf,
+             fill = color_blue_bargraph_cloverleaf,
+             width = .5) +
+    scale_y_continuous(expand = c(0,0), limits = c(0, max_y)) +
+    scale_x_discrete(limits = x_axis_names) +
     geom_text(aes(x = x_axis_names,
                   y = ifelse(value <= 10, value + 3, value / 2),
-                  label = value), size=10) +
-    geom_hline(yintercept=75, linetype="longdash") +
-    geom_text(aes(x = x_axis_names[1], y = 75, vjust = -1,
-                  label='Recomendación Mínima')) +
+                  label = text), size = 10) +
+    geom_hline(yintercept = 75, linetype = "longdash") +
+    geom_text(aes(x = x_axis_names[2], y = 75, vjust = -.25, hjust = -0.1,
+                  label = 'Recomendación Mínima')) +
     theme_bw() +
-    ylab("minutos") +
+    ylab("minutos\n") +
     xlab("") +
-    labs(title="Minutos por Semana de Actividad Física Vigorosa") +
+    labs(title = "Minutos por Semana de Actividad Física Vigorosa\n") +
     theme(panel.border = element_blank(),
           panel.grid.major.x = element_blank(),
+          panel.grid.minor.y = element_blank(),
           plot.title = element_text(size = rel(2)),
+          axis.title.y = element_text(size = rel(2), vjust = 0.75),
+          axis.text.x  = element_text(size = rel(2), vjust = -0.5),
+          axis.text.y  = element_text(size = rel(1.5)),
           axis.line = element_line(colour = color_blue_bargraph_cloverleaf,
                                    size = 2))
 @
@@ -48,11 +63,11 @@ ggplot(data = df) +
 \Huge{Minutos por Semana de Actividad Física Vigorosa}
 \end{center}
 
-\Huge Usted informó que hizo alrededor de \Sexpr{df[df$variable == 'pt', 'value']}
+\Huge Usted informó que hizo alrededor de \Sexpr{df[df$variable == 'pt', 'text']}
 minutos de actividad física vigorosa por semana.\\
 
 \Sexpr{get_men_women(config_pt_sex, 'spanish')}
-de la misma edad que usted informaron que hicieron un promedio de \Sexpr{df[df$variable == 'other', 'value']}
+de la misma edad que usted informaron que hicieron un promedio de \Sexpr{df[df$variable == 'other', 'text']}
 minutos de actividad física vigorosa por semana.\\
 
 Se recomienda que \Sexpr{tolower(get_men_women(config_pt_sex, 'spanish', 'gender'))}

@@ -20,7 +20,7 @@
 # Overall Health
 # Physical Activity
 
-dummy <- data.frame(x=c(0,10), y=c(0, 10))
+dummy <- data.frame(x = c(0,10), y = c(0, 10))
 fruit_g <- create_grob_from_png_dir(
     sprintf(
         "EnTICE3_2/Health Compared to Ideal Cloverleaf/%s/%s_Fruit Veg %s.png",

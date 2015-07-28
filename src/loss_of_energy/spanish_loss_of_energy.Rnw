@@ -31,10 +31,9 @@ sex_age_battery_g <- create_grob_from_png_dir(
 @
 
 <<Feeling Run Down Plot>>=
-label_you_1 <- sprintf("Usted\n%s", translate_rundown_spanish(pt_run_down_text))
-label_other_sex_age <- sprintf("%s de la\nmisma edad que usted\n%s",
-                              get_men_women(config_pt_sex, 'spanish'),
-                              translate_rundown_spanish(sex_age_run_down_text))
+label_you_1 <- "Usted"
+label_other_sex_age <- sprintf("%s de la\nmisma edad que usted",
+                              get_men_women(config_pt_sex, 'spanish'))
 
 mylabels <- c(label_you_1,
               label_other_sex_age
@@ -49,10 +48,17 @@ ggplot(data = dummy, aes(x = x, y = y)) +
     annotation_custom(sex_age_battery_g,
                       xmin = 6.2, xmax = 9.2,
                       ymin = 0.25, ymax = 7) +
-    scale_x_continuous(breaks = c(2.3, 7.75),
-                       labels = mylabels) +
-    theme(axis.text.x = element_text(size = 20, color = "black"),
+
+    annotate("text", label = label_you_1, x = 2.3, y = -0.7, size = 7, fontface = 'bold') +
+    annotate("text", label = label_other_sex_age, x = 7.75, y = -0.9, size = 7) +
+
+    annotate("text", label = translate_rundown_spanish(pt_run_down_text), x = 2.3, y = -1.8, size = 6, fontface = 'italic') +
+    annotate("text", label = translate_rundown_spanish(sex_age_run_down_text), x = 7.75, y = -2.5, size = 6, fontface = 'italic') +
+
+    scale_x_continuous(breaks = c(2.3, 7.75)) +
+    theme(axis.text.x = element_blank(),
           axis.text.y = element_blank(),
+          axis.ticks.x = element_blank(),
           axis.ticks.y = element_blank(),
           panel.grid = element_blank(),
           panel.background = element_blank()

@@ -44,28 +44,29 @@ for (id in pt_ids) {
     clean_knitr(data_config_pt_language)
 }
 
-# pt_englishs <- c('Sample2', 'Sample3', 'Sample5') # person's name
-# pt_ids <- c('Sample2', 'Sample3', 'Sample5') # person's ID
-#
-# # id <- pt_ids[1]
-# # pt_english <- pt_englishs[1]
-#
-# for (id in pt_ids) {
-#     pt_id <- id
-#     data_config_pt_language <- 'spanish'
-#     print(id)
-#     print(pt_id)
-#     output_file_name <- sprintf('output/spanish/%s.pdf', pt_id)
-#
-#     tryCatch({
-#         setwd('src/')
-#         knit2pdf(input = '01-03-spanish.Rnw')
-#         setwd('../')
-#     }, error = function(e){})
-#
-#     file.copy(from = 'src/01-03-spanish.pdf', to = output_file_name, overwrite = TRUE)
-#     clean_images()
-#     clean_knitr(data_config_pt_language)
-# }
+pt_englishs <- c('Sample2', 'Sample3', 'Sample5') # person's name
+pt_ids <- c('Sample2', 'Sample3', 'Sample5') # person's ID
+
+# id <- pt_ids[1]
+# pt_english <- pt_englishs[1]
+
+for (id in pt_ids) {
+    pt_id <- id
+    pt_english <- id
+    data_config_pt_language <- 'spanish'
+    print(id)
+    print(pt_id)
+    output_file_name <- sprintf('output/spanish/%s.pdf', pt_id)
+
+    tryCatch({
+        setwd('src/')
+        knit2pdf(input = '01-03-spanish.Rnw')
+        setwd('../')
+    }, error = function(e){})
+
+    file.copy(from = 'src/01-03-spanish.pdf', to = output_file_name, overwrite = TRUE)
+    clean_images()
+    clean_knitr(data_config_pt_language)
+}
 
 

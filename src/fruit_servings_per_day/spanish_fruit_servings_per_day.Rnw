@@ -30,9 +30,9 @@ ggplot(data = df) +
                   y = ifelse(value <= 0.3, value + 0.12, value / 2),
                   label = value), size = 10) +
     theme_bw() +
-    ylab("porciones") +
+    ylab("porciones\n") +
     xlab("") +
-    labs(title = "Porciones de Frutas por Día") +
+    labs(title = "Porciones de Frutas por Día\n") +
     theme(panel.border = element_blank(),
           plot.title = element_text(size = rel(3)),
           panel.grid.major.x = element_blank(),
