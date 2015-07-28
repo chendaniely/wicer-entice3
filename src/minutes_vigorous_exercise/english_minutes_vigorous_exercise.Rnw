@@ -33,8 +33,7 @@ ggplot(data = df) +
              color = color_blue_bargraph_cloverleaf,
              fill = color_blue_bargraph_cloverleaf,
              width = .5) +
-    scale_y_continuous(expand = c(0,0), limits = c(0, max_y),
-                       breaks = seq(0, max_y, 15)) +
+    scale_y_continuous(expand = c(0,0), limits = c(0, max_y)) +
     scale_x_discrete(limits = x_axis_names) +
     geom_text(aes(x = x_axis_names,
                   y = ifelse(value <= 10, value + 3, value / 2),

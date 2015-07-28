@@ -32,8 +32,7 @@ ggplot(data = dummy, aes(x = x, y = y)) +
                  arrow = arrow(length = unit(0.5, "cm"))) +
     annotate("text", label = "Your\nSymptom\nScore",
              x = arrow_start, y = 72.5, size = 7) +
-    annotate("text", label = sprintf("%s",
-                                     config_pt_depression_b),
+    annotate("text", label = config_pt_depression_b,
              x = arrow_start, y = 58, size = 10) +
     theme_nothing_text() +
     theme(legend.position = "none") +

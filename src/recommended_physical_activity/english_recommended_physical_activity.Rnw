@@ -103,12 +103,12 @@ dev.off()
 \Huge{Your Minutes per Week of Moderate Physical Activity} \\
 \end{center}
 
-\Large{You reported doing about \Sexpr{df[df$variable == 'pt', 'value']} minutes
+\Large{You reported doing about \Sexpr{df[df$variable == 'pt', 'text']} minutes
 of moderate physical activity per week.}\\
 
 \Large{\Sexpr{get_men_women(config_pt_sex)}
 in your age group reported doing an average of
-\Sexpr{df[df$variable == 'other', 'value']} minutes of moderate physical
+\Sexpr{df[df$variable == 'other', 'text']} minutes of moderate physical
 activity per week.}
 
 \begin{center}

@@ -15,18 +15,17 @@ base_image_g <- create_grob_from_png_dir(
         convert_language_single(config_pt_language)
     ))
 
-config_pt_bp_s <- 60
-config_pt_bp_d <- 40
-
 segment_s_x <- function(s_value, s_value_base, base_x_value){
-    if (s_value <- 95) {value <- 95}
+    if (s_value < 95) {s_value <- 95}
+    if (s_value > 168) {s_value <- 168}
     normalize_x <- s_value - s_value_base
     value <- base_x_value + (normalize_x * 0.04280)
 }
 s_location <- segment_s_x(config_pt_bp_s, 110, 0.875)
 
 segment_d_x <- function(d_value, d_value_base, base_x_value){
-    if (d_value <- 68) {value <- 68}
+    if (d_value < 68) {d_value <- 68}
+    if (d_value > 110) {d_value <- 110}
     normalize_x <- d_value - d_value_base
     value <- base_x_value + (normalize_x * 0.0855)
 }

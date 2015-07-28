@@ -70,9 +70,9 @@ ggplot(data = df) +
 \Huge{Per week, you reported drinking:} \\
 
 \begin{itemize}
-    \item \Sexpr{df[df$variable == 'soda', 'value']} servings of regular (not diet) soda
-    \item \Sexpr{df[df$variable == 'purejuice', 'value']} servings of 100\% pure juices, and
-    \item \Sexpr{df[df$variable == 'sugaryfruitdrink', 'value']} servings of sweetened or fruit drinks.
+    \item \Sexpr{df[df$variable == 'soda', 'text']} servings of regular (not diet) soda
+    \item \Sexpr{df[df$variable == 'purejuice', 'text']} servings of 100\% pure juices, and
+    \item \Sexpr{df[df$variable == 'sugaryfruitdrink', 'text']} servings of sweetened or fruit drinks.
 \end{itemize}
 
 \newpage
