@@ -30,7 +30,7 @@ ggplot(data = dummy, aes(x = x, y = y)) +
              x = arrow_start, y = 72.5, size = 7) +
     annotate("text", label = sprintf("%s",
                                      config_pt_anxiety),
-             x = arrow_start, y = 58, size = 15) +
+             x = arrow_start, y = 58, size = 10) +
     theme_nothing_text() +
     theme(legend.position="none") +
     theme(axis.title = element_blank(), axis.text = element_blank()) +

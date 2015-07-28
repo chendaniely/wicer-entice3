@@ -128,6 +128,11 @@ create_grob_from_png_dir <- function(png_dir){
 }
 
 calculate_bmi_indicator_bounds <- function(bmi_value){
+    if (bmi_value > 36) {
+        bmi_value <- 36
+    } else if (bmi_value < 14) {
+        bmi_value <- 14
+    }
     offset_from_15 <- (bmi_value - 15) * 0.9
     x_min <- 0.65 + offset_from_15
     x_max <- x_min + 2
@@ -170,6 +175,20 @@ calculate_bmi_cat_coord <- function(bmi_value, pt_sex){
 }
 
 calculate_waist_indicator_bounds <- function(waist_value, pt_sex){
+    if (pt_sex == 1) {
+        if (waist_value < 31) {
+            waist_value <- 31
+        } else if (waist_value > 49) {
+            waist_value <- 49
+        }
+    } else {
+        if (waist_value < 26) {
+            waist_value <- 26
+        } else if (waist_value > 4) {
+            waist_value <- 44
+        }
+    }
+
     offset_value <- ifelse(pt_sex == 1, 32, 27)
     offset <- (waist_value - offset_value)
     x_min <- 1.5 + (offset * (0.88))
