@@ -57,13 +57,13 @@ for (id in pt_ids) {
     print(id)
     print(pt_id)
     output_file_name <- sprintf('output/spanish/%s.pdf', pt_id)
+    setwd('src/')
 
     tryCatch({
-        setwd('src/')
         knit2pdf(input = '01-03-spanish.Rnw')
-        setwd('../')
     }, error = function(e){})
 
+    setwd('../')
     file.copy(from = 'src/01-03-spanish.pdf', to = output_file_name, overwrite = TRUE)
     clean_images()
     clean_knitr(data_config_pt_language)
