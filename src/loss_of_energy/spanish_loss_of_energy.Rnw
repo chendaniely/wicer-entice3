@@ -50,10 +50,10 @@ ggplot(data = dummy, aes(x = x, y = y)) +
                       ymin = 0.25, ymax = 7) +
 
     annotate("text", label = label_you_1, x = 2.3, y = -0.7, size = 7, fontface = 'bold') +
-    annotate("text", label = label_other_sex_age, x = 7.75, y = -0.9, size = 7) +
+    annotate("text", label = translate_rundown_spanish(pt_run_down_text), x = 2.3, y = -1.75, size = 6, fontface = 'italic') +
 
-    annotate("text", label = translate_rundown_spanish(pt_run_down_text), x = 2.3, y = -1.8, size = 6, fontface = 'italic') +
-    annotate("text", label = translate_rundown_spanish(sex_age_run_down_text), x = 7.75, y = -2.5, size = 6, fontface = 'italic') +
+    annotate("text", label = label_other_sex_age, x = 7.75, y = -1.25, size = 7) +
+    annotate("text", label = translate_rundown_spanish(sex_age_run_down_text), x = 7.75, y = -2.75, size = 6, fontface = 'italic') +
 
     scale_x_continuous(breaks = c(2.3, 7.75)) +
     theme(axis.text.x = element_blank(),
