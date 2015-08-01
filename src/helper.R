@@ -176,16 +176,16 @@ calculate_bmi_cat_coord <- function(bmi_value, pt_sex){
 
 calculate_waist_indicator_bounds <- function(waist_value, pt_sex){
     if (pt_sex == 1) {
-        if (waist_value < 31) {
-            waist_value <- 31
-        } else if (waist_value > 49) {
-            waist_value <- 49
+        if (waist_value < 30.75) {
+            waist_value <- 30.75
+        } else if (waist_value > 49.25) {
+            waist_value <- 49.25
         }
     } else {
-        if (waist_value < 26) {
-            waist_value <- 26
-        } else if (waist_value > 4) {
-            waist_value <- 44
+        if (waist_value < 25.75) {
+            waist_value <- 25.75
+        } else if (waist_value > 44.25) {
+            waist_value <- 44.25
         }
     }
 
