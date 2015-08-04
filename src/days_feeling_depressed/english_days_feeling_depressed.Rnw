@@ -8,7 +8,7 @@
 @
 
 \begin{center}
-\Huge Days feeling sad, blue, or depressed in the last 30 days\\
+\Huge \textbf{Days feeling sad, blue, or depressed in the last 30 days}\\
 \end{center}
 
 <<depressed>>=
@@ -197,8 +197,8 @@ dev.off()
 \begin{figure}[H]
 \centerline{\includegraphics[scale=1.25, trim=30 40 30 40, clip=true]{depressed_30}}
 \end{figure}
-\Large You\\
-\Large \Sexpr{config_pt_depressed_30} days\\
+\Huge \textbf{You}\\
+\Huge \textit{\Sexpr{config_pt_depressed_30} days}\\
 \phantom{Empty space to have images align}
 \end{center}
 \end{minipage}
@@ -209,9 +209,9 @@ dev.off()
 \begin{figure}[H]
 \centerline{\includegraphics[scale=1.25, trim=30 40 30 60, clip=true]{sex_age_depressed_30}}
 \end{figure}
-\Large Other \Sexpr{tolower(get_men_women(config_pt_sex))} in\\
-\Large your age group\\
-\Large \Sexpr{config_sex_age_depressed_30} days
+\Huge Other \Sexpr{tolower(get_men_women(config_pt_sex))} in\\
+\Huge your age group\\
+\Huge \textit{\Sexpr{config_sex_age_depressed_30} days}
 \end{center}
 \end{minipage}
 \end{table}
@@ -224,7 +224,7 @@ dev.off()
 
 \Large You reported feeling sad, blue, or depressed for \Sexpr{config_pt_depressed_30} out of 30 days.\\
 
-\Large \Sexpr{get_men_women(config_pt_sex)} in your age group reported being sad, blue,
+\Large \Sexpr{get_men_women(config_pt_sex, 'spanish')} in your age group reported being sad, blue,
 or depressed for an average of \Sexpr{config_sex_age_depressed_30} out of 30 days.
 
 \newpage

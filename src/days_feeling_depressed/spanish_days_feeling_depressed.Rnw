@@ -8,7 +8,7 @@
 @
 
 \begin{center}
-\Huge Días entre los últimos 30 días sintiéndose triste, deprimido, o melancólico\\
+\Huge \textbf{Días entre los últimos 30 días sintiéndose triste, deprimido, o melancólico}\\
 \end{center}
 
 <<depressed>>=
@@ -197,8 +197,8 @@ dev.off()
 \begin{figure}[H]
 \centerline{\includegraphics[scale=1.25, trim=30 40 30 40, clip=true]{depressed_30}}
 \end{figure}
-\Huge Usted\\
-\Huge \Sexpr{config_pt_depressed_30} dias\\
+\Huge \textbf{Usted}\\
+\Huge \textit{\Sexpr{config_pt_depressed_30} días}\\
 \phantom{Empty space to have images align}
 \end{center}
 \end{minipage}
@@ -211,7 +211,7 @@ dev.off()
 \end{figure}
 \Huge \Sexpr{get_men_women(config_pt_sex, 'spanish')} de la misma\\
 edad que usted\\
-\Huge \Sexpr{config_sex_age_depressed_30} dias
+\Huge \textit{\Sexpr{config_sex_age_depressed_30} días}
 \end{center}
 \end{minipage}
 \end{table}

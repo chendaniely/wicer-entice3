@@ -19,6 +19,7 @@ opts_knit$set(root.dir = normalizePath('../'))
 <<echo=FALSE, results='hide', warning=FALSE, message=FALSE>>=
 # font_import()
 # loadfonts()
+
 # data_config_pt_language <- "spanish"
 # pt_spanish <- 'Sample2' # person's name
 # pt_english <- pt_spanish

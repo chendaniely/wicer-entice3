@@ -68,5 +68,3 @@ for (id in pt_ids) {
     clean_images()
     clean_knitr(data_config_pt_language)
 }
-
-

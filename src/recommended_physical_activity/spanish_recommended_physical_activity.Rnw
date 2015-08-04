@@ -56,7 +56,7 @@ moderate_exercise_plot <- ggplot(data = df) +
     geom_text(aes(x = x_axis_names[2], y = 150, vjust = -.25,
                   label='Recomendación Mínima'), size = rel(10)) +
     theme_bw() +
-    ylab("minutos") +
+    ylab("minutos\n") +
     xlab("") +
     # labs(title="Sus Minutos por Semana de Actividad Física Moderada") +
     theme(panel.border = element_blank(),

@@ -22,10 +22,10 @@ df$text_y <- sapply(X = df$text, FUN = y_axis_text_height,
 @
 
 <<vegetable_plot>>=
-x_axis_names <- c('\nUsted\n',
-                  sprintf('%s\nde la misma edad\nque usted',
-                          tolower(get_men_women(config_pt_sex, 'spanish'))),
-                  '\nRecomendación\nmínima')
+x_axis_names <- c('\nUsted\n\n',
+                  sprintf('\n%s\nde la misma edad\nque usted',
+                          get_men_women(config_pt_sex, 'spanish')),
+                  '\nRecomendación\nmínima\n')
 
 ggplot(data = df) +
     geom_bar(aes(x = x_axis_names, y = value),

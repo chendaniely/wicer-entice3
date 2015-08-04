@@ -54,10 +54,10 @@ moderate_exercise_plot <- ggplot(data = df) +
                   label = text), size = 15) +
     geom_hline(yintercept = 150, linetype = "longdash") +
     geom_text(aes(x = x_axis_names[2], y = 150, vjust = -.25,
-                  #hjust = -0.00000000000000000001,
+                  #hjust = -0.000000000000000000000000000000000001,
                   label = 'Recommended Minimum'), size = rel(10)) +
     theme_bw() +
-    ylab("minutes") +
+    ylab("minutes\n") +
     xlab("") +
     theme(panel.border = element_blank(),
           panel.grid.major.x = element_blank(),
@@ -83,7 +83,7 @@ dev.off()
 \vspace{15 mm}
 
 \begin{figure}[H]
-\includegraphics[scale=0.4]{moderate_exercise_plot}
+\includegraphics[scale=0.45]{moderate_exercise_plot}
 \end{figure}
 
 \end{minipage}

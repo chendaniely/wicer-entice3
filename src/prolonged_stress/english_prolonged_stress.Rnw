@@ -8,7 +8,7 @@
 @
 
 \begin{center}
-\Huge{Prolonged Stress}
+\Huge{\textbf{Prolonged Stress}}
 
 (lasting at least 6 months)
 \end{center}
@@ -25,7 +25,7 @@ other_stat <- get_prolong_stress_image_stat(config_sex_age_stress, 'other')
 \begin{minipage}[b]{0.5\linewidth}
 \centering
 \includegraphics[width=0.75\textwidth]{prolonged_stress_pt}
-\caption*{\large{\textbf{You}\\
+\caption*{\Huge{\textbf{You}\\
 \textit{\Sexpr{stri_trans_totitle(pt_stat)}}\\
 \phantom{blank line of text}}}
 
@@ -34,7 +34,7 @@ other_stat <- get_prolong_stress_image_stat(config_sex_age_stress, 'other')
 \begin{minipage}[b]{0.5\linewidth}
 \centering
 \includegraphics[width=0.75\textwidth]{prolonged_stress_other}
-\caption*{\large{Other \Sexpr{tolower(get_men_women(config_pt_sex))}\\
+\caption*{\huge{Other \Sexpr{tolower(get_men_women(config_pt_sex))}\\
 in your age group\\
 \textit{\Sexpr{stri_trans_totitle(other_stat)}}}}
 \end{minipage}

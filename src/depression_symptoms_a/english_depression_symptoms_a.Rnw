@@ -8,7 +8,7 @@
 @
 
 \begin{center}
-\Huge{Depression Symptoms A}
+\Huge{\textbf{Depression Symptoms A}}
 \end{center}
 
 \vspace{2cm}
@@ -23,8 +23,8 @@ other_stat <- get_depression_symptom_image(config_sex_age_depression_a, 'other')
 \begin{minipage}[b]{0.5\linewidth}
 \centering
 \includegraphics[width=0.75\textwidth]{depression_symptoms_a_pt}
-\caption*{\large{You\\
-\Sexpr{stri_trans_totitle(pt_stat)}\\
+\caption*{\Huge{\textbf{You}\\
+\textit{\Sexpr{stri_trans_totitle(pt_stat)}}\\
 \phantom{blank line of text}}}
 
 \end{minipage}
@@ -32,9 +32,9 @@ other_stat <- get_depression_symptom_image(config_sex_age_depression_a, 'other')
 \begin{minipage}[b]{0.5\linewidth}
 \centering
 \includegraphics[width=0.75\textwidth]{depression_symptoms_a_other}
-\caption*{\large{Other \Sexpr{tolower(get_men_women(config_pt_sex))}\\
+\caption*{\huge{Other \Sexpr{tolower(get_men_women(config_pt_sex))}\\
 in your age group\\
-\Sexpr{stri_trans_totitle(other_stat)}}}
+\textit{\Sexpr{stri_trans_totitle(other_stat)}}}}
 \end{minipage}
 \end{figure}
 

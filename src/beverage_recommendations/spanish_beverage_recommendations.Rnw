@@ -37,8 +37,8 @@ df$text_y <- sapply(X = df$text, FUN = y_axis_text_height,
 
 
 <<>>=
-x_axis_names <- c('Sodas con azúcar\n(no de dieta)',
-                  'Jugos de fruta\n100% naturales')
+x_axis_names <- c('\nSodas con azúcar\n(no de dieta)',
+                  '\nJugos de fruta\n100% naturales')
 
 beverage_recommendation_plot <- ggplot(data = df) +
     theme_bw() +
@@ -54,7 +54,7 @@ beverage_recommendation_plot <- ggplot(data = df) +
     scale_y_continuous(expand = c(0,0), limits = c(0, y_axis_range)) +
     geom_text(aes(x = variable,
                   y = text_y,
-                  label = text), size = 10) +
+                  label = text), size = 15) +
     xlab(NULL) +
     ylab("porciones\n") +
     ggtitle("Sus Porciones por Semana de Bebidas\ncon Contenido de Azúcar\n") +
@@ -63,11 +63,11 @@ beverage_recommendation_plot <- ggplot(data = df) +
           panel.grid.minor.y = element_blank(),
           panel.grid.major.x = element_blank(),
           panel.grid.minor.x = element_blank(),
-          plot.title = element_text(size = rel(2)),
-          axis.title.x = element_text(size=20),
-          axis.text.x  = element_text(size=20),
-          axis.title.y = element_text(size=20),
-          axis.text.y  = element_text(size=20),
+          plot.title = element_text(size = rel(3)),
+          axis.title.x = element_text(size=40),
+          axis.text.x  = element_text(size=40),
+          axis.title.y = element_text(size=40),
+          axis.text.y  = element_text(size=40),
           legend.position="none",
           axis.title.y = element_blank(),
           axis.line = element_line(size = 1),
@@ -75,7 +75,7 @@ beverage_recommendation_plot <- ggplot(data = df) +
 @
 
 <<results='hide'>>=
-png("src/beverage_recommendations/beverage_recommendation_plot.png")
+png("src/beverage_recommendations/beverage_recommendation_plot.png", width = 800, height = 600)
 beverage_recommendation_plot
 dev.off()
 @

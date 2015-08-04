@@ -73,12 +73,12 @@ ggplot(data = dummy, aes(x = x, y = y)) +
 \Huge{Sintiéndose Agotado}
 \end{center}
 
-\Large Cuando le preguntamos qué tan \Sexpr{spanish_gender('agotad', config_pt_sex)}
+\Large Cuando le preguntamos qué tan \Sexpr{tolower(spanish_gender('agotad', config_pt_sex))}
 se sentía en promedio, usted respondió
 \Sexpr{tolower(translate_rundown_spanish(pt_run_down_text))}.\\
 
 Cuando le preguntamos a \Sexpr{get_men_women(config_pt_sex, 'spanish')}
-de la misma edad que usted qué tan \Sexpr{spanish_gender('agotad', config_pt_sex)}s
+de la misma edad que usted qué tan \Sexpr{tolower(spanish_gender('agotad', config_pt_sex))}s
 se sentían en promedio, respondieron
 \Sexpr{tolower(translate_rundown_spanish(sex_age_run_down_text))}.
 

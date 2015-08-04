@@ -13,10 +13,10 @@ df <- melt(df)
 @
 
 <<fruit_plot>>=
-x_axis_names <- c('Usted',
-                  sprintf('%s\nde la misma edad\nque usted',
+x_axis_names <- c('\nUsted',
+                  sprintf('\n%s\nde la misma edad\nque usted',
                           get_men_women(config_pt_sex, 'spanish')),
-                  'Recomendación\nmínima')
+                  '\nRecomendación\nmínima')
 
 ggplot(data = df) +
     geom_bar(aes(x = x_axis_names, y = value),
@@ -50,10 +50,10 @@ ggplot(data = df) +
 \newpage
 
 \begin{center}
-\Huge{Fruit Servings per Day}
+\Huge{Porciones de Frutas por Día}
 \end{center}
 
-\Huge Usted informó que comió alrededor de\Sexpr{df[df$variable == 'pt', 'value']}
+\Huge Usted informó que comió alrededor de \Sexpr{df[df$variable == 'pt', 'value']}
 porciones de frutas por día.\\
 
 \Sexpr{get_men_women(config_pt_sex, 'spanish')}

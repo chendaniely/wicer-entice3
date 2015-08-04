@@ -22,9 +22,9 @@ df$text_y <- sapply(X = df$text, FUN = y_axis_text_height,
 @
 
 <<composite_beverage_servings_plot>>=
-x_axis_names <- c('Sodas con azúcar (no de dieta)',
-                  'Jugos de fruta 100% naturales',
-                  'Bebidas de frutas o azucaradas')
+x_axis_names <- c('Sodas con azúcar\n(no de dieta)',
+                  'Jugos de fruta\n100% naturales',
+                  'Bebidas de frutas\no azucaradas')
 
 ggplot(data = df) +
     theme_bw() +
