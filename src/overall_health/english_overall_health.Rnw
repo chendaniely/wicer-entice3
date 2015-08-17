@@ -6,7 +6,7 @@
 @
 
 \begin{center}
-\Huge{\textbf{Overall Health}}
+\HUGE{\textbf{Overall Health}}
 \end{center}
 
 <<Overall Health>>=

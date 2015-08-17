@@ -95,14 +95,15 @@ y_axis_text_height <- function(value, min_bar_height, min_center_bar_height, plo
             value / 2
         }
     } else if (plot_type == 'moderate_exercise') {
-        if (value <= min_center_bar_height) {
-            y <- value + min_center_bar_height / 2
+        if (value <= min_center_bar_height & value > min_bar_height) {
+            y <- value + min_center_bar_height / 4
             y
-        }
-        if (value <= min_bar_height) {
+        } else if (value <= min_center_bar_height & value <= min_bar_height) {
+            y <- value + min_center_bar_height / 2
             zero <- (value + min_center_bar_height)
             (y + zero) / 6
         } else {
+            print("in")
             value / 2
         }
     } else if (plot_type == 'beverage_recommendations') {
@@ -114,6 +115,18 @@ y_axis_text_height <- function(value, min_bar_height, min_center_bar_height, plo
             zero <- (value + min_center_bar_height)
             (y + zero) / 3
         } else {
+            value / 2
+        }
+    } else if (plot_type == 'exercise_recommendations') {
+        if (value <= min_center_bar_height & value > min_bar_height) {
+            y <- value + min_center_bar_height / 2
+            y
+        } else if (value <= min_center_bar_height & value <= min_bar_height) {
+            y <- value + min_center_bar_height / 1.5
+            zero <- (value + min_center_bar_height)
+            (y + zero) / 6
+        } else {
+            print("in")
             value / 2
         }
     } else {
@@ -168,7 +181,7 @@ calculate_bmi_cat_coord <- function(bmi_value, pt_sex){
         } else if (tolower(pt_bmi_cat) == 'overweight') {
             coords$x <- 12.8
         } else if (tolower(pt_bmi_cat) == 'obese') {
-            coords$x <- 19.0
+            coords$x <- 17.65
         }
     }
     return(coords)
@@ -466,7 +479,7 @@ theme_nothing_text <- function(base_size = 12, base_family = "Helvetica")
 attr(theme_nothing_text(), "complete")
 
 spanish_blue <- function(pt_sex){
-    return(ifelse(pt_sex == 1, 'melancolico', 'melancolica'))
+    return(ifelse(pt_sex == 1, 'melancólico', 'melancólica'))
 }
 
 spanish_depressed <- function(pt_sex){
@@ -513,15 +526,27 @@ translate_rundown_spanish <- function(english_text){
     }
 }
 
-translate_cloverleaf_spanish <- function(english_text) {
+translate_cloverleaf_spanish <- function(english_text, fair_poor='majo/muy bajo') {
     english_text <- tolower(english_text)
     if (english_text == 'excellent') {
         return("Excelente")
     } else if (english_text == 'very good') {
-        return('Muy bajo')
+        return('Muy buena')
     } else if (english_text == 'good') {
         return('Bueno')
+    } else if (english_text == 'fair') {
+        if (fair_poor == 'majo/muy bajo') {
+            return('Bajo')
+        } else if (fair_poor == 'regular/mala') {
+            return('Regular')
+        }
     } else if (english_text == 'poor') {
-        return('Muy bajo')
+        if (fair_poor == 'majo/muy bajo') {
+            return('Muy bajo')
+        } else if (fair_poor == 'regular/mala') {
+            return('Mala')
+        }
+    } else{
+        return(sprintf('Unknown english text: %s', english_text))
     }
 }

@@ -228,7 +228,7 @@ o
 durante \Sexpr{config_pt_depressed_30}
 de 30 días.\\
 
-\Large \Sexpr{get_men_women(config_pt_sex)}
+\Large \Sexpr{get_men_women(config_pt_sex, 'spanish')}
 de la misma edad que usted informaron que se sintieron tristes,
 \Sexpr{spanish_blue(config_pt_sex)}s,
 o

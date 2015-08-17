@@ -3,6 +3,8 @@
 
 \graphicspath{{./beverage_recommendations/}}
 
+\newgeometry{left=1cm, right=1cm}
+
 <<>>=
 # print(getwd())
 @
@@ -97,6 +99,8 @@ dev.off()
 \includegraphics[width=\textwidth]{beverage_recommendations}
 \end{minipage}
 \end{figure}
+
+\restoregeometry
 
 \newpage
 

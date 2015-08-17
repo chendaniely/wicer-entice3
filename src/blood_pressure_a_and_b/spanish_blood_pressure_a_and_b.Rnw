@@ -62,6 +62,23 @@ stoplight_number_position <- function(stoplight_color, systolic_or_diastolic) {
 
 stoplight_s_number_pos <- stoplight_number_position(pt_bp_s_color, "systolic")
 stoplight_d_number_pos <- stoplight_number_position(pt_bp_d_color, "diastolic")
+
+segment_s_x <- function(s_value, s_value_base, base_x_value){
+    if (s_value < 95) {s_value <- 95}
+    if (s_value > 168) {s_value <- 168}
+    normalize_x <- s_value - s_value_base
+    value <- base_x_value + (normalize_x * 0.465) # 428
+}
+s_location <- segment_s_x(config_pt_bp_s, 110, 56)
+
+segment_d_x <- function(d_value, d_value_base, base_x_value){
+    if (d_value < 68) {d_value <- 68}
+    if (d_value > 110) {d_value <- 110}
+    normalize_x <- d_value - d_value_base
+    value <- base_x_value + (normalize_x * 0.95) #.855
+}
+d_location <- segment_d_x(config_pt_bp_d, 75, 56)
+@
 @
 
 <<Blood Pressure A & B plot>>=
@@ -77,8 +94,15 @@ ggplot(data = dummy, aes(x = x, y = y)) +
     annotate("text", label = config_pt_bp_s, x = 34.5, y = 20, size = 15) +
     annotate("text", label = config_pt_bp_d, x = 34.5, y = 60, size = 15) +
     annotate("text", label = config_pt_bp_d, x = 34.5, y = 6, size = 15) +
-    annotate("text", label = config_pt_bp_s, x = stoplight_s_number_pos$x, y = stoplight_s_number_pos$y, size = 12, color = 'white') +
-    annotate("text", label = config_pt_bp_d, x = stoplight_d_number_pos$x, y = stoplight_d_number_pos$y, size = 12, color = 'white') +
+    annotate("text", label = config_pt_bp_s, x = stoplight_s_number_pos$x, y = stoplight_s_number_pos$y, size = 12, color = 'grey') +
+    annotate("text", label = config_pt_bp_d, x = stoplight_d_number_pos$x, y = stoplight_d_number_pos$y, size = 12, color = 'grey') +
+        geom_segment(aes(x = s_location, y = 28,
+                     xend = s_location, yend = 26)) +
+    annotate("text", label = config_pt_bp_s, x = s_location, y =30, , size = 5) +
+
+    geom_segment(aes(x = d_location, y = 6,
+                     xend = d_location, yend = 4)) +
+    annotate("text", label = config_pt_bp_d, x = d_location, y = 8, , size = 5) +
     xlab(NULL) +
     ylab(NULL) +
     theme(axis.title.x = element_blank(),

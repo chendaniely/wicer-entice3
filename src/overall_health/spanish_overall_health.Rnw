@@ -6,7 +6,7 @@
 @
 
 \begin{center}
-\Huge{\textbf{Su Salud en General}}
+\HUGE{\textbf{Su Salud en General}}
 \end{center}
 
 <<Overall Health>>=

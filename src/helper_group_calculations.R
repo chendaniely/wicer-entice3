@@ -61,7 +61,7 @@ calculate_cloverleaf_fruit_value <- function(fruit_value, vegetable_value,
         return("Excellent")
     } else if (fruit_value >= fruit_min | vegetable_value >= vegetable_min){
         return("Good")
-    } else if (fruit_value > fruit_min | vegetable_value > 0){
+    } else if (fruit_value > 0 | vegetable_value > 0){
         return("Fair")
     }
 }

@@ -31,12 +31,12 @@ min_bar_height <- y_axix_range * 0.03
 min_center_bar_height <- y_axix_range * 0.1
 df$value <- ifelse(df$value == 0, min_bar_height, df$value)
 df$text_y <- sapply(X = df$text, FUN = y_axis_text_height,
-                    min_bar_height, min_center_bar_height, 'fruit_servings_per_day')
+                    min_bar_height, min_center_bar_height, 'exercise_recommendations')
 @
 
 <<moderate_exercise_plot_recommended>>=
-x_axis_names <- c('You\n',
-                  sprintf('Other %s\nin your age group',
+x_axis_names <- c('\nYou\n',
+                  sprintf('\nOther %s\nin your age group',
                           tolower(get_men_women(config_pt_sex))))
 max_y <- max_y_activity(max(df$value), allowed_min = 180)
 
@@ -83,7 +83,7 @@ dev.off()
 \vspace{15 mm}
 
 \begin{figure}[H]
-\includegraphics[scale=0.45]{moderate_exercise_plot}
+\includegraphics[scale=0.4]{moderate_exercise_plot}
 \end{figure}
 
 \end{minipage}
