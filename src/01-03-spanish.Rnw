@@ -51,6 +51,11 @@ source('src/helper.R')
 
 \renewcommand{\familydefault}{\sfdefault}
 
+\usepackage{fix-cm}
+\makeatletter
+\newcommand\HUGE{\@setfontsize\Huge{50}{60}}
+\makeatother
+
 \pagestyle{fancy}
 \fancyhf{} % sets both header and footer to nothing
 \renewcommand{\headrulewidth}{0pt}
