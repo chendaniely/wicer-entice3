@@ -39,6 +39,9 @@ for (id in pt_ids) {
     }, error = function(e){})
 
     setwd('../')
+    if (!dir.exists('output/english')) {
+        dir.create('output/english')
+    }
     file.copy(from = 'src/01-01-english.pdf', to = output_file_name, overwrite = TRUE)
     clean_images()
     clean_knitr(data_config_pt_language)
@@ -64,6 +67,9 @@ for (id in pt_ids) {
     }, error = function(e){})
 
     setwd('../')
+    if (!dir.exists('output/spanish')) {
+        dir.create('output/spanish')
+    }
     file.copy(from = 'src/01-03-spanish.pdf', to = output_file_name, overwrite = TRUE)
     clean_images()
     clean_knitr(data_config_pt_language)
