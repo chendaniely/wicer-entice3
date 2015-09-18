@@ -1,5 +1,14 @@
 # Detailed Installation and Setup Instructions
 
+<!-- MarkdownTOC -->
+
+- [Prerequisite Programs][prerequisite-programs]
+- [Setting up your R environment][setting-up-your-r-environment]
+- [Downloading (aka cloning) the Entice3 code][downloading-aka-cloning-the-entice3-code]
+
+<!-- /MarkdownTOC -->
+
+
 ## Prerequisite Programs
 
 1. [R](https://cran.rstudio.com/)
