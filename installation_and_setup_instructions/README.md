@@ -6,6 +6,7 @@
 - [Prerequisite Programs](#prerequisite-programs)
 - [Setting up your R environment](#setting-up-your-r-environment)
 - [Downloading (aka cloning) the Entice3 code](#downloading-aka-cloning-the-entice3-code)
+- [Launching the project](#launching-the-project)
 
 <!-- /MarkdownTOC -->
 
@@ -60,3 +61,20 @@ With the link copied onto your clipboard, you can clone the code onto your compu
 The entire process should look something like this:
 
 ![](https://raw.githubusercontent.com/chendaniely/wicer-entice3/master/installation_and_setup_instructions/git_bash_cd_clone_repo.png)
+
+## Launching the project
+
+You can now look on your desktop for the `wicer-entice3` folder.  You will see a R Project file named `wicer-entice3-github`.
+Double clicking this file should open RStudio and you should see the contents of the folder in the RStudio file pane on the bottom right corner.
+
+![](https://raw.githubusercontent.com/chendaniely/wicer-entice3/master/installation_and_setup_instructions/explorer_selected_r_project.png)
+
+![](https://raw.githubusercontent.com/chendaniely/wicer-entice3/master/installation_and_setup_instructions/rstudio_file_panel_root_dir.png)
+
+**It is important that you open the project in this manner.  If you already have RStudio running before opening the project close it and open the project again using the methods described above**
+
+If you already opened the RStudio project in the past you should be able to switch directly to the project by using the project switcher on the top right corner:
+
+![](https://raw.githubusercontent.com/chendaniely/wicer-entice3/master/installation_and_setup_instructions/rstudio_project_selector.png)
+
+The reason for this is that it will properly set the "Working Directory" for the project.
