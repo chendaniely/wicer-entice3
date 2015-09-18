@@ -33,6 +33,7 @@ It should look like this:
 
 Once you have the R environment all setup, we need to download the code to generate the documents.
 To do so, we need to open up the `Git Bash` program (if you are in windows).  If you are on a Mac/Linux, open up a terminal.
+
 It should look something like this:
 
 ![](https://raw.githubusercontent.com/chendaniely/wicer-entice3/master/installation_and_setup_instructions/git_bash_startup.png)
