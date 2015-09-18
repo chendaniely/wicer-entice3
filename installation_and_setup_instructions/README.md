@@ -2,9 +2,9 @@
 
 <!-- MarkdownTOC -->
 
-- [Prerequisite Programs][prerequisite-programs]
-- [Setting up your R environment][setting-up-your-r-environment]
-- [Downloading (aka cloning) the Entice3 code][downloading-aka-cloning-the-entice3-code]
+- [Prerequisite Programs](#prerequisite-programs)
+- [Setting up your R environment](#setting-up-your-r-environment)
+- [Downloading (aka cloning) the Entice3 code](#downloading-aka-cloning-the-entice3-code)
 
 <!-- /MarkdownTOC -->
 
