@@ -87,8 +87,8 @@ It should open a new panel on the upper right:
 
 ![](https://raw.githubusercontent.com/chendaniely/wicer-entice3/master/installation_and_setup_instructions/rstudio_src_01_00-01-batch-english.png)
 
-Select all the text in the new panel (typically CTRL + a) and run the code using `CTRL + ENTER`.  You can also go to `Code > Run Region > Run All`
+Select all the text in the new panel (typically `CTRL + a`) and run the code using `CTRL + ENTER`.  You can also go to `Code > Run Region > Run All`
 
 The console pane on the bottom left should begin rendering all the English and Spanish documents for all patients in the test dataset.
 
-When it is done, you will have the pdf files in the 'output/english' and 'output/spanish' folders.
+When it is done, you will have the pdf files in the `output/english` and `output/spanish` folders.
