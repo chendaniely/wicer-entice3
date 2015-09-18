@@ -1,5 +1,6 @@
 # Detailed Installation and Setup Instructions
 
+## Table of Contents
 <!-- MarkdownTOC -->
 
 - [Prerequisite Programs](#prerequisite-programs)
