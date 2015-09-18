@@ -550,3 +550,31 @@ translate_cloverleaf_spanish <- function(english_text, fair_poor='majo/muy bajo'
         return(sprintf('Unknown english text: %s', english_text))
     }
 }
+
+get_health_summary_words_from_color <- function(health_summary_color, language='english'){
+    health_summary_color <- tolower(health_summary_color)
+    if (language == 'english'){
+        if (health_summary_color == "green"){
+            return("healthy")
+        } else if (health_summary_color == 'yellow') {
+            return("borderline")
+        } else if (health_summary_color == 'red') {
+            return("unhealthy")
+        } else {
+            stop("Unknown health summary color")
+        }
+    } else if (language == 'spanish') {
+        if (health_summary_color == "green") {
+            return("estaba saludable")
+        } else if (health_summary_color == 'yellow') {
+            return("requiere cuidado")
+        } else if (health_summary_color == 'red') {
+            return("no estaba saludable")
+        } else {
+            stop("Unknown health summary color")
+        }
+    } else {
+        stop('Unknown Language')
+    }
+
+}

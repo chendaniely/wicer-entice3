@@ -244,6 +244,11 @@ data_config_pt_bp_s <- round(data_pt_selected$sbp)
 data_config_pt_bp_d <- round(data_pt_selected$dbp)
 
 #
+# Health Summary Control Panel
+#
+data_config_pt_oral_health <- data_pt_selected$o11
+
+#
 # Ideal cloverleaf
 #
 data_config_pt_cloverleaf_fruit <-
