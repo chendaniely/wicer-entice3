@@ -1,0 +1,82 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+\graphicspath{{./anxiety_symptoms/}}
+
+<<>>=
+# print(getwd())
+@
+
+\begin{center}
+\HUGE{\textbf{Your Health Summary}}
+\end{center}
+
+<<health_summary>>=
+dummy <- data.frame(x = c(0,100), y = c(0, 100))
+
+health_summary_colors <- get_health_summary_colors(
+    prolonged_stress_value = config_pt_stress,
+    bmi_value = config_pt_bmi_value,
+    oral_health_value = config_pt_oral_health,
+    blood_pressure_s_value = config_pt_bp_s,
+    blood_pressure_d_value = config_pt_bp_d)
+
+health_summary_words <- lapply(X = health_summary_colors, FUN = get_health_summary_words_from_color)
+
+base_image_prolonged_stress <- create_grob_from_png_dir(
+    sprintf("EnTICE3_2/Health Summary Control Panel/Control panel %s light.png",
+        tolower(health_summary_colors$prolonged_stress_color)))
+
+base_image_bmi <- create_grob_from_png_dir(
+    sprintf("EnTICE3_2/Health Summary Control Panel/Control panel %s light.png",
+        tolower(health_summary_colors$bmi_color)))
+
+base_image_oral_health <- create_grob_from_png_dir(
+    sprintf("EnTICE3_2/Health Summary Control Panel/Control panel %s light.png",
+        tolower(health_summary_colors$oral_health_color)))
+
+base_image_blood_pressure <- create_grob_from_png_dir(
+    sprintf("EnTICE3_2/Health Summary Control Panel/Control panel %s light.png",
+        tolower(health_summary_colors$blood_pressure_color)))
+@
+
+<<fig.height=5.5>>=
+top_text_size <- 4
+side_text_size <- 7
+side_text_x <- 35
+
+ggplot(data = dummy, aes(x = x, y = y)) +
+    geom_point(alpha = 1/1000000000) +
+    theme_nothing() +
+
+    annotation_custom(base_image_prolonged_stress, ymin = 70, ymax = 90) +
+    annotation_custom(base_image_bmi, ymin = 50, ymax = 70) +
+    annotation_custom(base_image_oral_health, ymin = 30, ymax = 50) +
+    annotation_custom(base_image_blood_pressure, ymin = 10, ymax = 30) +
+
+    annotate("text", label = "Healthy", x = 58, y = 95, size = top_text_size) +
+    annotate("text", label = "Borderline", x = 68, y = 95, size = top_text_size) +
+    annotate("text", label = "Unhealthy", x = 78, y = 95, size = top_text_size) +
+
+    annotate("text", label = "     Prolonged Stress", x = side_text_x + 1.2, y = 80, size = side_text_size) +
+    annotate("text", label = "Body Mass Index (BMI)", x = side_text_x, y = 60, size = side_text_size) +
+    annotate("text", label = "          Oral Health", x = side_text_x + 3, y = 40, size = side_text_size) +
+    annotate("text", label = "       Blood Pressure", x = side_text_x + 1.5, y = 20, size = side_text_size)
+@
+
+
+
+\newpage
+
+\begin{center}
+\HUGE{\textbf{Your Health Summary}}
+\end{center}
+
+\begin{itemize}
+    \item Your level of prolonged stress was \Sexpr{health_summary_words$prolonged_stress_color}
+    \item Your body mass index (BMI) was \Sexpr{health_summary_words$bmi_color}
+    \item Your oral health was \Sexpr{health_summary_words$oral_health_color}
+    \item Your blood pressure was \Sexpr{health_summary_words$blood_pressure_color}
+\end{itemize}
+
+\newpage
