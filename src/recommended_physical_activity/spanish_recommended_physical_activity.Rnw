@@ -31,7 +31,7 @@ min_bar_height <- y_axix_range * 0.03
 min_center_bar_height <- y_axix_range * 0.1
 df$value <- ifelse(df$value == 0, min_bar_height, df$value)
 df$text_y <- sapply(X = df$text, FUN = y_axis_text_height,
-                    min_bar_height, min_center_bar_height, 'exercise_recommendations')
+                    min_bar_height, min_center_bar_height, 'exercise_recommendations_small')
 @
 
 <<>>=
@@ -63,9 +63,10 @@ moderate_exercise_plot <- ggplot(data = df) +
           panel.grid.major.x = element_blank(),
           panel.grid.minor.y = element_blank(),
           plot.title = element_text(size = rel(2)),
-          axis.title.y = element_text(size = rel(3), vjust = 0.75),
-          axis.text.x  = element_text(size = rel(3), vjust = -0.5),
-          axis.text.y  = element_text(size = rel(2)),
+          axis.title.x = element_text(size = 40),
+          axis.text.x  = element_text(size = 40),
+          axis.title.y = element_text(size = 40),
+          axis.text.y  = element_text(size = 40),
           axis.line = element_line(colour = color_blue_bargraph_cloverleaf,
                                    size = 2))
 @

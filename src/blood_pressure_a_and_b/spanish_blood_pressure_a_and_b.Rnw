@@ -79,7 +79,7 @@ segment_d_x <- function(d_value, d_value_base, base_x_value){
 }
 d_location <- segment_d_x(config_pt_bp_d, 75, 56)
 @
-@
+
 
 <<Blood Pressure A & B plot>>=
 ggplot(data = dummy, aes(x = x, y = y)) +

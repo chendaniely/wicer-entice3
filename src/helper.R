@@ -103,7 +103,6 @@ y_axis_text_height <- function(value, min_bar_height, min_center_bar_height, plo
             zero <- (value + min_center_bar_height)
             (y + zero) / 6
         } else {
-            print("in")
             value / 2
         }
     } else if (plot_type == 'beverage_recommendations') {
@@ -126,10 +125,20 @@ y_axis_text_height <- function(value, min_bar_height, min_center_bar_height, plo
             zero <- (value + min_center_bar_height)
             (y + zero) / 6
         } else {
-            print("in")
             value / 2
         }
-    } else {
+    } else if (plot_type == 'exercise_recommendations_small') {
+        if (value <= min_center_bar_height & value > min_bar_height) {
+            y <- value + min_center_bar_height / 2
+            y
+        } else if (value <= min_center_bar_height & value <= min_bar_height) {
+            y <- value + min_center_bar_height / 1.5
+            zero <- (value + min_center_bar_height)
+            (y + zero) / 2
+        } else {
+            value / 2
+        }
+    }else {
         stop("unknown plot_type")
     }
 }
@@ -522,7 +531,7 @@ translate_rundown_spanish <- function(english_text){
     } else if (english_text == 'quite a bit') {
         return("Bastante")
     } else if (english_text == 'very much') {
-        return("Muchisimo")
+        return("Muchísimo")
     }
 }
 
@@ -533,7 +542,7 @@ translate_cloverleaf_spanish <- function(english_text, fair_poor='majo/muy bajo'
     } else if (english_text == 'very good') {
         return('Muy buena')
     } else if (english_text == 'good') {
-        return('Bueno')
+        return('Buena')
     } else if (english_text == 'fair') {
         if (fair_poor == 'majo/muy bajo') {
             return('Bajo')

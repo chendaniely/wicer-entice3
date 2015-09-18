@@ -18,12 +18,12 @@ clean_knitr <- function(language){
     file.remove(files)
 }
 
-# data_config_pt_language <- "english"
+# # data_config_pt_language <- "english"
 pt_englishs <- c('Sample1', 'Sample4') # person's name
 pt_ids <- c('Sample1', 'Sample4') # person's ID
 
-# id <- pt_ids[1]
-# pt_english <- pt_englishs[1]
+# pt_ids <- pt_ids[2]
+# pt_englishs <- pt_englishs[2]
 
 for (id in pt_ids) {
     pt_id <- id
@@ -50,8 +50,8 @@ for (id in pt_ids) {
 pt_englishs <- c('Sample2', 'Sample3', 'Sample5') # person's name
 pt_ids <- c('Sample2', 'Sample3', 'Sample5') # person's ID
 
-# id <- pt_ids[1]
-# pt_english <- pt_englishs[1]
+# pt_ids <- pt_ids[2]
+# pt_englishs <- pt_englishs[2]
 
 for (id in pt_ids) {
     pt_id <- id

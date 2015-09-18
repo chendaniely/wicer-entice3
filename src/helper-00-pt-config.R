@@ -87,16 +87,16 @@ config_pt_sugaryfruitdrink_wk <- data_config_pt_sugaryfruitdrink_wk
 ###############################################################################
 # get Composite 30-day Measures
 ###############################################################################
-config_pt_healthy_energy_30 <- 21
-config_pt_physical_health_bad_30 <- 5
-config_pt_mental_health_bad_30 <- 4
+config_pt_healthy_energy_30 <- data_config_pt_healthy_energy_30
+config_pt_physical_health_bad_30 <- data_config_pt_physical_health_bad_30
+config_pt_mental_health_bad_30 <- data_config_pt_mental_health_bad_30
 
 
 ###############################################################################
 # get depression symptoms A
 ###############################################################################
-config_pt_depression_a <- 5
-config_sex_age_depression_a <- 10
+config_pt_depression_a <- data_config_pt_depression_a
+config_sex_age_depression_a <- data_config_sex_age_depression_a
 
 ###############################################################################
 # get prolonged stress
@@ -107,12 +107,12 @@ config_sex_age_stress <- data_config_sex_age_stress
 ###############################################################################
 # get Anxiety Symptoms
 ###############################################################################
-config_pt_anxiety <- 40
+config_pt_anxiety <- data_config_pt_anxiety
 
 ###############################################################################
 # get Anxiety Symptoms
 ###############################################################################
-config_pt_depression_b <- 35
+config_pt_depression_b <- data_config_pt_depression_b
 
 ###############################################################################
 # get Overall Health
@@ -125,6 +125,11 @@ config_sex_age_overall <- data_config_sex_age_overall
 ###############################################################################
 config_pt_run_down <- data_config_pt_run_down
 config_sex_age_run_down <- data_config_sex_age_run_down
+
+###############################################################################
+# Health Summary Control Panel
+###############################################################################
+config_pt_oral_health <- data_config_pt_oral_health
 
 ###############################################################################
 # Ideal Cloverleaf

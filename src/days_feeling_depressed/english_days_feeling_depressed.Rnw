@@ -224,7 +224,7 @@ dev.off()
 
 \Large You reported feeling sad, blue, or depressed for \Sexpr{config_pt_depressed_30} out of 30 days.\\
 
-\Large \Sexpr{get_men_women(config_pt_sex, 'spanish')} in your age group reported being sad, blue,
+\Large \Sexpr{get_men_women(config_pt_sex)} in your age group reported being sad, blue,
 or depressed for an average of \Sexpr{config_sex_age_depressed_30} out of 30 days.
 
 \newpage

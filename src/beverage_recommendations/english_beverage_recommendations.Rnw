@@ -87,10 +87,15 @@ dev.off()
 \centering
 \includegraphics[width=\textwidth]{beverage_recommendation_plot}
 
-\begin{tabular}{C{4cm}C{3cm}}
-\includegraphics[scale=0.75]{soda_can.png}&
-\phantom{aaaaaaaaa} \includegraphics[scale=0.75]{juice_box.png}
-\end{tabular}
+% \begin{tabular}{C{5cm}C{3cm}}
+% \includegraphics[scale=0.75]{soda_can.png}&
+% \phantom{aaaaaaaaaaaaaaaaaaaaaaaaa} \includegraphics[scale=0.75]{juice_box.png}
+% \end{tabular}
+
+\hspace{2.1cm}
+\includegraphics[scale=0.75]{soda_can.png}
+\hspace{3cm}
+\includegraphics[scale=0.75]{juice_box.png}
 
 \end{minipage}
 \hspace{0.5cm}

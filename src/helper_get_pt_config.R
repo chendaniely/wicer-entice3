@@ -188,12 +188,31 @@ data_config_pt_purejuice_wk <- round(data_pt_selected$juice_week_sm)
 data_config_pt_sugaryfruitdrink_wk <- round(data_pt_selected$sugaryfruitdrink_week_sm)
 
 #
+# Composite 30-day Measures
+#
+data_config_pt_healthy_energy_30 <- data_pt_selected$cdc30_energy
+data_config_pt_physical_health_bad_30 <- data_pt_selected$cdc30_physical
+data_config_pt_mental_health_bad_30 <- data_pt_selected$cdc30_mental
+
+#
 # Recommended physical activities
 # Based on moderate physical activity
 #
 # data_config_pt_soda_wk <- data_pt_selected$soda_week_sm
 # data_config_pt_purejuice_wk <- data_pt_selected$juice_week_sm
 
+#
+# Depression symptoms A
+#
+data_config_pt_depression_a <- data_pt_selected$phq30_sum
+data_config_sex_age_depression_a <- data_pt %>%
+    group_by(sex, age_group) %>%
+    summarize(avg = mean(phq30_sum, na.rm = TRUE)) %>%
+    filter(sex == data_config_pt_sex,
+           age_group == data_pt_selected$age_group) %>%
+    data.frame() %>%
+    select(avg) %>%
+    as.numeric()
 
 #
 # prolonged stress
@@ -208,6 +227,16 @@ data_config_sex_age_stress <- data_pt %>%
     select(avg) %>%
     as.numeric() %>%
     round()
+
+#
+# Anxiety Symptoms
+#
+data_config_pt_anxiety <- data_pt_selected$promis_anxiety_t
+
+#
+# Depression Symptoms B
+#
+data_config_pt_depression_b <- data_pt_selected$proms_depression_t
 
 #
 # Overall health
