@@ -42,7 +42,10 @@ It should look something like this:
 Next, we want to use the terminal to navigate to a folder we want to save the code to.  In this example I will use the `Desktop`.
 In order to navigate to the `Desktop` we type `cd ~/Desktop` into the terminal.  Note that it is case-sensitive.
 
-Next navigate to the website (repository) where the wicer-entice3 code is hosted: https://github.com/chendaniely/wicer-entice3
+Next navigate to the website (repository) where the wicer-entice3 code is hosted:
+
+https://github.com/chendaniely/wicer-entice3
+
 and click the HTTPS link on the right panel, and copy the link into your clipboard.  You can either use the "Copy to clipboard" button on the website, select and right click the text and click `copy`, or use your operating system's `copy` keyboard shortcut.
 
 Again, make sure it says `HTTPS` and not `SSH`.
