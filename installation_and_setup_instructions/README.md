@@ -92,3 +92,6 @@ Select all the text in the new panel (typically `CTRL + a`) and run the code usi
 The console pane on the bottom left should begin rendering all the English and Spanish documents for all patients in the test dataset.
 
 When it is done, you will have the pdf files in the `output/english` and `output/spanish` folders.
+
+If R says something about warnings such as `There were 50 or more warnings (use warnings() to see the first 50)`, this is normal.
+It typically comes from the bounding boxes in LaTeX
