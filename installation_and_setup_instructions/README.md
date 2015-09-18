@@ -16,4 +16,4 @@ To install these packages open up RStudio and in the console panel on the right 
 
 It should look like this:
 
-![rstudio_console_install_pacakges](rstudio_console_install_pacakges.png)
+<img src='rstudio_console_install_pacakges.png'>
