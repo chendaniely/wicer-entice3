@@ -16,4 +16,12 @@ To install these packages open up RStudio and in the console panel on the right 
 
 It should look like this:
 
-<img src='rstudio_console_install_pacakges.png'>
+![](https://raw.githubusercontent.com/chendaniely/wicer-entice3/master/installation_and_setup_instructions/rstudio_console_install_packages.png)
+
+## Downloading (aka cloning) the Entice3 code
+
+Once you have the R environment all setup, we need to download the code to generate the documents.
+To do so, we need to open up the `Git Bash` program (if you are in windows).  If you are on a Mac/Linux, open up a terminal.
+It should look something like this:
+
+![](https://raw.githubusercontent.com/chendaniely/wicer-entice3/master/installation_and_setup_instructions/git_bash_startup.png)
