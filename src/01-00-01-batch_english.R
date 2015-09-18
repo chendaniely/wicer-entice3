@@ -2,7 +2,7 @@ library(knitr)
 
 clean_images <- function() {
     dirs <- list.dirs(path = 'src', recursive = FALSE)
-    temp_files <- sapply(X = dirs, FUN = list.files, pattern = '*.png', full.names = TRUE)
+    temp_files <- sapply(X = dirs, FUN = list.files, pattern = '*.png|*.tex', full.names = TRUE)
     temp_files <- unlist(temp_files)
     sapply(X = temp_files, file.remove)
     unlink('figure/', recursive = TRUE)
