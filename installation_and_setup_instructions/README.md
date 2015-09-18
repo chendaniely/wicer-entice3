@@ -7,6 +7,7 @@
 - [Setting up your R environment](#setting-up-your-r-environment)
 - [Downloading (aka cloning) the Entice3 code](#downloading-aka-cloning-the-entice3-code)
 - [Launching the project](#launching-the-project)
+- [Running the code on the test dataset](#running-the-code-on-the-test-dataset)
 
 <!-- /MarkdownTOC -->
 
@@ -78,3 +79,16 @@ If you already opened the RStudio project in the past you should be able to swit
 ![](https://raw.githubusercontent.com/chendaniely/wicer-entice3/master/installation_and_setup_instructions/rstudio_project_selector.png)
 
 The reason for this is that it will properly set the "Working Directory" for the project.
+
+## Running the code on the test dataset
+
+Use the RStudio file panel on the bottom right and click the `src` folder and finally click on the `01-00-01-batch_english.R` file.
+It should open a new panel on the upper right:
+
+![](https://raw.githubusercontent.com/chendaniely/wicer-entice3/master/installation_and_setup_instructions/rstudio_src_01_00-01-batch-english.png)
+
+Select all the text in the new panel (typically CTRL + a) and run the code using `CTRL + ENTER`.  You can also go to `Code > Run Region > Run All`
+
+The console pane on the bottom left should begin rendering all the English and Spanish documents for all patients in the test dataset.
+
+When it is done, you will have the pdf files in the 'output/english' and 'output/spanish' folders.
