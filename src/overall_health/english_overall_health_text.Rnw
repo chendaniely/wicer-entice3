@@ -1,0 +1,21 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+<<>>=
+# print(getwd())
+@
+
+\begin{center}
+\Huge{Overall Health}
+\end{center}
+
+\Large{You rated your overall health as
+\Sexpr{tolower(get_overall_health_text(config_pt_overall))}\\
+
+On average,
+\Sexpr{tolower(get_men_women(config_pt_sex))}
+in your age group rated their overall health as
+\Sexpr{tolower(get_overall_health_text(config_sex_age_overall))}.
+}
+
+\newpage

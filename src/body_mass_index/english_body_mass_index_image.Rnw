@@ -1,0 +1,42 @@
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+\Sexpr{set_parent('src/master.Rnw')}
+
+\begin{center}
+\Large{\textbf{Body Mass Index (BMI)}}\\
+kg/m$^2$
+\end{center}
+
+<<>>=
+# print(getwd())
+@
+
+<<>>=
+source('src/body_mass_index/body_mass_index_setup.R')
+@
+
+<<BMI_plot, fig.height=5>>=
+ggplot(data = dummy, aes(x = x, y = y)) +
+    geom_point(alpha = 1/1000000000) +
+    theme_nothing() +
+    theme(panel.grid.major = element_line(colour = "blue"),
+          panel.grid.minor = element_line(colour = "blue")) +
+    scale_x_continuous(breaks = seq(0, 21, 1)) +
+    annotation_custom(base_image_g,
+                      xmin = -Inf, xmax = Inf,
+                      ymin = -Inf, ymax = Inf) +
+    annotation_custom(indicator_g,
+                      indicator_bounds$x_min, indicator_bounds$x_max,
+                      indicator_bounds$y_min, indicator_bounds$y_max) +
+    annotate("text", label = config_pt_bmi_value,
+             x = (indicator_bounds$x_min + indicator_bounds$x_max) / 2 - 0.1,
+             y = 0.3) +
+    annotate("text", label = config_pt_bmi_value,
+             x = cat_text_coords$x,
+             y = cat_text_coords$y)
+@
+
+\begin{center}
+Body Mass Index (BMI) uses your height and weight to estimate how much body
+fat you have.
+\end{center}
+\newpage

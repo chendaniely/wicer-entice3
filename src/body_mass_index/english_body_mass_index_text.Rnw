@@ -1,0 +1,31 @@
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+\Sexpr{set_parent('src/master.Rnw')}
+
+\begin{center}
+\Large{\textbf{Body Mass Index (BMI)}}\\
+kg/m$^2$
+\end{center}
+
+<<>>=
+# print(getwd())
+@
+
+<<>>=
+source('src/body_mass_index/body_mass_index_setup.R')
+@
+
+\Large Body Mass Index (BMI) uses your height and weight to estimate how much
+body fat you have.\\
+
+BMI categories:
+
+\begin{itemize}
+  \item[] Less than 18.5 is underweight
+  \item[] 18.5 to 24.9 is normal
+  \item[] 25.0 to 29.9 is overweight
+  \item[] Over 30.0 is obese
+\end{itemize}
+
+Your BMI was \Sexpr{config_pt_bmi_value}
+
+\newpage

@@ -1,0 +1,41 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+\graphicspath{{./prolonged_stress/}}
+
+<<>>=
+# print(getwd())
+@
+
+<<>>=
+source('src/prolonged_stress/prolonged_stress_setup.R')
+@
+
+\begin{center}
+\Huge{\textbf{Prolonged Stress}}
+
+(lasting at least 6 months)
+\end{center}
+
+\vspace{2cm}
+
+\begin{figure}[H]
+\begin{minipage}[b]{0.5\linewidth}
+\centering
+\includegraphics[width=0.75\textwidth]{prolonged_stress_pt}
+\caption*{\Huge{\textbf{You}\\
+\textit{\Sexpr{stri_trans_totitle(pt_stat)}}\\
+\phantom{blank line of text}}}
+
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}[b]{0.5\linewidth}
+\centering
+\includegraphics[width=0.75\textwidth]{prolonged_stress_other}
+\caption*{\huge{Other \Sexpr{tolower(get_men_women(config_pt_sex))}\\
+in your age group\\
+\textit{\Sexpr{stri_trans_totitle(other_stat)}}}}
+\end{minipage}
+\end{figure}
+
+\newpage

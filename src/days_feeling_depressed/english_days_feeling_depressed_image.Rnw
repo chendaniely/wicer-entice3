@@ -1,0 +1,219 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+\graphicspath{{./days_feeling_depressed/}}
+
+<<>>=
+# print(getwd())
+@
+
+\begin{center}
+\Huge \textbf{Days feeling sad, blue, or depressed in the last 30 days}\\
+\end{center}
+
+<<depressed>>=
+corners <- create_corner_points(spacing = 0.3)
+square_coords <- apply(X = corners, MARGIN = 2,
+                       FUN = function(x){create_unit_square(c(x[[1]], x[[2]]))})
+vector_coords <- unlist(square_coords)
+d <- as.data.frame(t(matrix(vector_coords, nrow = 2)))
+colored_blue <- unlist(lapply(X = 1:config_pt_depressed_30,
+                              FUN = function(x){rep(1, 4)}))
+colored_white <- unlist(lapply(X = 1:(30 - config_pt_depressed_30),
+                               FUN = function(x){rep(0, 4)}))
+d$g <- unlist(lapply(X = 1:30, FUN = function(x){rep(x, 4)}))
+
+if (config_pt_depressed_30 > 0 &  config_pt_depressed_30 < 30) {
+    d$c <- c(colored_blue, colored_white)
+} else if (config_pt_depressed_30 == 0) {
+    d$c <- c(colored_white)
+} else if (config_pt_depressed_30 == 30) {
+    d$c <- c(colored_blue)
+}
+
+# d$c <- c(colored_blue, colored_white)
+d$x <- d$V1
+d$y <- d$V2
+
+# center_coords <- get_square_center(d[d$g == config_pt_depressed_30, ][1, 1:2])
+if (config_pt_depressed_30 > 0 ) {
+    center_coords <- get_square_center(d[d$g == config_pt_depressed_30, ][1, 1:2])
+} else {
+    center_coords <-
+        list(structure(list(V1 = 0.5), .Names = "V1",
+                       row.names = 1L, class = "data.frame"),
+    structure(list(V2 = 5.7), .Names = "V2",
+              row.names = 1L, class = "data.frame"))
+}
+@
+
+<<>>=
+fig_width <- 1050
+fig_height <- fig_width
+@
+
+<<depressed_plot, results = 'hide'>>=
+square_plot_max <- ceiling(max(d$x, d$y))
+
+pt_depressed <- ggplot() +
+    theme_bw() +
+    geom_polygon(data = d, mapping = aes(x = x,
+                                         y = y,
+                                         group = g,
+                                         color = "border_blue",
+                                         fill = factor(c))) +
+    scale_color_manual(values = c("border_blue" = color_blue_depression)) +
+    scale_fill_manual(values = c('0' = "white",
+                                 '1' = color_blue_depression)) +
+    theme(axis.ticks = element_blank(),
+          axis.text.x = element_blank(),
+          axis.text.y = element_blank(),
+          panel.grid.minor = element_blank(),
+          panel.grid.major = element_blank(),
+          legend.position = "none",
+          panel.border = element_blank(),
+          axis.title.x = element_text(size = 30)) +
+    xlab("") +
+    ylab("") +
+    scale_x_continuous(limits = c(0,square_plot_max)) +
+    scale_y_continuous(limits = c(0,square_plot_max)) +
+    annotate("text", label = config_pt_depressed_30,
+             x = as.numeric(center_coords[[1]]),
+             y = as.numeric(center_coords[[2]]),
+             size = 6,
+             family = "Myriad Pro",
+             colour = "white")
+
+if (config_pt_depressed_30 == 0){
+    pt_depressed <- pt_depressed +
+        annotate("text", label = config_pt_depressed_30,
+                 x = as.numeric(center_coords[[1]]),
+                 y = as.numeric(center_coords[[2]]),
+                 size = 6,
+                 family = "Myriad Pro",
+                 colour = color_blue_depression)
+}
+@
+
+<<results='hide'>>=
+png("src/days_feeling_depressed/depressed_30.png", width = fig_width, height = fig_height, res = 300)
+pt_depressed
+dev.off()
+@
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+<<results = 'hide'>>=
+# set variables so the code doesn't have to change
+corners <- create_corner_points(spacing = 0.3)
+square_coords <- apply(X = corners, MARGIN = 2,
+                       FUN = function(x){create_unit_square(c(x[[1]], x[[2]]))})
+vector_coords <- unlist(square_coords)
+d <- as.data.frame(t(matrix(vector_coords, nrow = 2)))
+colored_blue <- unlist(lapply(X = 1:config_sex_age_depressed_30,
+                              FUN = function(x){rep(1, 4)}))
+colored_white <- unlist(lapply(X = 1:(30 - config_sex_age_depressed_30),
+                               FUN = function(x){rep(0, 4)}))
+d$g <- unlist(lapply(X = 1:30, FUN = function(x){rep(x, 4)}))
+
+if (config_sex_age_depressed_30 > 0 &  config_sex_age_depressed_30 < 30){
+    d$c <- c(colored_blue, colored_white)
+} else if (config_sex_age_depressed_30 == 0){
+    d$c <- c(colored_white)
+} else if (config_sex_age_depressed_30 == 30){
+    d$c <- c(colored_blue)
+}
+
+d$x <- d$V1
+d$y <- d$V2
+
+# center_coords <- get_square_center(d[d$g == config_sex_age_depressed_30, ][1, 1:2])
+if (config_sex_age_depressed_30 > 0 ){
+    center_coords <- get_square_center(d[d$g == config_sex_age_depressed_30, ][1, 1:2])
+} else {
+    center_coords <-
+        list(structure(list(V1 = 0.5), .Names = "V1",
+                       row.names = 1L, class = "data.frame"),
+    structure(list(V2 = 5.7), .Names = "V2",
+              row.names = 1L, class = "data.frame"))
+}
+
+square_plot_max <- ceiling(max(d$x, d$y))
+
+sex_age_depressed <- ggplot() +
+    theme_bw() +
+    geom_polygon(data = d, mapping = aes(x = x,
+                                         y = y,
+                                         group = g,
+                                         color = "border_blue",
+                                         fill = factor(c))) +
+    scale_color_manual(values = c("border_blue" = color_blue_depression)) +
+    scale_fill_manual(values = c('0' = "white",
+                                 '1' = color_blue_depression)) +
+    theme(axis.ticks = element_blank(),
+          axis.text.x = element_blank(),
+          axis.text.y = element_blank(),
+          panel.grid.minor = element_blank(),
+          panel.grid.major = element_blank(),
+          legend.position = "none",
+          panel.border = element_blank(),
+          axis.title.x = element_text(size = 30)) +
+    xlab("") +
+    ylab("") +
+    scale_x_continuous(limits = c(0, square_plot_max)) +
+    scale_y_continuous(limits = c(0, square_plot_max)) +
+    annotate("text", label = config_sex_age_depressed_30,
+             x = as.numeric(center_coords[[1]]),
+             y = as.numeric(center_coords[[2]]),
+             size = 6,
+             # family="Myriad Pro",
+             colour = "white")
+
+if (config_sex_age_depressed_30 == 0){
+    sex_age_depressed <- sex_age_depressed +
+        annotate("text", label = config_sex_age_depressed_30,
+                 x = as.numeric(center_coords[[1]]),
+                 y = as.numeric(center_coords[[2]]),
+                 size = 6,
+                 family = "Myriad Pro",
+                 colour = color_blue_depression)
+}
+@
+
+<<results='hide'>>=
+png("src/days_feeling_depressed/sex_age_depressed_30.png", width = fig_width, height = fig_height, res = 300)
+sex_age_depressed
+dev.off()
+@
+
+\begin{table}[H]
+\begin{minipage}[b]{0.5\linewidth}
+\begin{center}
+\begin{figure}[H]
+\centerline{\includegraphics[scale=1.25, trim=30 40 30 40, clip=true]{depressed_30}}
+\end{figure}
+\Huge \textbf{You}\\
+\Huge \textit{\Sexpr{config_pt_depressed_30} days}\\
+\phantom{Empty space to have images align}
+\end{center}
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}[b]{0.5\linewidth}
+\centering
+\begin{center}
+\begin{figure}[H]
+\centerline{\includegraphics[scale=1.25, trim=30 40 30 60, clip=true]{sex_age_depressed_30}}
+\end{figure}
+\Huge Other \Sexpr{tolower(get_men_women(config_pt_sex))} in\\
+\Huge your age group\\
+\Huge \textit{\Sexpr{config_sex_age_depressed_30} days}
+\end{center}
+\end{minipage}
+\end{table}
+
+\newpage
