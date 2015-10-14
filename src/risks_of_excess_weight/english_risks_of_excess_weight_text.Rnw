@@ -1,0 +1,29 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+\graphicspath{{./risks_of_excess_weight/}}
+
+<<>>=
+# print(getwd())
+@
+
+Your BMI was \Sexpr{config_pt_bmi_value}\\
+
+Body Mass Index (BMI) uses your height and weight to estimate how much body fat you
+have.\\
+
+BMI categories:\\
+Less than 18.5 is underweight\\
+18.5 to 24.9 is normal\\
+25.0 to 29.9 is overweight\\
+Over 30.0 is obese\\
+Risks of excess weight include:
+\begin{itemize}
+    \item Heart diseases (cardiovascular diseases)
+    \item High Blood Pressure (Hypertension)
+    \item Arthritis (osteoarthritis)
+    \item Type 2 Diabetes (Type 2 Diabetes Mellitus)
+    \item Cancers of the esophagus, pancreas, kidney, colon, \& rectum
+\end{itemize}
+
+\newpage

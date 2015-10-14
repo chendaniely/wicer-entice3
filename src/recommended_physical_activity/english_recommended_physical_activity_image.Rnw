@@ -1,0 +1,101 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+\graphicspath{{./recommended_physical_activity/}}
+
+<<>>=
+# print(getwd())
+@
+
+<<Recommended Physical Activity, results='hide'>>=
+file_to_copy <- sprintf(
+    'EnTICE3_2/Recommended Physical Activity/%s_Recommended Physical Activity.png',
+    convert_language_single(config_pt_language))
+file.copy(from = file_to_copy,
+          to = 'src/recommended_physical_activity/recommended_physical_activity.png',
+          overwrite = TRUE)
+@
+
+<<moderate_exercise_recommended>>=
+df <-  data.frame(pt = config_pt_mins_moderate_physical_activity,
+                  other = config_sex_age_moderate_physical_activity)
+df <- melt(df)
+
+# df$value <- c(0, 0)
+
+df$text <- df$value
+max_y <- max_y_activity(max(df$value))
+
+y_axix_range <- max_y
+min_bar_height <- y_axix_range * 0.03
+min_center_bar_height <- y_axix_range * 0.1
+df$value <- ifelse(df$value == 0, min_bar_height, df$value)
+df$text_y <- sapply(X = df$text, FUN = y_axis_text_height,
+                    min_bar_height, min_center_bar_height, 'exercise_recommendations_small')
+@
+
+<<moderate_exercise_plot_recommended>>=
+x_axis_names <- c('\nYou\n',
+                  sprintf('\nOther %s\nin your age group',
+                          tolower(get_men_women(config_pt_sex))))
+max_y <- max_y_activity(max(df$value), allowed_min = 180)
+
+moderate_exercise_plot <- ggplot(data = df) +
+    geom_bar(aes(x = x_axis_names, y = value),
+             stat = "identity",
+             color=color_blue_bargraph_cloverleaf,
+             fill=color_blue_bargraph_cloverleaf,
+             width = .5) +
+    scale_x_discrete(limits = c(x_axis_names[1], x_axis_names[2])) +
+    scale_y_continuous(expand = c(0,0), limits = c(0, max_y),
+                       breaks = seq(0, max_y, 30)) +
+    geom_text(aes(x = x_axis_names,
+                  y = text_y,
+                  label = text), size = 15) +
+    geom_hline(yintercept = 150, linetype = "longdash") +
+    geom_text(aes(x = x_axis_names[2], y = 150, vjust = -.25,
+                  #hjust = -0.000000000000000000000000000000000001,
+                  label = 'Recommended Minimum'), size = rel(10)) +
+    theme_bw() +
+    ylab("minutes\n") +
+    xlab("") +
+    theme(panel.border = element_blank(),
+          panel.grid.major.x = element_blank(),
+          panel.grid.minor.y = element_blank(),
+          plot.title = element_text(size = rel(2)),
+          axis.title.x = element_text(size = 40),
+          axis.text.x  = element_text(size = 40),
+          axis.title.y = element_text(size = 40),
+          axis.text.y  = element_text(size = 40),
+          axis.line = element_line(colour = color_blue_bargraph_cloverleaf,
+                                   size = 2))
+@
+
+<<results='hide'>>=
+png(filename = 'src/recommended_physical_activity/moderate_exercise_plot.png', width = 800, height = 600)
+moderate_exercise_plot
+dev.off()
+@
+
+\begin{table}[H]
+\begin{minipage}[b]{0.47\linewidth}\centering
+
+\Large \textbf{Your Minutes per Week of Moderate Physical Activity}
+\vspace{15 mm}
+
+\begin{figure}[H]
+\includegraphics[scale=0.4]{moderate_exercise_plot}
+\end{figure}
+
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}[b]{0.45\linewidth}
+\centering
+
+\begin{figure}[H]
+\includegraphics[scale=0.6]{recommended_physical_activity}
+\end{figure}
+\end{minipage}
+\end{table}
+
+\newpage

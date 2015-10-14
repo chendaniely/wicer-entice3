@@ -1,0 +1,25 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+<<>>=
+# print(getwd())
+@
+
+<<>>=
+source('src/loss_of_energy/loss_of_energy_setup.R')
+@
+
+\begin{center}
+\Huge{Feeling Run Down}
+\end{center}
+
+\Large{You reported that, on average, you felt
+\Sexpr{tolower(pt_run_down_text)}
+run down.\\
+
+\Sexpr{get_men_women(config_pt_sex)}
+in your age group reported that they felt, on average,
+\Sexpr{tolower(sex_age_run_down_text)}
+run down.
+}
+\newpage

@@ -1,0 +1,44 @@
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+\Sexpr{set_parent('src/master.Rnw')}
+
+<<>>=
+# print(getwd())
+@
+
+<<>>=
+source('src/waist_measurement/waist_measurement_setup.R')
+@
+
+<<waist_plot>>=
+indicator_bounds <- calculate_waist_indicator_bounds(config_pt_waist_in,
+                                                     config_pt_sex)
+cat_text_coords <- calculate_waist_cat_coord(config_pt_waist_in, config_pt_sex)
+
+ggplot(data = dummy, aes(x = x, y = y)) +
+    geom_point(alpha = 1/1000000000) +
+    theme_nothing() +
+    annotation_custom(base_image_g,
+                      xmin = -Inf, xmax = Inf,
+                      ymin = -Inf, ymax = Inf) +
+    annotation_custom(indicator_g,
+                      xmin = indicator_bounds$x_min,
+                      xmax = indicator_bounds$x_max,
+                      ymin = indicator_bounds$y_min,
+                      ymax = indicator_bounds$y_max) +
+    geom_text(aes(x = (indicator_bounds$x_min + indicator_bounds$x_max) / 2 - 0.1,
+                  y = (indicator_bounds$y_min + indicator_bounds$y_max) / 2 + 0.2,
+                  label = config_pt_waist_in)) +
+    annotate("text", label = paste0(config_pt_waist_in, '"'),
+             x = cat_text_coords$x,
+             y = cat_text_coords$y)
+@
+
+<<>>=
+if (tolower(config_pt_sex) == "male" | config_pt_sex == 1) {
+    waist_higher <- 40
+} else if (tolower(config_pt_sex) == "female" | config_pt_sex == 2) {
+    waist_higher <- 35
+}
+@
+
+\newpage

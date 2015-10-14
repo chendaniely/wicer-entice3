@@ -1,0 +1,45 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+<<>>=
+# print(getwd())
+@
+
+<<vegetable>>=
+source('src/vegetable_servings_per_day/vegetable_servings_per_day_setup.R')
+@
+
+<<vegetable_plot>>=
+x_axis_names <- c('\nYou\n',
+                  sprintf('\nOther %s\nin your age group', get_men_women(config_pt_sex)),
+                  '\nMinimum\nrecommended')
+
+ggplot(data = df) +
+    geom_bar(aes(x = x_axis_names, y = value),
+             stat = "identity",
+             color = color_green_referencerange_bargraph_colverleaf,
+             fill = color_green_referencerange_bargraph_colverleaf,
+             width = .5) +
+    scale_x_discrete(limits = x_axis_names) +
+    scale_y_continuous(expand = c(0,0), limits = c(0, y_axix_range)) +
+    geom_text(aes(x = x_axis_names,
+                  y = text_y,
+                  label = text), size = 10) +
+    theme_bw() +
+    ylab("servings\n") +
+    xlab("") +
+    labs(title = "Vegetable Servings per Day\n") +
+    theme(panel.border = element_blank(),
+          panel.grid.major.x = element_blank(),
+          panel.grid.minor = element_blank(),
+          plot.title = element_text(size = rel(3)),
+          axis.title.x = element_text(size = 20),
+          axis.text.x  = element_text(size = 20),
+          axis.title.y = element_text(size = 20),
+          axis.text.y  = element_text(size = 20),
+          axis.line = element_line(
+              colour = color_green_referencerange_bargraph_colverleaf,
+              size = 2))
+@
+
+\newpage

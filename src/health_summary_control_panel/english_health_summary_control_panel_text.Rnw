@@ -1,0 +1,25 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+\graphicspath{{./anxiety_symptoms/}}
+
+<<>>=
+# print(getwd())
+@
+
+<<>>=
+source('src/health_summary_control_panel/health_summary_control_panel_setup.R')
+@
+
+\begin{center}
+\HUGE{\textbf{Your Health Summary}}
+\end{center}
+
+\begin{itemize}
+    \item Your level of prolonged stress was \Sexpr{health_summary_words$prolonged_stress_color}
+    \item Your body mass index (BMI) was \Sexpr{health_summary_words$bmi_color}
+    \item Your oral health was \Sexpr{health_summary_words$oral_health_color}
+    \item Your blood pressure was \Sexpr{health_summary_words$blood_pressure_color}
+\end{itemize}
+
+\newpage

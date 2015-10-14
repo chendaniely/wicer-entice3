@@ -1,0 +1,26 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+\graphicspath{{./prolonged_stress/}}
+
+<<>>=
+# print(getwd())
+@
+
+<<>>=
+source('src/prolonged_stress/prolonged_stress_setup.R')
+@
+
+\begin{center}
+\Huge{Prolonged Stress}
+
+(lasting at least 6 months)
+\end{center}
+
+\Large{
+Your level of prolonged stress was \Sexpr{pt_stat}.\\
+
+The level of prolonged stress for \Sexpr{tolower(get_men_women(config_pt_sex))}
+in your age group was \Sexpr{other_stat}.
+
+\newpage

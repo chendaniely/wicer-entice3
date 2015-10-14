@@ -1,0 +1,33 @@
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+\Sexpr{set_parent('src/master.Rnw')}
+
+<<>>=
+# print(getwd())
+@
+
+<<>>=
+source('src/waist_measurement/waist_measurement_setup.R')
+@
+
+<<>>=
+if (tolower(config_pt_sex) == "male" | config_pt_sex == 1) {
+    waist_higher <- 40
+} else if (tolower(config_pt_sex) == "female" | config_pt_sex == 2) {
+    waist_higher <- 35
+}
+@
+
+\begin{center}
+\Huge Waist Measurement
+\end{center}
+
+\Large Your waist measurement was \Sexpr{config_pt_waist_in} inches.\\
+
+\Large For \Sexpr{tolower(get_men_women(config_pt_sex))},
+measurements above \Sexpr{waist_higher} inches are associated with higher
+risk to heart health.\\
+
+\Large Measurements below \Sexpr{waist_higher} inches are associated with lower
+risk to heart health.
+
+\newpage

@@ -1,0 +1,36 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+<<>>=
+# print(getwd())
+@
+
+Your Blood Pressure was \Sexpr{config_pt_bp_s}/\Sexpr{config_pt_bp_d}\\
+
+\begin{center}
+Blood Pressure Categories
+\end{center}
+
+\begin{center}
+\begin{tabular}{rC{6cm}cC{6cm}}
+ & Systolic     & & Diastolic \\
+ & (top number) & & (bottom number) \\
+\cline{2-2}
+\cline{4-4}
+                 &                &     &               \\
+Healthy          & less than 120  & and & less than 80  \\
+Borderline       & 120 -- 139     & or  & 80 --  89     \\
+High             & 140 or more    & or  & 90 or more    \\
+\end{tabular}
+\end{center}
+
+Risks of high blood pressure include:
+\begin{itemize}
+    \item Vision loss (hypertensive retinopathy)
+    \item Stroke (cerebrovascular accident)
+    \item Heart attack (myocardial infarction)
+    \item Blood vessel damage (atherosclerosis)
+    \item Kidney failure (renal failure)
+\end{itemize}
+
+\newpage

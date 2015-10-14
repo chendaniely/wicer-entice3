@@ -1,0 +1,24 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+<<>>=
+# print(getwd())
+@
+
+<<>>=
+source('src/composite_beverage_servings/composite_beverage_servings_setup.R')
+@
+
+\begin{center}
+\Huge{Servings per Week of Beverages Containing Sugar}
+\end{center}
+
+\Huge{Per week, you reported drinking:} \\
+
+\begin{itemize}
+    \item \Sexpr{df[df$variable == 'soda', 'text']} servings of regular (not diet) soda
+    \item \Sexpr{df[df$variable == 'purejuice', 'text']} servings of 100\% pure juices, and
+    \item \Sexpr{df[df$variable == 'sugaryfruitdrink', 'text']} servings of sweetened or fruit drinks.
+\end{itemize}
+
+\newpage

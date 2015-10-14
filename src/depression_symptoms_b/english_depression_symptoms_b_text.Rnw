@@ -1,0 +1,27 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+\graphicspath{{./depression_symptoms_b/}}
+
+<<>>=
+# print(getwd())
+@
+
+<<>>=
+source('src/depression_symptoms_b/depression_symptoms_b_setup.R')
+@
+
+% \begin{center}
+% \Huge{Depression Symptoms B}
+% \end{center}
+
+\begin{center}
+\Huge{Depression Symptoms B}
+\end{center}
+
+\Large{Depression symptom scores range from 10 (better) to 90 (worse).
+A score of 50 is average.\\
+
+Your depression symptom score was \Sexpr{config_pt_depression_b}.}
+
+\newpage
