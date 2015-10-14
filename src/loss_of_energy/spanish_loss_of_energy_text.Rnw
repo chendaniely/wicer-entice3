@@ -1,0 +1,50 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+<<>>=
+# print(getwd())
+@
+
+<<>>=
+source('src/loss_of_energy/loss_of_energy_setup.R')
+@
+
+<<Feeling Run Down>>=
+# From top to bottom: Not At All = 1; A Little Bit = 2; Somewhat = 3; Quite A Bit
+# = 4; Very Much = 5
+dummy <- data.frame(x=c(0,10), y=c(0, 10))
+
+center_text_g <- create_grob_from_png_dir(
+    sprintf(
+        "EnTICE3_2/Feeling Run Down/%s_Word markers with title.png",
+        convert_language_single(config_pt_language)
+    ))
+pt_run_down_text <- get_feeling_run_down_text(config_pt_run_down, 'spanish')
+sex_age_run_down_text <- get_feeling_run_down_text(config_sex_age_run_down, 'spanish')
+
+pt_battery_g <-create_grob_from_png_dir(
+    sprintf(
+        "EnTICE3_2/Feeling Run Down/%s Battery.png",
+        pt_run_down_text
+    ))
+sex_age_battery_g <- create_grob_from_png_dir(
+    sprintf(
+        "EnTICE3_2/Feeling Run Down/%s Battery.png",
+        sex_age_run_down_text
+    ))
+@
+
+\begin{center}
+\Huge{Sintiéndose Agotado}
+\end{center}
+
+\Large Cuando le preguntamos qué tan \Sexpr{tolower(spanish_gender('agotad', config_pt_sex))}
+se sentía en promedio, usted respondió
+``\Sexpr{tolower(translate_rundown_spanish(pt_run_down_text))}.''\\
+
+Cuando le preguntamos a \Sexpr{tolower(get_men_women(config_pt_sex, 'spanish'))}
+de la misma edad que usted qué tan \Sexpr{tolower(spanish_gender('agotad', config_pt_sex))}s
+se sentían en promedio, respondieron
+``\Sexpr{tolower(translate_rundown_spanish(sex_age_run_down_text))}.''
+
+\newpage

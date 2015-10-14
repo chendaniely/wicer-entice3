@@ -1,0 +1,32 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+\graphicspath{{./risks_of_excess_weight/}}
+
+<<>>=
+# print(getwd())
+@
+
+Su BMI fue de \Sexpr{config_pt_bmi_value }\\
+
+El índice de masa corporal (BMI
+en inglés) utiliza su estatura y peso
+para estimar cuanta grasa corporal
+usted tiene.\\
+
+Categorías de BMI:\\
+Menos de 18.5 es Bajo Peso\\
+De 18.5 a 24.9 es Normal\\
+De 25.0 a 29.9 es Sobrepeso\\
+Más de 30.0 es \Sexpr{spanish_gender('Obes', config_pt_sex)}\\
+
+Los riesgos de exceso de peso incluyen:
+\begin{itemize}
+    \item Enfermedades del corazón (enfermedades cardiovasculares)
+    \item Presión arterial alta (hipertensión)
+    \item Artritis (osteoartritis)
+    \item Diabetes tipo 2 (diabetes mellitus tipo 2)
+    \item Cánceres del esófago, páncreas, riñón, colon y recto
+\end{itemize}
+
+\newpage

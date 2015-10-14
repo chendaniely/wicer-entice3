@@ -1,0 +1,27 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+\graphicspath{{./health_compated_to_ideal_cloverleaf/}}
+
+<<>>=
+# print(getwd())
+@
+
+\begin{center}
+\Huge{Salud en Comparación con el Ideal}
+\end{center}
+
+El nivel de actividad física ideal es excelente. Su nivel de actividad física fue
+\Sexpr{tolower(translate_cloverleaf_spanish(config_pt_cloverleaf_physical))}.\\
+
+El estado de salud general ideal es excelente. Su salud general estaba
+\Sexpr{tolower(translate_cloverleaf_spanish(config_pt_cloverleaf_overall, fair_poor = 'regular/mala'))}.\\
+
+El consumo de frutas y vegetales ideal es excelente. Su consumo de frutas y vegetales
+fue
+\Sexpr{tolower(translate_cloverleaf_spanish(config_pt_cloverleaf_fruit))}.\\
+
+El estado de salud mental ideal es excelente. Su salud mental estaba
+\Sexpr{tolower(translate_cloverleaf_spanish(config_pt_cloverleaf_mental, fair_poor = 'regular/mala'))}.
+
+\newpage

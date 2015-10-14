@@ -1,0 +1,24 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+<<>>=
+# print(getwd())
+@
+
+<<>>=
+source('src/composite_beverage_servings/composite_beverage_servings_setup.R')
+@
+
+\begin{center}
+\Huge{Porciones por Semana de Bebidas con Contenido de Azúcar}
+\end{center}
+
+\Huge{Usted informó que tomó por semana:} \\
+
+\begin{itemize}
+    \item \Sexpr{df[df$variable == 'soda', 'text']} porciones de sodas con azúcar (no de dieta)
+    \item \Sexpr{df[df$variable == 'purejuice', 'text']} porciones de jugos de fruta 100\% naturales, y
+    \item \Sexpr{df[df$variable == 'sugaryfruitdrink', 'text']} sporciones de bebidas de frutas o azucaradas.
+\end{itemize}
+
+\newpage

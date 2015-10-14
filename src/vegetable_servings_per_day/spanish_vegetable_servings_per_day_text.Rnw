@@ -1,0 +1,28 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+<<>>=
+# print(getwd())
+@
+
+<<vegetable>>=
+source('src/vegetable_servings_per_day/vegetable_servings_per_day_setup.R')
+@
+
+\begin{center}
+\Huge{Porciones de Vegetales por Día}
+\end{center}
+
+\Huge Usted informó que comió alrededor de \Sexpr{df[df$variable == 'pt', 'text']}
+porciones de vegetales por día.\\
+
+\Sexpr{get_men_women(config_pt_sex, 'spanish')}
+informaron que comieron un promedio de \Sexpr{df[df$variable == 'other', 'text']}
+porciones de vegetales por día.\\
+
+Se recomienda que \Sexpr{tolower(get_men_women(config_pt_sex, 'spanish', 'gender'))}
+de su edad coman por lo menos \Sexpr{df[df$variable == 'min', 'text']}
+porciones de vegetales por
+día
+
+\newpage

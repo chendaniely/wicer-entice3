@@ -1,0 +1,38 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+\graphicspath{{./beverage_recommendations/}}
+
+\newgeometry{left=1cm, right=1cm}
+
+<<>>=
+# print(getwd())
+@
+
+<<>>=
+source('src/beverage_recommendations/beverage_recommendations_setup.R')
+@
+
+\begin{center}
+\Huge{Porciones por Semana de Bebidas con Contenido de Azúcar}
+\end{center}
+
+\Large{Usted informó que tomó por semana:
+
+\begin{itemize}
+    \item \Sexpr{df[df$variable == 'soda', 'text']} porciones de sodas con azúcar (no de dieta), y
+    \item \Sexpr{df[df$variable == 'purejuice', 'text']} porciones de jugos de fruta 100\% naturales.
+\end{itemize}
+}
+
+\begin{center}
+\Huge{Recomendaciones para Bebidas}
+\end{center}
+\Large{Los adultos no deben tomar más de 7 porciones (6 onzas en cada porción) de jugos de fruta
+100\% naturales, y no más de 3 latas (36 onzas en total) de sodas con azúcar por semana.\\
+
+Bebidas endulzadas tienen azúcar adicional. Una lata de soda con azúcar contiene alrededor
+de 10 cucharaditas de azúcar. Se tarda unos 35 minutos de caminata para quemar las calorías
+contenidas en una lata de soda con azúcar.}
+
+\newpage

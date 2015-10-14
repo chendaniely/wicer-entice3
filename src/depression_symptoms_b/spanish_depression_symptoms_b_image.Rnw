@@ -1,0 +1,48 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+\graphicspath{{./depression_symptoms_b/}}
+
+<<>>=
+# print(getwd())
+@
+
+<<>>=
+source('src/depression_symptoms_b/depression_symptoms_b_setup.R')
+@
+
+% \begin{center}
+% \Huge{Depression Symptoms B}
+% \end{center}
+
+<<Depression Symptoms B>>=
+dummy <- data.frame(x=c(0,81), y=c(0, 81))
+
+base_image_g <- create_grob_from_png_dir(
+    sprintf(
+        "EnTICE3_2/Anxiety Depression Gradient Bar/%s_Gradient Bar with word anchors.png",
+        convert_language_single(config_pt_language)
+    ))
+
+arrow_start <- config_pt_depression_b - 10
+@
+
+<<Depression Symptoms B Plot>>=
+ggplot(data = dummy, aes(x = x, y = y)) +
+    geom_point(alpha = 1/1000000000) +
+    annotation_custom(base_image_g, xmin = -1, xmax = 81, ymin = -10, ymax = 60) +
+    geom_segment(aes(x = arrow_start, y = 50,
+                     xend = arrow_start, yend = 22, size = 0.01),
+                 arrow = arrow(length = unit(0.5, "cm"))) +
+    annotate("text", label = "Su\nPuntuación de\nSíntomas",
+             x = arrow_start, y = 72.5, size = 7) +
+    annotate("text", label = config_pt_depression_b,
+             x = arrow_start, y = 58, size = 10) +
+    theme_nothing_text() +
+    theme(legend.position = "none") +
+    theme(axis.title = element_blank(), axis.text = element_blank()) +
+    theme(plot.title = element_text(size = 30, colour = "black")) +
+    labs(title = "Síntomas de Depresión B\n")
+@
+
+\newpage

@@ -1,0 +1,27 @@
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+\Sexpr{set_parent('src/master.Rnw')}
+
+<<>>=
+# print(getwd())
+@
+
+<<>>=
+source('src/waist_measurement/waist_measurement_setup.R')
+@
+
+\begin{center}
+\Huge Medida de Cintura
+\end{center}
+
+\Large Su medida de cintura fue de \Sexpr{config_pt_waist_in} pulgadas.\\
+
+\Large Para \Sexpr{tolower(get_men_women(config_pt_sex, 'spanish', 'for'))},
+medidas por encima de \Sexpr{waist_higher}
+pulgadas están asociadas con un mayor riesgo a
+la salud del corazón.\\
+
+\Large Las medidas por debajo de \Sexpr{waist_higher}
+pulgadas están asociadas con un menor riesgo a la salud del
+corazón.
+
+\newpage

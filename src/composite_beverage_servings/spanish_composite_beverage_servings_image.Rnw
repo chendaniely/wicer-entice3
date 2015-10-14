@@ -1,0 +1,53 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+<<>>=
+# print(getwd())
+@
+
+<<>>=
+source('src/composite_beverage_servings/composite_beverage_servings_setup.R')
+@
+
+<<composite_beverage_servings_plot>>=
+x_axis_names <- c('Sodas con azúcar\n(no de dieta)',
+                  'Jugos de fruta\n100% naturales',
+                  'Bebidas de frutas\no azucaradas')
+
+ggplot(data = df) +
+    theme_bw() +
+    geom_bar(aes(x = as.factor(variable), y = value,
+                 fill = variable),
+             stat = "identity",
+             width = .5) +
+    scale_fill_manual(values = c(
+        'soda' = color_green_referencerange_bargraph_colverleaf,
+        'purejuice' = color_red_bpfiguretext_anxiousdays,
+        'sugaryfruitdrink' = color_blue_bargraph_cloverleaf)) +
+    scale_x_discrete(breaks = c("soda", "purejuice", "sugaryfruitdrink"),
+                     labels = x_axis_names) +
+    scale_y_continuous(expand = c(0,0),
+                       limits = c(0, y_axix_range)) +
+    geom_text(aes(x = variable,
+                  y = text_y,
+                  label = text), size = 10) +
+    ylab("\nporciones por semana") +
+    labs(title="Porciones por Semana de Bebidas con\nContenido de Azúcar\n") +
+    theme(axis.line = element_line(size = 1),
+          panel.border = element_blank(),
+          panel.grid.major.y = element_blank(),
+          panel.grid.minor.y = element_blank(),
+          panel.grid.major.x = element_blank(),
+          panel.grid.minor.x = element_blank(),
+          plot.title = element_text(size = rel(2)),
+          axis.title.x = element_text(size = rel(2), vjust = 0.75),
+          axis.text.x  = element_text(size = rel(2), hjust = -1.9, vjust = -100.5, angle = 1),
+          axis.text.y  = element_text(size = rel(2), hjust = 0.75),
+          axis.line.y = element_blank(),
+          legend.position = "none",
+          axis.title.y = element_blank(),
+          axis.text.y = element_text(vjust = 1)) +
+    coord_flip()
+@
+
+\newpage

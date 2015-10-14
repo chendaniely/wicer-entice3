@@ -1,0 +1,19 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+<<>>=
+# print(getwd())
+@
+
+\begin{center}
+\Huge{Su Salud en General}
+\end{center}
+
+\Large Usted informó que su salud en general estaba
+\Sexpr{tolower(get_overall_health_text(config_pt_overall, 'spanish'))}\\
+
+\Sexpr{get_men_women(config_pt_sex, 'spanish')}
+de la misma edad que usted informaron que su salud en general estaba
+\Sexpr{tolower(get_overall_health_text(config_sex_age_overall, 'spanish'))}.
+
+\newpage

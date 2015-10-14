@@ -1,0 +1,114 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+\graphicspath{{./beverage_recommendations/}}
+
+\newgeometry{left=1cm, right=1cm}
+
+<<>>=
+# print(getwd())
+@
+
+<<>>=
+source('src/beverage_recommendations/beverage_recommendations_setup.R')
+@
+
+<<Beverage Recommendation, results='hide'>>=
+file_to_copy <- sprintf(
+    'EnTICE3_2/Beverage Recommendations/%s_Beverage Recommendations.png',
+    convert_language_single(config_pt_language))
+file.copy(from = file_to_copy,
+          to = 'src/beverage_recommendations/beverage_recommendations.png', overwrite = TRUE)
+
+file.copy(from = 'EnTICE3_2/Beverage Recommendations/Soda can_2.png',
+          to = 'src/beverage_recommendations/soda_can.png', overwrite = TRUE)
+file.copy(from = 'EnTICE3_2/Beverage Recommendations/Juice box_2.png',
+          to = 'src/beverage_recommendations/juice_box.png', overwrite = TRUE)
+@
+
+<<Beverage Recommendation Plot>>=
+df <-  data.frame(soda = config_pt_soda_wk,
+                  purejuice = config_pt_purejuice_wk)
+df <- melt(df)
+
+df$text <- df$value
+y_axis_range <- y_axis_range(max(df$value), 'beverage_recommendations')
+
+min_bar_height <- y_axis_range * 0.01
+min_center_bar_height <- y_axis_range * 0.1
+df$value <- ifelse(df$value == 0, min_bar_height, df$value)
+df$text_y <- sapply(X = df$text, FUN = y_axis_text_height,
+                    min_bar_height, min_center_bar_height, 'beverage_recommendations')
+@
+
+
+<<>>=
+x_axis_names <- c('\nSodas con azúcar\n(no de dieta)',
+                  '\nJugos de fruta\n100% naturales')
+
+beverage_recommendation_plot <- ggplot(data = df) +
+    theme_bw() +
+    geom_bar(aes(x = as.factor(variable), y = value,
+                 fill = variable),
+             stat="identity",
+             width=.5) +
+    scale_fill_manual(values = c(
+        'soda' = color_red_bpfiguretext_anxiousdays,
+        'purejuice' = color_blue_bargraph_cloverleaf)) +
+    scale_x_discrete(breaks = c("soda", "purejuice"),
+                     labels = x_axis_names) +
+    scale_y_continuous(expand = c(0,0), limits = c(0, y_axis_range)) +
+    geom_text(aes(x = variable,
+                  y = text_y,
+                  label = text), size = 15) +
+    xlab(NULL) +
+    ylab("porciones\n") +
+    ggtitle("Sus Porciones por Semana de Bebidas\ncon Contenido de Azúcar\n") +
+    theme(panel.border = element_blank(),
+          panel.grid.major.y = element_blank(),
+          panel.grid.minor.y = element_blank(),
+          panel.grid.major.x = element_blank(),
+          panel.grid.minor.x = element_blank(),
+          plot.title = element_text(size = rel(3)),
+          axis.title.x = element_text(size=40),
+          axis.text.x  = element_text(size=40),
+          axis.title.y = element_text(size=40),
+          axis.text.y  = element_text(size=40),
+          legend.position="none",
+          axis.title.y = element_blank(),
+          axis.line = element_line(size = 1),
+          axis.line.x = element_blank())
+@
+
+<<results='hide'>>=
+png("src/beverage_recommendations/beverage_recommendation_plot.png", width = 800, height = 600)
+beverage_recommendation_plot
+dev.off()
+@
+
+\begin{figure}[H]
+\begin{minipage}[b]{0.45\linewidth}
+\centering
+\includegraphics[width=\textwidth]{beverage_recommendation_plot}
+
+% \begin{tabular}{C{4cm}C{3cm}}
+% \includegraphics[scale=0.75]{soda_can.png}&
+% \phantom{aaaaaaaaaaaaa} \includegraphics[scale=0.75]{juice_box.png}
+% \end{tabular}
+
+\hspace{2.1cm}
+\includegraphics[scale=0.75]{soda_can.png}
+\hspace{3cm}
+\includegraphics[scale=0.75]{juice_box.png}
+
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}[b]{0.45\linewidth}
+\centering
+\includegraphics[width=\textwidth]{beverage_recommendations}
+\end{minipage}
+\end{figure}
+
+\restoregeometry
+
+\newpage
