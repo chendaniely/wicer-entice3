@@ -2,37 +2,47 @@ library(knitr)
 
 rm(list = ls())
 
-clean_images <- function() {
-    dirs <- list.dirs(path = 'src', recursive = FALSE)
-    temp_files <- sapply(X = dirs, FUN = list.files, pattern = '*.png$|*.tex$', full.names = TRUE)
-    temp_files <- unlist(temp_files)
-    sapply(X = temp_files, file.remove)
-    unlink('figure/', recursive = TRUE)
-}
+source('src/helper-00-batch.R')
 
-clean_knitr <- function(language){
-    # extensions <- c(".aux", ".log", ".pdf", ".tex")
-    # if (language == 'english') {
-    #     files <- sprintf("src/01-02-english%s", extensions)
-    # } else if (language == 'spanish') {
-    #     files <- sprintf("src/01-03-spanish%s", extensions)
-    # }
-    files <- list.files(path = 'src/', full.names = TRUE, recursive = TRUE,
-                        pattern = '*.aux$|*.log$|*.pdf$|*.tex$')
-    file.remove(files)
-}
+###############################################################################
+#
+# SETUP
+#
+###############################################################################
+
+pt_english_a1_ids <- c('Sample1', 'Sample4')[1]
+pt_english_a2_ids <- c('Sample1', 'Sample4')[1]
+pt_english_b1_ids <- c('Sample1', 'Sample4')[1]
+pt_english_b2_ids <- c('Sample1', 'Sample4')[1]
+pt_english_all_ids <- c(pt_english_a1_ids, pt_english_a2_ids, pt_english_b1_ids, pt_english_b2_ids)
+
+pt_spanish_a1_ids <- c('Sample2', 'Sample3', 'Sample5')[1]
+pt_spanish_a2_ids <- c('Sample2', 'Sample3', 'Sample5')[1]
+pt_spanish_b1_ids <- c('Sample2', 'Sample3', 'Sample5')[1]
+pt_spanish_b2_ids <- c('Sample2', 'Sample3', 'Sample5')[1]
+pt_spanish_all_ids <- c(pt_spanish_a1_ids, pt_spanish_a2_ids, pt_spanish_b1_ids, pt_spanish_b2_ids)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ###############################################################################
 # ENGLISH A1
 ###############################################################################
-# # data_config_pt_language <- "english"
-pt_englishs <- c('Sample1', 'Sample4') # person's name
-pt_ids <- c('Sample1', 'Sample4') # person's ID
-
-pt_ids <- pt_ids[2]
-pt_englishs <- pt_englishs[2]
-
-for (id in pt_ids) {
+for (id in pt_english_a1_ids) {
     pt_id <- id
     pt_english <- id # pt name
     data_config_pt_language <- 'english'
@@ -55,17 +65,59 @@ for (id in pt_ids) {
 }
 
 ###############################################################################
+# ENGLISH A2
+###############################################################################
+for (id in pt_english_a2_ids) {
+    pt_id <- id
+    pt_english <- id # pt name
+    data_config_pt_language <- 'english'
+    print(id)
+    print(pt_id)
+    output_file_name <- sprintf('output/english/%s-A2.pdf', pt_id)
+    setwd('src/')
+
+    tryCatch({
+        knit2pdf(input = '01-02-english-A2.Rnw')
+    }, error = function(e){})
+
+    setwd('../')
+    if (!dir.exists('output/english')) {
+        dir.create('output/english')
+    }
+    file.copy(from = 'src/01-02-english-A2.pdf', to = output_file_name, overwrite = TRUE)
+    clean_images()
+    clean_knitr(data_config_pt_language)
+}
+
+###############################################################################
+# ENGLISH B1
+###############################################################################
+for (id in pt_english_b1_ids) {
+    pt_id <- id
+    pt_english <- id # pt name
+    data_config_pt_language <- 'english'
+    print(id)
+    print(pt_id)
+    output_file_name <- sprintf('output/english/%s-B1.pdf', pt_id)
+    setwd('src/')
+
+    tryCatch({
+        knit2pdf(input = '01-02-english-B1.Rnw')
+    }, error = function(e){})
+
+    setwd('../')
+    if (!dir.exists('output/english')) {
+        dir.create('output/english')
+    }
+    file.copy(from = 'src/01-02-english-B1.pdf', to = output_file_name, overwrite = TRUE)
+    clean_images()
+    clean_knitr(data_config_pt_language)
+}
+
+###############################################################################
 # ENGLISH B2
 ###############################################################################
-
-# # data_config_pt_language <- "english"
-pt_englishs <- c('Sample1', 'Sample4') # person's name
-pt_ids <- c('Sample1', 'Sample4') # person's ID
-
-pt_ids <- pt_ids[2]
-pt_englishs <- pt_englishs[2]
-
-for (id in pt_ids) {
+for (id in pt_english_b2_ids) {
     pt_id <- id
     pt_english <- id # pt name
     data_config_pt_language <- 'english'
@@ -75,8 +127,7 @@ for (id in pt_ids) {
     setwd('src/')
 
     tryCatch({
-        Sys.setlocale(category = "LC_ALL", locale = "English_United States.1252")
-        knit2pdf(input = '01-02-english-B2.Rnw', encoding = 'UTF-8')
+        knit2pdf(input = '01-02-english-B2.Rnw')
     }, error = function(e){})
 
     setwd('../')
@@ -84,6 +135,177 @@ for (id in pt_ids) {
         dir.create('output/english')
     }
     file.copy(from = 'src/01-02-english-B2.pdf', to = output_file_name, overwrite = TRUE)
+    clean_images()
+    clean_knitr(data_config_pt_language)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+###############################################################################
+# spanish A1
+###############################################################################
+for (id in pt_spanish_a1_ids) {
+    pt_id <- id
+    pt_spanish <- id # pt name
+    pt_english <- pt_spanish
+    data_config_pt_language <- 'spanish'
+    print(id)
+    print(pt_id)
+    output_file_name <- sprintf('output/spanish/%s-A1.pdf', pt_id)
+    setwd('src/')
+
+    tryCatch({
+        knit2pdf(input = '01-04-spanish-A1.Rnw')
+    }, error = function(e){})
+
+    setwd('../')
+    if (!dir.exists('output/spanish')) {
+        dir.create('output/spanish')
+    }
+    file.copy(from = 'src/01-04-spanish-A1.pdf', to = output_file_name, overwrite = TRUE)
+    clean_images()
+    clean_knitr(data_config_pt_language)
+}
+
+###############################################################################
+# spanish A2
+###############################################################################
+for (id in pt_spanish_a2_ids) {
+    pt_id <- id
+    pt_spanish <- id # pt name
+    pt_english <- pt_spanish
+    data_config_pt_language <- 'spanish'
+    print(id)
+    print(pt_id)
+    output_file_name <- sprintf('output/spanish/%s-A2.pdf', pt_id)
+    setwd('src/')
+
+    tryCatch({
+        knit2pdf(input = '01-04-spanish-A2.Rnw')
+    }, error = function(e){})
+
+    setwd('../')
+    if (!dir.exists('output/spanish')) {
+        dir.create('output/spanish')
+    }
+    file.copy(from = 'src/01-04-spanish-A2.pdf', to = output_file_name, overwrite = TRUE)
+    clean_images()
+    clean_knitr(data_config_pt_language)
+}
+
+###############################################################################
+# spanish B1
+###############################################################################
+for (id in pt_spanish_b1_ids) {
+    pt_id <- id
+    pt_spanish <- id # pt name
+    pt_english <- pt_spanish
+    data_config_pt_language <- 'spanish'
+    print(id)
+    print(pt_id)
+    output_file_name <- sprintf('output/spanish/%s-B1.pdf', pt_id)
+    setwd('src/')
+
+    tryCatch({
+        knit2pdf(input = '01-04-spanish-B1.Rnw')
+    }, error = function(e){})
+
+    setwd('../')
+    if (!dir.exists('output/spanish')) {
+        dir.create('output/spanish')
+    }
+    file.copy(from = 'src/01-04-spanish-B1.pdf', to = output_file_name, overwrite = TRUE)
+    clean_images()
+    clean_knitr(data_config_pt_language)
+}
+
+###############################################################################
+# spanish B2
+###############################################################################
+for (id in pt_spanish_b2_ids) {
+    pt_id <- id
+    pt_spanish <- id # pt name
+    pt_english <- pt_spanish
+    data_config_pt_language <- 'spanish'
+    print(id)
+    print(pt_id)
+    output_file_name <- sprintf('output/spanish/%s-B2.pdf', pt_id)
+    setwd('src/')
+
+    tryCatch({
+        knit2pdf(input = '01-04-spanish-B2.Rnw')
+    }, error = function(e){})
+
+    setwd('../')
+    if (!dir.exists('output/spanish')) {
+        dir.create('output/spanish')
+    }
+    file.copy(from = 'src/01-04-spanish-B2.pdf', to = output_file_name, overwrite = TRUE)
+    clean_images()
+    clean_knitr(data_config_pt_language)
+}
+
+#
+# all
+#
+for (id in pt_english_all_ids) {
+    pt_id <- id
+    pt_english <- id # pt name
+    data_config_pt_language <- 'english'
+    print(id)
+    print(pt_id)
+    output_file_name <- sprintf('output/english/%s-ALL.pdf', pt_id)
+    setwd('src/')
+
+    tryCatch({
+        knit2pdf(input = '01-01-english.Rnw')
+    }, error = function(e){})
+
+    setwd('../')
+    if (!dir.exists('output/english')) {
+        dir.create('output/english')
+    }
+    file.copy(from = 'src/01-01-english.pdf', to = output_file_name, overwrite = TRUE)
+    clean_images()
+    clean_knitr(data_config_pt_language)
+}
+
+
+for (id in pt_spanish_all_ids[1]) {
+    pt_id <- id
+    pt_spanish <- id # pt name
+    pt_english <- pt_spanish
+    data_config_pt_language <- 'spanish'
+    print(id)
+    print(pt_id)
+    output_file_name <- sprintf('output/spanish/%s-ALL.pdf', pt_id)
+    setwd('src/')
+
+    tryCatch({
+        knit2pdf(input = '01-03-spanish.Rnw')
+    }, error = function(e){})
+
+    setwd('../')
+    if (!dir.exists('output/spanish')) {
+        dir.create('output/spanish')
+    }
+    file.copy(from = 'src/01-03-spanish-ALL.pdf', to = output_file_name, overwrite = TRUE)
     clean_images()
     clean_knitr(data_config_pt_language)
 }
