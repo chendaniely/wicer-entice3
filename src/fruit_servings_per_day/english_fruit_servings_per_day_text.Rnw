@@ -1,0 +1,10 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+<<>>=
+print(getwd())
+@
+
+
+
+\newpage

@@ -1,0 +1,40 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+\graphicspath{{./depression_symptoms_a/}}
+
+<<>>=
+# print(getwd())
+@
+
+<<>>=
+source('src/depression_symptoms_a/depression_symptoms_a_setup.R')
+@
+
+
+\begin{center}
+\Huge{\textbf{Depression Symptoms A}}
+\end{center}
+
+\vspace{2cm}
+
+\begin{figure}[H]
+\begin{minipage}[b]{0.5\linewidth}
+\centering
+\includegraphics[width=0.75\textwidth]{depression_symptoms_a_pt}
+\caption*{\Huge{\textbf{You}\\
+\textit{\Sexpr{stri_trans_totitle(pt_stat)}}\\
+\phantom{blank line of text}}}
+
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}[b]{0.5\linewidth}
+\centering
+\includegraphics[width=0.75\textwidth]{depression_symptoms_a_other}
+\caption*{\huge{Other \Sexpr{tolower(get_men_women(config_pt_sex))}\\
+in your age group\\
+\textit{\Sexpr{stri_trans_totitle(other_stat)}}}}
+\end{minipage}
+\end{figure}
+
+\newpage

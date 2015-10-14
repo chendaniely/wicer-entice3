@@ -1,0 +1,52 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+<<>>=
+# print(getwd())
+@
+
+<<Risks of High Blood Pressure>>=
+# config_pt_bp_s <- 120
+# config_pt_bp_d <- 95
+dummy <- data.frame(x=c(0,10), y=c(0, 10))
+base_image_g <- create_grob_from_png_dir(
+    sprintf(
+        "EnTICE3_2/Risks of High Blood Pressure/%s_Risks of High BP with line.png",
+        convert_language_single(config_pt_language)
+    ))
+
+segment_s_x <- function(s_value, s_value_base, base_x_value){
+    if (s_value < 95) {s_value <- 95}
+    if (s_value > 168) {s_value <- 168}
+    normalize_x <- s_value - s_value_base
+    value <- base_x_value + (normalize_x * 0.04280)
+}
+s_location <- segment_s_x(config_pt_bp_s, 110, 0.875)
+
+segment_d_x <- function(d_value, d_value_base, base_x_value){
+    if (d_value < 68) {d_value <- 68}
+    if (d_value > 110) {d_value <- 110}
+    normalize_x <- d_value - d_value_base
+    value <- base_x_value + (normalize_x * 0.0855)
+}
+d_location <- segment_d_x(config_pt_bp_d, 75, 0.875)
+@
+
+<<Risks of High Blood Pressure Plot>>=
+ggplot(data = dummy, aes(x = x, y = y)) +
+    geom_point(alpha = 1/1000000000) +
+    theme_nothing() +
+    annotation_custom(base_image_g) +
+    annotate("text", label = config_pt_bp_s, x = 1.31, y = 8.9, size = 7.5) +
+    annotate("text", label = config_pt_bp_d, x = 1.31, y = 8.2, size = 7.5) +
+
+    geom_segment(aes(x = s_location, y = 3.55,
+                     xend = s_location, yend = 3.75)) +
+    annotate("text", label = config_pt_bp_s, x = s_location, y = 3.9, , size = 3) +
+
+    geom_segment(aes(x = d_location, y = 1.5,
+                     xend = d_location, yend = 1.7)) +
+    annotate("text", label = config_pt_bp_d, x = d_location, y = 1.85, , size = 3)
+@
+
+\newpage

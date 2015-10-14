@@ -1,0 +1,60 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+<<>>=
+# print(getwd())
+@
+
+<<>>=
+source('src/loss_of_energy/loss_of_energy_setup.R')
+@
+
+<<Feeling Run Down Plot>>=
+pt_battery_g <-create_grob_from_png_dir(
+    sprintf(
+        "EnTICE3_2/Feeling Run Down/%s Battery.png",
+        pt_run_down_text
+    ))
+sex_age_battery_g <- create_grob_from_png_dir(
+    sprintf(
+        "EnTICE3_2/Feeling Run Down/%s Battery.png",
+        sex_age_run_down_text
+    ))
+
+label_you_1 <- "You"
+label_other_sex_age <- sprintf("Other %s in\nyour age group",
+                              get_men_women(config_pt_sex))
+
+mylabels <- c(label_you_1,
+              label_other_sex_age
+)
+
+ggplot(data = dummy, aes(x = x, y = y)) +
+    geom_point(alpha = 1/1000000000) +
+    annotation_custom(center_text_g, ymin = 0.5) +
+    annotation_custom(pt_battery_g,
+                      xmin = 0.8, xmax = 3.8,
+                      ymin=0.25, ymax = 7) +
+    annotation_custom(sex_age_battery_g,
+                      xmin = 6.2, xmax = 9.2,
+                      ymin = 0.25, ymax = 7) +
+
+    annotate("text", label = label_you_1, x = 2.3, y = -0.7, size = 7, fontface = 'bold') +
+    annotate("text", label = pt_run_down_text, x = 2.3, y = -1.75, size = 6, fontface = 'italic') +
+
+    annotate("text", label = label_other_sex_age, x = 7.75, y = -1.25, size = 7) +
+    annotate("text", label = sex_age_run_down_text, x = 7.75, y = -2.75, size = 6, fontface = 'italic') +
+
+    scale_x_continuous(breaks = c(2.3, 7.75)) +
+    theme(axis.text.x = element_blank(),
+          axis.text.y = element_blank(),
+          axis.ticks.x = element_blank(),
+          axis.ticks.y = element_blank(),
+          panel.grid = element_blank(),
+          panel.background = element_blank()
+    ) +
+    xlab(NULL) +
+    ylab(NULL)
+@
+
+\newpage

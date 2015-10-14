@@ -1,0 +1,40 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+\graphicspath{{./beverage_recommendations/}}
+
+% \newgeometry{left=1cm, right=1cm}
+
+<<>>=
+# print(getwd())
+@
+
+<<>>=
+source('src/beverage_recommendations/beverage_recommendations_setup.R')
+@
+
+\begin{center}
+\Huge{Servings per Week of Beverages Containing Sugar}
+\end{center}
+
+\Large{Per week, you reported drinking:
+
+\begin{itemize}
+    \item \Sexpr{df[df$variable == 'soda', 'text']} servings of regular (not diet) soda, and
+    \item \Sexpr{df[df$variable == 'purejuice', 'text']} servings of 100\% pure juices.
+\end{itemize}
+}
+
+\begin{center}
+\Huge{Beverage Recommendations}
+\end{center}
+\Large{Adults should drink no more than 7 servings (6 ounces per serving)
+of 100\% fruit juice per week, and no more than 3 cans (36 ounces, total)
+of regular soda per week.\\
+
+Sweetened beverages have added sugar.
+One can of regular soda contains about 10 teaspoons of sugar.
+It takes about 35 minutes of walking to burn off the calories in one can of regular
+soda.}
+
+\newpage

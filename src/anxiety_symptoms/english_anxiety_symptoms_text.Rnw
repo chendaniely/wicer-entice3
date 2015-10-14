@@ -1,0 +1,23 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+\graphicspath{{./anxiety_symptoms/}}
+
+<<>>=
+# print(getwd())
+@
+
+<<>>=
+source('src/anxiety_symptoms/anxiety_simptoms_setup.R')
+@
+
+\begin{center}
+\Huge{Anxiety Symptoms}
+\end{center}
+
+\Large{Anxiety symptom scores range from 10 (better) to 90 (worse).
+A score of 50 is average.\\
+
+Your anxiety symptom score was \Sexpr{config_pt_anxiety}.}
+
+\newpage
