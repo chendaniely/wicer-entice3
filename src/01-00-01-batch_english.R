@@ -1,5 +1,5 @@
 library(knitr)
-
+Sys.setlocale("LC_MESSAGES", 'es_MX.UTF-8')
 clean_images <- function() {
     dirs <- list.dirs(path = 'src', recursive = FALSE)
     temp_files <- sapply(X = dirs, FUN = list.files, pattern = '*.png|*.tex', full.names = TRUE)
@@ -22,8 +22,8 @@ clean_knitr <- function(language){
 pt_englishs <- c('Sample1', 'Sample4') # person's name
 pt_ids <- c('Sample1', 'Sample4') # person's ID
 
-# pt_ids <- pt_ids[2]
-# pt_englishs <- pt_englishs[2]
+pt_ids <- pt_ids[2]
+pt_englishs <- pt_englishs[2]
 
 for (id in pt_ids) {
     pt_id <- id
@@ -63,7 +63,8 @@ for (id in pt_ids) {
     setwd('src/')
 
     tryCatch({
-        knit2pdf(input = '01-03-spanish.Rnw')
+        Sys.setlocale(category = "LC_ALL", locale = "English_United States.1252")
+        knit2pdf(input = '01-03-spanish.Rnw', encoding = 'UTF-8')
     }, error = function(e){})
 
     setwd('../')
