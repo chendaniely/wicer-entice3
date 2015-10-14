@@ -75,7 +75,8 @@ for (id in pt_ids) {
     setwd('src/')
 
     tryCatch({
-        knit2pdf(input = '01-02-english-B2.Rnw')
+        Sys.setlocale(category = "LC_ALL", locale = "English_United States.1252")
+        knit2pdf(input = '01-02-english-B2.Rnw', encoding = 'UTF-8')
     }, error = function(e){})
 
     setwd('../')
