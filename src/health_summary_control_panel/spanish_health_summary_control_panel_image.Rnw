@@ -3,7 +3,7 @@
 
 \graphicspath{{./anxiety_symptoms/}}
 
-<<>>=
+<<<>>=
 # print(getwd())
 @
 
@@ -12,11 +12,20 @@ source('src/health_summary_control_panel/health_summary_control_panel_setup.R')
 @
 
 \begin{center}
-\HUGE{\textbf{Your Health Summary}}
+\HUGE{\textbf{Resumen de Su Salud}}
 \end{center}
 
 <<health_summary>>=
 dummy <- data.frame(x = c(0,100), y = c(0, 100))
+
+health_summary_colors <- get_health_summary_colors(
+    prolonged_stress_value = config_pt_stress,
+    bmi_value = config_pt_bmi_value,
+    oral_health_value = config_pt_oral_health,
+    blood_pressure_s_value = config_pt_bp_s,
+    blood_pressure_d_value = config_pt_bp_d)
+
+health_summary_words <- lapply(X = health_summary_colors, FUN = get_health_summary_words_from_color, 'spanish')
 
 base_image_prolonged_stress <- create_grob_from_png_dir(
     sprintf("EnTICE3_2/Health Summary Control Panel/Control panel %s light.png",
@@ -37,7 +46,7 @@ base_image_blood_pressure <- create_grob_from_png_dir(
 
 <<fig.height=5.5>>=
 top_text_size <- 4
-side_text_size <- 7
+side_text_size <- 5.75
 side_text_x <- 35
 
 ggplot(data = dummy, aes(x = x, y = y)) +
@@ -49,14 +58,14 @@ ggplot(data = dummy, aes(x = x, y = y)) +
     annotation_custom(base_image_oral_health, ymin = 30, ymax = 50) +
     annotation_custom(base_image_blood_pressure, ymin = 10, ymax = 30) +
 
-    annotate("text", label = "Healthy", x = 58, y = 95, size = top_text_size) +
-    annotate("text", label = "Borderline", x = 68, y = 95, size = top_text_size) +
-    annotate("text", label = "Unhealthy", x = 78, y = 95, size = top_text_size) +
+    annotate("text", label = "Saludable", x = 58, y = 95, size = top_text_size) +
+    annotate("text", label = "Cuidado", x = 68, y = 95, size = top_text_size) +
+    annotate("text", label = "No Saludable", x = 78, y = 95, size = top_text_size) +
 
-    annotate("text", label = "     Prolonged Stress", x = side_text_x + 1.2, y = 80, size = side_text_size) +
-    annotate("text", label = "Body Mass Index (BMI)", x = side_text_x, y = 60, size = side_text_size) +
-    annotate("text", label = "          Oral Health", x = side_text_x + 3, y = 40, size = side_text_size) +
-    annotate("text", label = "       Blood Pressure", x = side_text_x + 1.5, y = 20, size = side_text_size)
+    annotate("text", label = "            Estrés Prolongado", x = side_text_x + 1.2, y = 80, size = side_text_size) +
+    annotate("text", label = "Índice de Masa Corporal (BMI)", x = side_text_x, y = 60, size = side_text_size) +
+    annotate("text", label = "                   Salud Oral", x = side_text_x + 3, y = 40, size = side_text_size) +
+    annotate("text", label = "             Presión Arterial", x = side_text_x + 1.5, y = 20, size = side_text_size)
 @
 
 \newpage

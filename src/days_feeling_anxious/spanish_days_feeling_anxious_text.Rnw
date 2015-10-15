@@ -1,0 +1,29 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+\graphicspath{{./days_feeling_anxious/}}
+
+<<>>=
+# print(getwd())
+@
+
+\begin{center}
+\Huge Días entre los últimos 30 días sintiéndose preocupado, ansioso, o tenso\\
+\end{center}
+
+\Large Usted informó que se sintió
+\Sexpr{spanish_gender('preocupad', config_pt_sex)},
+\Sexpr{spanish_gender('ansios', config_pt_sex)}, o
+\Sexpr{spanish_gender('tens', config_pt_sex)}
+durante \Sexpr{config_pt_anxious_30}
+de 30 días.\\
+
+\Large \Sexpr{get_men_women(config_pt_sex, 'spanish')}
+de la misma edad que usted informaron que se sintieron
+\Sexpr{spanish_gender('preocupad', config_pt_sex)}s,
+\Sexpr{spanish_gender('ansios', config_pt_sex)}s, o
+\Sexpr{spanish_gender('tens', config_pt_sex)}s
+durante un promedio de \Sexpr{config_sex_age_anxious_30}
+de 30 días.
+
+\newpage

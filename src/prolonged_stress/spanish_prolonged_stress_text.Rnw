@@ -1,0 +1,25 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+\graphicspath{{./prolonged_stress/}}
+
+<<>>=
+# print(getwd())
+@
+
+<<>>=
+source('src/prolonged_stress/prolonged_stress_setup.R')
+@
+
+\begin{center}
+\Huge{Estrés Prolongado\\
+(dura por lo menos 6 meses)}
+\end{center}
+
+\Large{
+Su nivel de estrés prolongado fue \Sexpr{translate_dial_spanish(pt_stat)}.\\
+
+El nivel de estrés prolongado de \Sexpr{tolower(get_men_women(config_pt_sex, 'spanish'))}
+de la misma edad que usted fue \Sexpr{translate_dial_spanish(other_stat)}.
+
+\newpage

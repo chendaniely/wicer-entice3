@@ -3,7 +3,7 @@
 
 \graphicspath{{./depression_symptoms_a/}}
 
-<<>>=
+<<<>>=
 # print(getwd())
 @
 
@@ -12,7 +12,7 @@ source('src/depression_symptoms_a/depression_symptoms_a_setup.R')
 @
 
 \begin{center}
-\Huge{\textbf{Depression Symptoms A}}
+\Huge{\textbf{Síntomas de Depresión A}}
 \end{center}
 
 \vspace{2cm}
@@ -21,8 +21,8 @@ source('src/depression_symptoms_a/depression_symptoms_a_setup.R')
 \begin{minipage}[b]{0.5\linewidth}
 \centering
 \includegraphics[width=0.75\textwidth]{depression_symptoms_a_pt}
-\caption*{\Huge{\textbf{You}\\
-\textit{\Sexpr{stri_trans_totitle(pt_stat)}}\\
+\caption*{\Huge{\textbf{Usted}\\
+\textit{\Sexpr{stri_trans_totitle(translate_dial_spanish(pt_stat))}}\\
 \phantom{blank line of text}}}
 
 \end{minipage}
@@ -30,9 +30,9 @@ source('src/depression_symptoms_a/depression_symptoms_a_setup.R')
 \begin{minipage}[b]{0.5\linewidth}
 \centering
 \includegraphics[width=0.75\textwidth]{depression_symptoms_a_other}
-\caption*{\huge{Other \Sexpr{tolower(get_men_women(config_pt_sex))}\\
-in your age group\\
-\textit{\Sexpr{stri_trans_totitle(other_stat)}}}}
+\caption*{\huge{\Sexpr{get_men_women(config_pt_sex, 'spanish')}\\
+de la misma edad que usted\\
+\textit{\Sexpr{stri_trans_totitle(translate_dial_spanish(other_stat))}}}}
 \end{minipage}
 \end{figure}
 

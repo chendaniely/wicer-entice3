@@ -1,0 +1,36 @@
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+\Sexpr{set_parent('src/master.Rnw')}
+
+\begin{center}
+\Large{\textbf{Índice de Masa Corporal (BMI)}}\\
+kg/m$^2$
+\end{center}
+
+<<>>=
+# print(getwd())
+@
+
+<<>>=
+source('src/body_mass_index/body_mass_index_setup.R')
+@
+
+\begin{center}
+\Large{\textbf{Índice de Masa Corporal (BMI)}}\\
+kg/m$^2$
+\end{center}
+
+\Large El índice de masa corporal (BMI en inglés) utiliza su estatura y peso para estimar cuanta
+grasa corporal usted tiene.\\
+
+Clasificaciones de BMI:
+
+\begin{itemize}
+  \item[] Menos de 18.5 es Bajo Peso
+  \item[] De 18.5 a 24.9 es Normal
+  \item[] De 25.0 a 29.9 es Sobrepeso
+  \item[] Más de 30.0 es Obeso/a
+\end{itemize}
+
+Su BMI fue de \Sexpr{config_pt_bmi_value}
+
+\newpage

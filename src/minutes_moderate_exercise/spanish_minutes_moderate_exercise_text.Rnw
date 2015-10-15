@@ -1,0 +1,27 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+<<>>=
+# print(getwd())
+@
+
+<<>>=
+source('src/minutes_moderate_exercise/minutes_moderate_exercise_setup.R')
+@
+
+\begin{center}
+\Huge{Minutos por Semana de Actividad Física Moderada}
+\end{center}
+
+\Huge Usted informó que hizo alrededor de \Sexpr{df[df$variable == 'pt', 'value']}
+minutos de actividad física moderada por semana.\\
+
+\Sexpr{get_men_women(config_pt_sex, 'spanish')}
+de la misma edad que usted informaron que hicieron un promedio de \Sexpr{df[df$variable == 'other', 'value']}
+minutos de actividad física moderada por semana.\\
+
+Se recomienda que \Sexpr{tolower(get_men_women(config_pt_sex, 'spanish', 'gender'))}
+de su edad hagan por lo menos 150 minutos de actividad física
+moderada por semana.
+
+\newpage

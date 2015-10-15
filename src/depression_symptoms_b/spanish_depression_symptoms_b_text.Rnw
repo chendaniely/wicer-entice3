@@ -1,0 +1,23 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+\graphicspath{{./depression_symptoms_b/}}
+
+<<>>=
+# print(getwd())
+@
+
+<<>>=
+source('src/depression_symptoms_b/depression_symptoms_b_setup.R')
+@
+
+\begin{center}
+\Huge{Síntomas de Depresión B}
+\end{center}
+
+\Large La puntación de síntomas de depresión tiene un rango de 10 (mejor) a 90 (peor). Una
+puntación de 50 es el promedio.\\
+
+Su puntuación de síntomas de depresión fue \Sexpr{config_pt_depression_b}.
+
+\newpage

@@ -1,0 +1,36 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+<<>>=
+# print(getwd())
+@
+
+Su presión arterial fue \Sexpr{config_pt_bp_s}/\Sexpr{config_pt_bp_d}\\
+
+\begin{center}
+Categorías de Presión Arterial
+\end{center}
+
+\begin{center}
+\begin{tabular}{rC{6cm}cC{6cm}}
+ & Sistólica         & & Diastólica \\
+ & (número superior) & & (número inferior) \\
+\cline{2-2}
+\cline{4-4}
+                 &                &   &               \\
+Normal           & menos de 120   & y & menos de 80   \\
+Alta-Normal      & 120 -- 139     & o & 80 --    89   \\
+Alta             & más de 140     & o & más de   90   \\
+\end{tabular}
+\end{center}
+
+Los riesgos de presión arterial alta incluyen:
+\begin{itemize}
+    \item Pérdida de la visión (retinopatía hipertensiva)
+    \item Daño a los vasos sanguíneos (aterosclerosis)
+    \item Ataque cerebral (accidente cerebrovascular)
+    \item Ataque del corazón (infarto de miocardio)
+    \item Fallo de los riñones (fallo renal)
+\end{itemize}
+
+\newpage
