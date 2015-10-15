@@ -3,12 +3,8 @@
 
 \graphicspath{{./anxiety_symptoms/}}
 
-<<<>>=
-# print(getwd())
-@
-
 <<>>=
-source('src/health_summary_control_panel/health_summary_control_panel_setup.R')
+# print(getwd())
 @
 
 \begin{center}
