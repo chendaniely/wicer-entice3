@@ -1,0 +1,26 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+<<>>=
+# print(getwd())
+@
+
+<<>>=
+source('src/minutes_vigorous_exercise/minutes_vigorous_exercise_setup.R')
+@
+
+\begin{center}
+\Huge{Minutos por Semana de Actividad Física Vigorosa}
+\end{center}
+
+\Huge Usted informó que hizo alrededor de \Sexpr{df[df$variable == 'pt', 'text']}
+minutos de actividad física vigorosa por semana.\\
+
+\Sexpr{get_men_women(config_pt_sex, 'spanish')}
+de la misma edad que usted informaron que hicieron un promedio de \Sexpr{df[df$variable == 'other', 'text']}
+minutos de actividad física vigorosa por semana.\\
+
+Se recomienda que \Sexpr{tolower(get_men_women(config_pt_sex, 'spanish', 'gender'))}
+de su edad hagan por lo menos 75 minutos de actividad física vigorosa por semana.
+
+\newpage

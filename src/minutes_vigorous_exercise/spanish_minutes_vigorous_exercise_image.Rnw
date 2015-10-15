@@ -10,8 +10,9 @@ source('src/minutes_vigorous_exercise/minutes_vigorous_exercise_setup.R')
 @
 
 <<vigorous_exercise_plot>>=
-x_axis_names <- c('\nYou',
-                  sprintf('\nOther %s in your age group', tolower(get_men_women(config_pt_sex))))
+x_axis_names <- c('\nUsted',
+                  sprintf('\n%s de la\nmisma edad que usted',
+                          get_men_women(config_pt_sex, 'spanish')))
 max_y <- max_y_activity(max(df$value))
 
 ggplot(data = df) +
@@ -27,11 +28,11 @@ ggplot(data = df) +
                   label = text), size = 10) +
     geom_hline(yintercept = 75, linetype = "longdash") +
     geom_text(aes(x = x_axis_names[2], y = 75, vjust = -.25, hjust = -0.1,
-                  label = 'Recommended Minimum')) +
+                  label = 'Recomendación Mínima')) +
     theme_bw() +
-    ylab("minutes\n") +
+    ylab("minutos\n") +
     xlab("") +
-    labs(title = "Minutes of Vigorous Physical Activity per Week\n") +
+    labs(title = "Minutos por Semana de Actividad Física Vigorosa\n") +
     theme(panel.border = element_blank(),
           panel.grid.major.x = element_blank(),
           panel.grid.minor.y = element_blank(),

@@ -47,7 +47,7 @@ config_sex_age_anxious_30 <- data_config_sex_age_anxious_30
 
 
 ###############################################################################
-# Get Fruid Servings per Day
+# Get Fruit Servings per Day
 ###############################################################################
 config_pt_fruit_servings_per_day <- data_config_pt_fruit_servings_per_day
 config_sex_age_fruit_servings_per_day <- data_config_sex_age_fruit_servings_per_day

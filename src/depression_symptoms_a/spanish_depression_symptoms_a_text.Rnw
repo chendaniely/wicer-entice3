@@ -1,0 +1,25 @@
+\Sexpr{set_parent('src/master.Rnw')}
+\Sexpr{opts_knit$set(self.contained=FALSE)}
+
+\graphicspath{{./depression_symptoms_a/}}
+
+<<>>=
+# print(getwd())
+@
+
+<<>>=
+source('src/depression_symptoms_a/depression_symptoms_a_setup.R')
+@
+
+\begin{center}
+\Huge{Síntomas de Depresión A}
+\end{center}
+
+\Large{
+Su nivel de síntomas de depresión fue \Sexpr{translate_dial_spanish(pt_stat)}.\\
+
+El nivel de síntomas de depresión de
+\Sexpr{tolower(get_men_women(config_pt_sex, 'spanish'))}
+de la misma edad que usted fue \Sexpr{translate_dial_spanish(other_stat)}.
+
+\newpage
