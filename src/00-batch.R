@@ -171,7 +171,7 @@ for (id in pt_spanish_a1_ids) {
     setwd('src/')
 
     tryCatch({
-        knit2pdf(input = '01-04-spanish-A1.Rnw')
+        knit2pdf(input = '01-04-spanish-A1.Rnw', encoding = 'UTF-8')
     }, error = function(e){})
 
     setwd('../')
@@ -197,7 +197,7 @@ for (id in pt_spanish_a2_ids) {
     setwd('src/')
 
     tryCatch({
-        knit2pdf(input = '01-04-spanish-A2.Rnw')
+        knit2pdf(input = '01-04-spanish-A2.Rnw', encoding = 'UTF-8')
     }, error = function(e){})
 
     setwd('../')
@@ -223,7 +223,7 @@ for (id in pt_spanish_b1_ids) {
     setwd('src/')
 
     tryCatch({
-        knit2pdf(input = '01-04-spanish-B1.Rnw')
+        knit2pdf(input = '01-04-spanish-B1.Rnw', encoding = 'UTF-8')
     }, error = function(e){})
 
     setwd('../')
@@ -249,7 +249,7 @@ for (id in pt_spanish_b2_ids) {
     setwd('src/')
 
     tryCatch({
-        knit2pdf(input = '01-04-spanish-B2.Rnw')
+        knit2pdf(input = '01-04-spanish-B2.Rnw', encoding = 'UTF-8')
     }, error = function(e){})
 
     setwd('../')
@@ -298,7 +298,7 @@ for (id in pt_spanish_all_ids[1]) {
     setwd('src/')
 
     tryCatch({
-        knit2pdf(input = '01-03-spanish.Rnw')
+        knit2pdf(input = '01-03-spanish.Rnw', encoding = 'UTF-8')
     }, error = function(e){})
 
     setwd('../')
