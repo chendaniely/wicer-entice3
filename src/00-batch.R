@@ -3,6 +3,7 @@ library(knitr)
 rm(list = ls())
 
 source('src/helper-00-batch.R')
+Sys.setlocale(category = "LC_ALL", locale = "English_United States.1252")
 
 ###############################################################################
 #
@@ -16,10 +17,10 @@ pt_english_b1_ids <- c('Sample1', 'Sample4')[1]
 pt_english_b2_ids <- c('Sample1', 'Sample4')[1]
 pt_english_all_ids <- c(pt_english_a1_ids, pt_english_a2_ids, pt_english_b1_ids, pt_english_b2_ids)
 
-pt_spanish_a1_ids <- c('Sample2', 'Sample3', 'Sample5')[1]
-pt_spanish_a2_ids <- c('Sample2', 'Sample3', 'Sample5')[1]
-pt_spanish_b1_ids <- c('Sample2', 'Sample3', 'Sample5')[1]
-pt_spanish_b2_ids <- c('Sample2', 'Sample3', 'Sample5')[1]
+pt_spanish_a1_ids <- c('Sample2', 'Sample3', 'Sample5')[3]
+pt_spanish_a2_ids <- c('Sample2', 'Sample3', 'Sample5')[3]
+pt_spanish_b1_ids <- c('Sample2', 'Sample3', 'Sample5')[3]
+pt_spanish_b2_ids <- c('Sample2', 'Sample3', 'Sample5')[3]
 pt_spanish_all_ids <- c(pt_spanish_a1_ids, pt_spanish_a2_ids, pt_spanish_b1_ids, pt_spanish_b2_ids)
 
 
@@ -51,9 +52,9 @@ for (id in pt_english_a1_ids) {
     output_file_name <- sprintf('output/english/%s-A1.pdf', pt_id)
     setwd('src/')
 
-    tryCatch({
+    # tryCatch({
         knit2pdf(input = '01-02-english-A1.Rnw')
-    }, error = function(e){})
+    # }, error = function(e){})
 
     setwd('../')
     if (!dir.exists('output/english')) {
@@ -76,9 +77,9 @@ for (id in pt_english_a2_ids) {
     output_file_name <- sprintf('output/english/%s-A2.pdf', pt_id)
     setwd('src/')
 
-    tryCatch({
+    # tryCatch({
         knit2pdf(input = '01-02-english-A2.Rnw')
-    }, error = function(e){})
+    # }, error = function(e){})
 
     setwd('../')
     if (!dir.exists('output/english')) {
@@ -101,9 +102,9 @@ for (id in pt_english_b1_ids) {
     output_file_name <- sprintf('output/english/%s-B1.pdf', pt_id)
     setwd('src/')
 
-    tryCatch({
+    # tryCatch({
         knit2pdf(input = '01-02-english-B1.Rnw')
-    }, error = function(e){})
+    # }, error = function(e){})
 
     setwd('../')
     if (!dir.exists('output/english')) {
@@ -126,9 +127,9 @@ for (id in pt_english_b2_ids) {
     output_file_name <- sprintf('output/english/%s-B2.pdf', pt_id)
     setwd('src/')
 
-    tryCatch({
+    # tryCatch({
         knit2pdf(input = '01-02-english-B2.Rnw')
-    }, error = function(e){})
+    # }, error = function(e){})
 
     setwd('../')
     if (!dir.exists('output/english')) {
@@ -170,9 +171,9 @@ for (id in pt_spanish_a1_ids) {
     output_file_name <- sprintf('output/spanish/%s-A1.pdf', pt_id)
     setwd('src/')
 
-    tryCatch({
+    # tryCatch({
         knit2pdf(input = '01-04-spanish-A1.Rnw', encoding = 'UTF-8')
-    }, error = function(e){})
+    # }, error = function(e){})
 
     setwd('../')
     if (!dir.exists('output/spanish')) {
@@ -196,9 +197,9 @@ for (id in pt_spanish_a2_ids) {
     output_file_name <- sprintf('output/spanish/%s-A2.pdf', pt_id)
     setwd('src/')
 
-    tryCatch({
+    # tryCatch({
         knit2pdf(input = '01-04-spanish-A2.Rnw', encoding = 'UTF-8')
-    }, error = function(e){})
+    # }, error = function(e){})
 
     setwd('../')
     if (!dir.exists('output/spanish')) {
@@ -222,9 +223,9 @@ for (id in pt_spanish_b1_ids) {
     output_file_name <- sprintf('output/spanish/%s-B1.pdf', pt_id)
     setwd('src/')
 
-    tryCatch({
+    # tryCatch({
         knit2pdf(input = '01-04-spanish-B1.Rnw', encoding = 'UTF-8')
-    }, error = function(e){})
+    # }, error = function(e){})
 
     setwd('../')
     if (!dir.exists('output/spanish')) {
@@ -248,9 +249,9 @@ for (id in pt_spanish_b2_ids) {
     output_file_name <- sprintf('output/spanish/%s-B2.pdf', pt_id)
     setwd('src/')
 
-    tryCatch({
+    # tryCatch({
         knit2pdf(input = '01-04-spanish-B2.Rnw', encoding = 'UTF-8')
-    }, error = function(e){})
+    # }, error = function(e){})
 
     setwd('../')
     if (!dir.exists('output/spanish')) {
@@ -273,9 +274,9 @@ for (id in pt_english_all_ids) {
     output_file_name <- sprintf('output/english/%s-ALL.pdf', pt_id)
     setwd('src/')
 
-    tryCatch({
+    # tryCatch({
         knit2pdf(input = '01-01-english.Rnw')
-    }, error = function(e){})
+    # }, error = function(e){})
 
     setwd('../')
     if (!dir.exists('output/english')) {
@@ -297,9 +298,9 @@ for (id in pt_spanish_all_ids[1]) {
     output_file_name <- sprintf('output/spanish/%s-ALL.pdf', pt_id)
     setwd('src/')
 
-    tryCatch({
+    # tryCatch({
         knit2pdf(input = '01-03-spanish.Rnw', encoding = 'UTF-8')
-    }, error = function(e){})
+    # }, error = function(e){})
 
     setwd('../')
     if (!dir.exists('output/spanish')) {

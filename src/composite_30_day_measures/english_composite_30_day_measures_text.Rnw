@@ -12,9 +12,9 @@ source('src/composite_30_day_measures/composite_30_day_measures_setup.R')
 \Huge{Out of 30 days, you reported feeling:} \\
 
 \begin{itemize}
-    \item very healthy and full of energy for \Sexpr{df[df$variable == 'healthy', 'text_y']} days,
-    \item that your physical health was not good for \Sexpr{df[df$variable == 'physical', 'text_y']} days, and
-    \item that your mental health was not good for \Sexpr{df[df$variable == 'mental', 'text_y']} days.
+    \item very healthy and full of energy for \Sexpr{df[df$variable == 'healthy', 'text']} days,
+    \item that your physical health was not good for \Sexpr{df[df$variable == 'physical', 'text']} days, and
+    \item that your mental health was not good for \Sexpr{df[df$variable == 'mental', 'text']} days.
 \end{itemize}
 
 \newpage
