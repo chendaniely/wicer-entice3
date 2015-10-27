@@ -33,7 +33,6 @@ source('src/helper.R')
 \usepackage[spanish]{babel}
 \selectlanguage{spanish}
 \usepackage[utf8]{inputenc}
-
 \usepackage[landscape]{geometry}
 \usepackage{fullpage}
 \setlength{\parindent}{0pt}
