@@ -2,9 +2,29 @@
 \Sexpr{opts_knit$set(self.contained=FALSE)}
 
 <<>>=
-print(getwd())
+# print(getwd())
 @
 
+<<>>=
+source('src/fruit_servings_per_day/fruit_servings_per_day_setup.R')
+@
+
+\begin{center}
+\Huge{Fruit Servings per Day}
+\end{center}
+
+\Huge{You reported eating about \Sexpr{df[df$variable == 'pt', 'text']} servings
+of fruit per day.} \\
+
+\Sexpr{get_men_women(config_pt_sex)} in your age group reported eating an
+average of \Sexpr{df[df$variable == 'other', 'text']} servings of fruit per
+day. \\
+
+It is recommended that \Sexpr{tolower(get_men_women(config_pt_sex))} your age
+eat a minimum of \Sexpr{df[df$variable == 'min', 'text']} servings of
+fruit per day.
+
+\newpage
 
 
 \newpage

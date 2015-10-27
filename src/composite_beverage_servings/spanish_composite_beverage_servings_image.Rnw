@@ -45,8 +45,7 @@ ggplot(data = df) +
           axis.text.y  = element_text(size = rel(2), hjust = 0.75),
           axis.line.y = element_blank(),
           legend.position = "none",
-          axis.title.y = element_blank(),
-          axis.text.y = element_text(vjust = 1)) +
+          axis.title.y = element_blank()) +
     coord_flip()
 @
 
