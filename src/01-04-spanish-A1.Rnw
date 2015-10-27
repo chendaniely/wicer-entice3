@@ -31,6 +31,7 @@ source('src/helper.R')
 
 \documentclass[12pt]{article}
 \usepackage[landscape]{geometry}
+\usepackage[utf8]{inputenc}
 \usepackage{fullpage}
 \setlength{\parindent}{0pt}
 \usepackage{svg}

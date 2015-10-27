@@ -3,7 +3,7 @@ library(knitr)
 rm(list = ls())
 
 source('src/helper-00-batch.R')
-Sys.setlocale(category = "LC_ALL", locale = "English_United States.1252")
+# Sys.setlocale(category = "LC_ALL", locale = "English_United States.1252")
 
 ###############################################################################
 #
