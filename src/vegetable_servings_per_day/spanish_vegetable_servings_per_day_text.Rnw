@@ -5,7 +5,7 @@
 # print(getwd())
 @
 
-<<vegetable>>=
+<<>>=
 source('src/vegetable_servings_per_day/vegetable_servings_per_day_setup.R')
 @
 

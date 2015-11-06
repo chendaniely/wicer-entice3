@@ -1,0 +1,113 @@
+<<echo=FALSE, results='hide', warning=FALSE, message=FALSE>>=
+library(knitr)
+library(ggplot2)
+library(reshape2)
+library(png)
+library(grid)
+library(gridExtra)
+library(stringi)
+# library(extrafont)
+
+opts_chunk$set(cache = FALSE, dpi = 300)
+opts_chunk$set(comment = "", tidy = TRUE, size = "small")
+opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+opts_chunk$set(fig.width = 10, fig.height = 6)
+opts_knit$set(root.dir = normalizePath('../'))
+# opts_chunk$set(fig.path='Figs-English/')
+@
+
+<<echo=FALSE, results='hide', warning=FALSE, message=FALSE>>=
+# font_import()
+# loadfonts()
+
+# comment out below 3 lines if running batch
+# data_config_pt_language <- "english"
+# pt_english <- 'Sample1' # person's name
+# pt_id <- 'Sample1' # person's ID
+
+source('src/helper-00-pt-config.R')
+source('src/helper.R')
+@
+
+\documentclass[12pt]{article}
+\usepackage[landscape]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{fullpage}
+\setlength{\parindent}{0pt}
+\usepackage{svg}
+\usepackage[justification=centering]{caption}
+\usepackage{float}
+\usepackage{units}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{fancyhdr}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage{fix-cm}
+\makeatletter
+\newcommand\HUGE{\@setfontsize\Huge{50}{60}}
+\makeatother
+
+\pagestyle{fancy}
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
+% your new footer definitions here
+% \lhead{}
+% \chead{}
+% \rhead{\Sexpr{data_config_pt_name}}
+% \lfoot{}
+% \cfoot{}
+% \rfoot{}
+
+\pagenumbering{gobble}
+
+\begin{document}
+
+<<>>=
+t(as.matrix(data_pt_selected))
+
+print(getwd())
+print(data_config_pt_name)
+@
+
+\newpage
+
+<<body_mass_index_image, child="body_mass_index/english_body_mass_index_image.Rnw">>=
+@
+
+<<waist_measurement_image, child="waist_measurement/english_waist_measurement_image.Rnw">>=
+@
+
+<<days_feeling_depressed_image, child="days_feeling_depressed/english_days_feeling_depressed_image.Rnw">>=
+@
+
+<<days_feeling_anxious_image, child="days_feeling_anxious/english_days_feeling_anxious_image.Rnw">>=
+@
+
+<<fruit_servings_per_day_image, child="fruit_servings_per_day/english_fruit_servings_per_day_image.Rnw">>=
+@
+
+<<vegetable_servings_per_day_image, child="vegetable_servings_per_day/english_vegetable_servings_per_day_image.Rnw">>=
+@
+
+<<minutes_vigorous_exercise_image, child="minutes_vigorous_exercise/english_minutes_vigorous_exercise_image.Rnw">>=
+@
+
+<<minutes_moderate_exercise_image, child="minutes_moderate_exercise/english_minutes_moderate_exercise_image.Rnw">>=
+@
+
+<<composite_beverage_servings_image, child="composite_beverage_servings/english_composite_beverage_servings_image.Rnw">>=
+@
+
+<<composite_30_day_measures_image, child="composite_30_day_measures/english_composite_30_day_measures_image.Rnw">>=
+@
+
+<<recommended_physical_activity_image, child="recommended_physical_activity/english_recommended_physical_activity_image.Rnw">>=
+@
+
+\end{document}

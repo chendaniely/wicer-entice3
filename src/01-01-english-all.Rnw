@@ -1,0 +1,214 @@
+<<echo=FALSE, results='hide', warning=FALSE, message=FALSE>>=
+library(knitr)
+library(ggplot2)
+library(reshape2)
+library(png)
+library(grid)
+library(gridExtra)
+library(stringi)
+# library(extrafont)
+
+opts_chunk$set(cache = FALSE, dpi = 300)
+opts_chunk$set(comment = "", tidy = TRUE, size = "small")
+opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+opts_chunk$set(fig.width = 10, fig.height = 6)
+opts_knit$set(root.dir = normalizePath('../'))
+# opts_chunk$set(fig.path='Figs-English/')
+@
+
+<<echo=FALSE, results='hide', warning=FALSE, message=FALSE>>=
+# font_import()
+# loadfonts()
+
+# comment out below 3 lines if running batch
+# data_config_pt_language <- "english"
+# pt_english <- 'Sample1' # person's name
+# pt_id <- 'Sample1' # person's ID
+
+source('src/helper-00-pt-config.R')
+source('src/helper.R')
+@
+
+\documentclass[12pt]{article}
+\usepackage[landscape]{geometry}
+\usepackage{fullpage}
+\setlength{\parindent}{0pt}
+\usepackage{svg}
+\usepackage[justification=centering]{caption}
+\usepackage{float}
+\usepackage{units}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{fancyhdr}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage{fix-cm}
+\makeatletter
+\newcommand\HUGE{\@setfontsize\Huge{50}{60}}
+\makeatother
+
+\pagestyle{fancy}
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
+% your new footer definitions here
+% \lhead{}
+% \chead{}
+% \rhead{\Sexpr{data_config_pt_name}}
+% \lfoot{}
+% \cfoot{}
+% \rfoot{}
+
+\pagenumbering{gobble}
+
+\begin{document}
+
+<<>>=
+t(as.matrix(data_pt_selected))
+
+print(getwd())
+print(data_config_pt_name)
+@
+
+\newpage
+
+<<body_mass_index_image, child="body_mass_index/english_body_mass_index_image.Rnw">>=
+@
+
+<<body_mass_index_text, child="body_mass_index/english_body_mass_index_text.Rnw">>=
+@
+
+<<waist_measurement_image, child="waist_measurement/english_waist_measurement_image.Rnw">>=
+@
+
+<<waist_measurement_text, child="waist_measurement/english_waist_measurement_text.Rnw">>=
+@
+
+<<days_feeling_depressed_image, child="days_feeling_depressed/english_days_feeling_depressed_image.Rnw">>=
+@
+
+<<days_feeling_depressed_text, child="days_feeling_depressed/english_days_feeling_depressed_text.Rnw">>=
+@
+
+<<days_feeling_anxious_image, child="days_feeling_anxious/english_days_feeling_anxious_image.Rnw">>=
+@
+
+<<days_feeling_anxious_text, child="days_feeling_anxious/english_days_feeling_anxious_text.Rnw">>=
+@
+
+<<fruit_servings_per_day_image, child="fruit_servings_per_day/english_fruit_servings_per_day_image.Rnw">>=
+@
+
+<<fruit_servings_per_day_text, child="fruit_servings_per_day/english_fruit_servings_per_day_text.Rnw">>=
+@
+
+<<vegetable_servings_per_day_image, child="vegetable_servings_per_day/english_vegetable_servings_per_day_image.Rnw">>=
+@
+
+<<vegetable_servings_per_day_text, child="vegetable_servings_per_day/english_vegetable_servings_per_day_text.Rnw">>=
+@
+
+<<minutes_vigorous_exercise_image, child="minutes_vigorous_exercise/english_minutes_vigorous_exercise_image.Rnw">>=
+@
+
+<<minutes_vigorous_exercise_text, child="minutes_vigorous_exercise/english_minutes_vigorous_exercise_text.Rnw">>=
+@
+
+<<minutes_moderate_exercise_image, child="minutes_moderate_exercise/english_minutes_moderate_exercise_image.Rnw">>=
+@
+
+<<minutes_moderate_exercise_text, child="minutes_moderate_exercise/english_minutes_moderate_exercise_text.Rnw">>=
+@
+
+<<composite_beverage_servings_image, child="composite_beverage_servings/english_composite_beverage_servings_image.Rnw">>=
+@
+
+<<composite_beverage_servings_text, child="composite_beverage_servings/english_composite_beverage_servings_text.Rnw">>=
+@
+
+<<composite_30_day_measures_image, child="composite_30_day_measures/english_composite_30_day_measures_image.Rnw">>=
+@
+
+<<composite_30_day_measures_text, child="composite_30_day_measures/english_composite_30_day_measures_text.Rnw">>=
+@
+
+<<recommended_physical_activity_image, child="recommended_physical_activity/english_recommended_physical_activity_image.Rnw">>=
+@
+
+<<recommended_physical_activity_text, child="recommended_physical_activity/english_recommended_physical_activity_text.Rnw">>=
+@
+
+<<beverage_recommendations_image, child="beverage_recommendations/english_beverage_recommendations_image.Rnw">>=
+@
+
+<<beverage_recommendations_text, child="beverage_recommendations/english_beverage_recommendations_text.Rnw">>=
+@
+
+<<depression_symptoms_a_image, child="depression_symptoms_a/english_depression_symptoms_a_image.Rnw">>=
+@
+
+<<depression_symptoms_a_text, child="depression_symptoms_a/english_depression_symptoms_a_text.Rnw">>=
+@
+
+<<prolonged_stress_image, child="prolonged_stress/english_prolonged_stress_image.Rnw">>=
+@
+
+<<prolonged_stress_text, child="prolonged_stress/english_prolonged_stress_text.Rnw">>=
+@
+
+<<anxiety_symptoms_image, child="anxiety_symptoms/english_anxiety_symptoms_image.Rnw">>=
+@
+
+<<anxiety_symptoms_text, child="anxiety_symptoms/english_anxiety_symptoms_text.Rnw">>=
+@
+
+<<depression_symptoms_b_image, child="depression_symptoms_b/english_depression_symptoms_b_image.Rnw">>=
+@
+
+<<depression_symptoms_b_text, child="depression_symptoms_b/english_depression_symptoms_b_text.Rnw">>=
+@
+
+<<overall_health_image, child="overall_health/english_overall_health_image.Rnw">>=
+@
+
+<<overall_health_text, child="overall_health/english_overall_health_text.Rnw">>=
+@
+
+<<loss_of_energy_image, child="loss_of_energy/english_loss_of_energy_image.Rnw">>=
+@
+
+<<loss_of_energy_text, child="loss_of_energy/english_loss_of_energy_text.Rnw">>=
+@
+
+<<risks_of_high_blood_pressure_image, child="risks_of_high_blood_pressure/english_risks_of_high_blood_pressure_image.Rnw">>=
+@
+
+<<risks_of_high_blood_pressure_text, child="risks_of_high_blood_pressure/english_risks_of_high_blood_pressure_text.Rnw">>=
+@
+
+<<risks_of_excess_weight_image, child="risks_of_excess_weight/english_risks_of_excess_weight_image.Rnw">>=
+@
+
+<<risks_of_excess_weight_text, child="risks_of_excess_weight/english_risks_of_excess_weight_text.Rnw">>=
+@
+
+<<health_summary_control_panel_image, child="health_summary_control_panel/english_health_summary_control_panel_image.Rnw">>=
+@
+
+<<health_summary_control_panel_text, child="health_summary_control_panel/english_health_summary_control_panel_text.Rnw">>=
+@
+
+<<health_comparted_to_ideal_cloverleaf_image, child="health_compared_to_ideal_cloverleaf/english_health_compared_to_ideal_cloverleaf_image.Rnw">>=
+@
+
+<<health_comparted_to_ideal_cloverleaf_text, child="health_compared_to_ideal_cloverleaf/english_health_compared_to_ideal_cloverleaf_text.Rnw">>=
+@
+
+<<blood_pressure_a_and_b, child="blood_pressure_a_and_b/english_blood_pressure_a_and_b.Rnw">>=
+@
+
+\end{document}

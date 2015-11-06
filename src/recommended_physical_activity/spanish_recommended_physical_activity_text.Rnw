@@ -7,7 +7,7 @@
 # print(getwd())
 @
 
-<<Recommended Physical Activity, results='hide'>>=
+<<results='hide'>>=
 file_to_copy <- sprintf(
     'EnTICE3_2/Recommended Physical Activity/%s_Recommended Physical Activity.png',
     convert_language_single(config_pt_language))
@@ -16,7 +16,7 @@ file.copy(from = file_to_copy,
           overwrite = TRUE)
 @
 
-<<moderate_exercise_recommended>>=
+<<>>=
 df <-  data.frame(pt = config_pt_mins_moderate_physical_activity,
                   other = config_sex_age_moderate_physical_activity)
 df <- melt(df)

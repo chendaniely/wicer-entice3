@@ -1,0 +1,148 @@
+<<echo=FALSE, results='hide', warning=FALSE, message=FALSE>>=
+library(knitr)
+library(ggplot2)
+library(reshape2)
+library(png)
+library(grid)
+library(gridExtra)
+library(stringi)
+# library(extrafont)
+
+opts_chunk$set(cache = FALSE, dpi = 300)
+opts_chunk$set(comment = "", tidy = TRUE, size = "small")
+opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+opts_chunk$set(fig.width = 10, fig.height = 6)
+opts_knit$set(root.dir = normalizePath('../'))
+# opts_chunk$set(fig.path='Figs-spanish/')
+@
+
+<<echo=FALSE, results='hide', warning=FALSE, message=FALSE>>=
+# font_import()
+# loadfonts()
+
+# comment out below 3 lines if running batch
+# data_config_pt_language <- "spanish"
+# pt_spanish <- 'Sample1' # person's name
+# pt_id <- 'Sample1' # person's ID
+
+source('src/helper-00-pt-config.R')
+source('src/helper.R')
+@
+
+\documentclass[12pt]{article}
+\usepackage[landscape]{geometry}
+\usepackage{fullpage}
+\setlength{\parindent}{0pt}
+\usepackage{svg}
+\usepackage[justification=centering]{caption}
+\usepackage{float}
+\usepackage{units}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{fancyhdr}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage{fix-cm}
+\makeatletter
+\newcommand\HUGE{\@setfontsize\Huge{50}{60}}
+\makeatother
+
+\pagestyle{fancy}
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
+% your new footer definitions here
+% \lhead{}
+% \chead{}
+% \rhead{\Sexpr{data_config_pt_name}}
+% \lfoot{}
+% \cfoot{}
+% \rfoot{}
+
+\pagenumbering{gobble}
+
+\begin{document}
+
+<<>>=
+t(as.matrix(data_pt_selected))
+
+print(getwd())
+print(data_config_pt_name)
+@
+
+\newpage
+
+<<body_mass_index_image, child="body_mass_index/spanish_body_mass_index_image.Rnw">>=
+@
+
+<<waist_measurement_image, child="waist_measurement/spanish_waist_measurement_image.Rnw">>=
+@
+
+<<days_feeling_depressed_image, child="days_feeling_depressed/spanish_days_feeling_depressed_image.Rnw">>=
+@
+
+<<days_feeling_anxious_image, child="days_feeling_anxious/spanish_days_feeling_anxious_image.Rnw">>=
+@
+
+<<fruit_servings_per_day_image, child="fruit_servings_per_day/spanish_fruit_servings_per_day_image.Rnw">>=
+@
+
+<<vegetable_servings_per_day_image, child="vegetable_servings_per_day/spanish_vegetable_servings_per_day_image.Rnw">>=
+@
+
+<<minutes_vigorous_exercise_image, child="minutes_vigorous_exercise/spanish_minutes_vigorous_exercise_image.Rnw">>=
+@
+
+<<minutes_moderate_exercise_image, child="minutes_moderate_exercise/spanish_minutes_moderate_exercise_image.Rnw">>=
+@
+
+<<composite_beverage_servings_image, child="composite_beverage_servings/spanish_composite_beverage_servings_image.Rnw">>=
+@
+
+<<composite_30_day_measures_image, child="composite_30_day_measures/spanish_composite_30_day_measures_image.Rnw">>=
+@
+
+<<recommended_physical_activity_image, child="recommended_physical_activity/spanish_recommended_physical_activity_image.Rnw">>=
+@
+
+<<beverage_recommendations_image, child="beverage_recommendations/spanish_beverage_recommendations_image.Rnw">>=
+@
+
+<<depression_symptoms_a_image, child="depression_symptoms_a/spanish_depression_symptoms_a_image.Rnw">>=
+@
+
+<<prolonged_stress_image, child="prolonged_stress/spanish_prolonged_stress_image.Rnw">>=
+@
+
+<<anxiety_symptoms_image, child="anxiety_symptoms/spanish_anxiety_symptoms_image.Rnw">>=
+@
+
+<<depression_symptoms_b_image, child="depression_symptoms_b/spanish_depression_symptoms_b_image.Rnw">>=
+@
+
+<<overall_health_image, child="overall_health/spanish_overall_health_image.Rnw">>=
+@
+
+<<loss_of_energy_image, child="loss_of_energy/spanish_loss_of_energy_image.Rnw">>=
+@
+
+<<risks_of_high_blood_pressure_image, child="risks_of_high_blood_pressure/spanish_risks_of_high_blood_pressure_image.Rnw">>=
+@
+
+<<risks_of_excess_weight_image, child="risks_of_excess_weight/spanish_risks_of_excess_weight_image.Rnw">>=
+@
+
+<<health_summary_control_panel_image, child="health_summary_control_panel/spanish_health_summary_control_panel_image.Rnw">>=
+@
+
+<<health_comparted_to_ideal_cloverleaf_image, child="health_compared_to_ideal_cloverleaf/spanish_health_compared_to_ideal_cloverleaf_image.Rnw">>=
+@
+
+<<blood_pressure_a_and_b, child="blood_pressure_a_and_b/spanish_blood_pressure_a_and_b.Rnw">>=
+@
+
+\end{document}

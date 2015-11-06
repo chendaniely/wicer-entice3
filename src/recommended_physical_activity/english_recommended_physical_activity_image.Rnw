@@ -34,7 +34,7 @@ df$text_y <- sapply(X = df$text, FUN = y_axis_text_height,
                     min_bar_height, min_center_bar_height, 'exercise_recommendations_small')
 @
 
-<<moderate_exercise_plot_recommended>>=
+<<>>=
 x_axis_names <- c('\nYou\n',
                   sprintf('\nOther %s\nin your age group',
                           tolower(get_men_women(config_pt_sex))))

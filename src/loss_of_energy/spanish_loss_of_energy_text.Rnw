@@ -9,7 +9,7 @@
 source('src/loss_of_energy/loss_of_energy_setup.R')
 @
 
-<<Feeling Run Down>>=
+<<>>=
 # From top to bottom: Not At All = 1; A Little Bit = 2; Somewhat = 3; Quite A Bit
 # = 4; Very Much = 5
 dummy <- data.frame(x=c(0,10), y=c(0, 10))

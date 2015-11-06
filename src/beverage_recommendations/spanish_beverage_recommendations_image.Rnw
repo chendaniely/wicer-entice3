@@ -3,8 +3,6 @@
 
 \graphicspath{{./beverage_recommendations/}}
 
-\newgeometry{left=1cm, right=1cm}
-
 <<>>=
 # print(getwd())
 @
