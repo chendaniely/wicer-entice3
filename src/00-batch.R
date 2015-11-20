@@ -337,7 +337,7 @@ for (id in pt_english_all_ids) {
 }
 
 
-for (id in pt_spanish_all_ids[1]) {
+for (id in pt_spanish_all_ids) {
     pt_id <- id
     pt_spanish <- id # pt name
     pt_english <- pt_spanish
