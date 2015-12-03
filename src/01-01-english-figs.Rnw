@@ -142,7 +142,4 @@ print(data_config_pt_name)
 <<health_comparted_to_ideal_cloverleaf_image, child="health_compared_to_ideal_cloverleaf/english_health_compared_to_ideal_cloverleaf_image.Rnw">>=
 @
 
-<<blood_pressure_a_and_b, child="blood_pressure_a_and_b/english_blood_pressure_a_and_b.Rnw">>=
-@
-
 \end{document}
