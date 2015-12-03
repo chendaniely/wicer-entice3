@@ -14,11 +14,6 @@ kg/m$^2$
 source('src/body_mass_index/body_mass_index_setup.R')
 @
 
-\begin{center}
-\Large{\textbf{Índice de Masa Corporal (BMI)}}\\
-kg/m$^2$
-\end{center}
-
 \Large El índice de masa corporal (BMI en inglés) utiliza su estatura y peso para estimar cuanta
 grasa corporal usted tiene.\\
 
