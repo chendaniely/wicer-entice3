@@ -26,11 +26,12 @@ opts_knit$set(root.dir = normalizePath('../'))
 # pt_id <- 'Sample1' # person's ID
 
 source('src/helper-00-pt-config.R')
-source('src/helper.R')
+source('src/helper.R', encoding = "UTF-8")
 @
 
 \documentclass[12pt]{article}
 \usepackage[landscape]{geometry}
+\usepackage[utf8]{inputenc}
 \usepackage{fullpage}
 \setlength{\parindent}{0pt}
 \usepackage{svg}

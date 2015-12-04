@@ -26,7 +26,7 @@ opts_knit$set(root.dir = normalizePath('../'))
 # pt_id <- 'Sample2' # person's ID
 
 source('src/helper-00-pt-config.R')
-source('src/helper.R')
+source('src/helper.R', encoding = "UTF-8")
 @
 
 \documentclass[12pt, spanish]{article}

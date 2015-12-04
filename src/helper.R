@@ -488,7 +488,7 @@ theme_nothing_text <- function(base_size = 12, base_family = "Helvetica")
 attr(theme_nothing_text(), "complete")
 
 spanish_blue <- function(pt_sex){
-    return(ifelse(pt_sex == 1, 'melancólico', 'melancólica'))
+    return(ifelse(pt_sex == 1, enc2utf8('melancólico'), enc2utf8('melancólica')))
 }
 
 spanish_depressed <- function(pt_sex){
@@ -531,7 +531,7 @@ translate_rundown_spanish <- function(english_text){
     } else if (english_text == 'quite a bit') {
         return("Bastante")
     } else if (english_text == 'very much') {
-        return("Muchísimo")
+        return(enc2utf8("Muchísimo"))
     }
 }
 
