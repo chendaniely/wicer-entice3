@@ -54,7 +54,7 @@ for (id in pt_english_a1_ids) {
 
     tryCatch({
         knit2pdf(input = '01-02-english-A1.Rnw')
-    }, error = function(e){})
+    }, error = function(e){print(e)})
 
     setwd('../')
     if (!dir.exists('output/english')) {
@@ -79,7 +79,7 @@ for (id in pt_english_a2_ids) {
 
     tryCatch({
         knit2pdf(input = '01-02-english-A2.Rnw')
-    }, error = function(e){})
+    }, error = function(e){print(e)})
 
     setwd('../')
     if (!dir.exists('output/english')) {
@@ -104,7 +104,7 @@ for (id in pt_english_b1_ids) {
 
     tryCatch({
         knit2pdf(input = '01-02-english-B1.Rnw')
-    }, error = function(e){})
+    }, error = function(e){print(e)})
 
     setwd('../')
     if (!dir.exists('output/english')) {
@@ -129,7 +129,7 @@ for (id in pt_english_b2_ids) {
 
     tryCatch({
         knit2pdf(input = '01-02-english-B2.Rnw')
-    }, error = function(e){})
+    }, error = function(e){print(e)})
 
     setwd('../')
     if (!dir.exists('output/english')) {
@@ -173,7 +173,7 @@ for (id in pt_spanish_a1_ids) {
 
     tryCatch({
         knit2pdf(input = '01-04-spanish-A1.Rnw', encoding = 'UTF-8')
-    }, error = function(e){})
+    }, error = function(e){print(e)})
 
     setwd('../')
     if (!dir.exists('output/spanish')) {
@@ -199,7 +199,7 @@ for (id in pt_spanish_a2_ids) {
 
     tryCatch({
         knit2pdf(input = '01-04-spanish-A2.Rnw', encoding = 'UTF-8')
-    }, error = function(e){})
+    }, error = function(e){print(e)})
 
     setwd('../')
     if (!dir.exists('output/spanish')) {
@@ -225,7 +225,7 @@ for (id in pt_spanish_b1_ids) {
 
     tryCatch({
         knit2pdf(input = '01-04-spanish-B1.Rnw', encoding = 'UTF-8')
-    }, error = function(e){})
+    }, error = function(e){print(e)})
 
     setwd('../')
     if (!dir.exists('output/spanish')) {
@@ -251,7 +251,7 @@ for (id in pt_spanish_b2_ids) {
 
     tryCatch({
         knit2pdf(input = '01-04-spanish-B2.Rnw', encoding = 'UTF-8')
-    }, error = function(e){})
+    }, error = function(e){print(e)})
 
     setwd('../')
     if (!dir.exists('output/spanish')) {
@@ -325,7 +325,7 @@ for (id in pt_english_all_ids) {
 
     tryCatch({
         knit2pdf(input = '01-01-english-figs.Rnw')
-    }, error = function(e){})
+    }, error = function(e){print(e)})
 
     setwd('../')
     if (!dir.exists('output/english')) {
@@ -349,7 +349,7 @@ for (id in pt_spanish_all_ids) {
 
     tryCatch({
         knit2pdf(input = '01-03-spanish-figs.Rnw', encoding = 'UTF-8')
-    }, error = function(e){})
+    }, error = function(e){print(e)})
 
     setwd('../')
     if (!dir.exists('output/spanish')) {
