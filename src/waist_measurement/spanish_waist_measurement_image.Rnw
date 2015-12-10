@@ -2,7 +2,6 @@
 \Sexpr{set_parent('src/master.Rnw')}
 
 <<>>=
-<<>>=
 # print(getwd())
 @
 
@@ -32,14 +31,6 @@ ggplot(data = dummy, aes(x = x, y = y)) +
     annotate("text", label = paste0(config_pt_waist_in, '"'),
              x = cat_text_coords$x,
              y = cat_text_coords$y)
-@
-
-<<>>=
-if (tolower(config_pt_sex) == "male" | config_pt_sex == 1) {
-    waist_higher <- 40
-} else if (tolower(config_pt_sex) == "female" | config_pt_sex == 2) {
-    waist_higher <- 35
-}
 @
 
 \newpage
