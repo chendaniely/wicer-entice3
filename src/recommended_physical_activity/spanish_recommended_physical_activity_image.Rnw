@@ -72,7 +72,7 @@ moderate_exercise_plot <- ggplot(data = df) +
 @
 
 <<results='hide'>>=
-png(filename = 'src/recommended_physical_activity/moderate_exercise_plot.png', width = 800, height = 600)
+png(filename = 'src/recommended_physical_activity/moderate_exercise_plot.png', width = 900, height = 600)
 moderate_exercise_plot
 dev.off()
 @
