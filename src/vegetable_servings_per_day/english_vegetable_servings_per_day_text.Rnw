@@ -14,14 +14,14 @@ source('src/vegetable_servings_per_day/vegetable_servings_per_day_setup.R')
 \end{center}
 
 \Huge{You reported eating about \Sexpr{df[df$variable == 'pt', 'text']} servings
-of fruit per day.} \\
+of vegetables per day.} \\
 
 \Sexpr{get_men_women(config_pt_sex)} in your age group reported eating an
-average of \Sexpr{df[df$variable == 'other', 'text']} servings of fruit per
+average of \Sexpr{df[df$variable == 'other', 'text']} servings of vegetables per
 day. \\
 
 It is recommended that \Sexpr{tolower(get_men_women(config_pt_sex))} your age
 eat a minimum of \Sexpr{df[df$variable == 'min', 'text']} servings of
-fruit per day.
+vegetables per day.
 
 \newpage
