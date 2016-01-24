@@ -29,6 +29,8 @@ source('src/helper_group_calculations.R')
 
 # for entice3
 data_pt <- read_excel('test_data/Dummy infographics data.xlsx')
+data_pt <- na.omit(data_pt)
+
 names(data_pt)[1] <- 'name'
 
 data_config_pt_name <- pt_english
