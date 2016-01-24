@@ -13,15 +13,15 @@ source('src/fruit_servings_per_day/fruit_servings_per_day_setup.R')
 \Huge{Porciones de Frutas por Día}
 \end{center}
 
-\Huge Usted informó que comió alrededor de \Sexpr{df[df$variable == 'pt', 'value']}
+\Huge Usted informó que comió alrededor de \Sexpr{round(df[df$variable == 'pt', 'value'], 1)}
 porciones de frutas por día.\\
 
 \Sexpr{get_men_women(config_pt_sex, 'spanish')}
-informaron que comieron un promedio de \Sexpr{df[df$variable == 'other', 'value']}
+informaron que comieron un promedio de \Sexpr{round(df[df$variable == 'other', 'value'], 1)}
 porciones de frutas por día.\\
 
 Se recomienda que \Sexpr{tolower(get_men_women(config_pt_sex, 'spanish', 'gender'))}
-de su edad coman por lo menos \Sexpr{df[df$variable == 'min', 'value']}
+de su edad coman por lo menos \Sexpr{round(df[df$variable == 'min', 'value'], 1)}
 porciones de frutas por día.
 
 \newpage
