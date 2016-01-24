@@ -13,7 +13,6 @@
 source('src/beverage_recommendations/beverage_recommendations_setup.R')
 @
 
-
 <<Beverage Recommendation, results='hide'>>=
 file_to_copy <- sprintf(
     'EnTICE3_2/Beverage Recommendations/%s_Beverage Recommendations.png',
@@ -42,7 +41,7 @@ beverage_recommendation_plot <- ggplot(data = df) +
         'purejuice' = color_blue_bargraph_cloverleaf)) +
     scale_x_discrete(breaks = c("soda", "purejuice"),
                      labels = x_axis_names) +
-    scale_y_continuous(expand = c(0,0), limits = c(0, y_axis_range_value)) +
+    scale_y_continuous(expand = c(0,0), limits = c(0, y_axis_range_calc)) +
     geom_text(aes(x = variable,
                   y = text_y,
                   label = text), size = 15) +
