@@ -27,8 +27,8 @@ ggplot(data = dummy, aes(x = x, y = y)) +
                       ymax = indicator_bounds$y_max) +
     geom_text(aes(x = (indicator_bounds$x_min + indicator_bounds$x_max) / 2 - 0.1,
                   y = (indicator_bounds$y_min + indicator_bounds$y_max) / 2 + 0.2,
-                  label = config_pt_waist_in)) +
-    annotate("text", label = paste0(config_pt_waist_in, '"'),
+                  label = round(config_pt_waist_in, 0))) +
+    annotate("text", label = paste0(round(config_pt_waist_in, 0), '"'),
              x = cat_text_coords$x,
              y = cat_text_coords$y)
 @
