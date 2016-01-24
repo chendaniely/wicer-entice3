@@ -15,13 +15,13 @@ pt_english_a1_ids <- c('Sample1', 'Sample4', 'Sample6')[3]
 pt_english_a2_ids <- c('Sample1', 'Sample4', 'Sample6')[3]
 pt_english_b1_ids <- c('Sample1', 'Sample4', 'Sample6')[3]
 pt_english_b2_ids <- c('Sample1', 'Sample4', 'Sample6')[3]
-pt_english_all_ids <- c(pt_english_a1_ids, pt_english_a2_ids, pt_english_b1_ids, pt_english_b2_ids)
+pt_english_all_ids <- c(pt_english_a1_ids, pt_english_a2_ids, pt_english_b1_ids, pt_english_b2_ids)[1]
 
 pt_spanish_a1_ids <- c('Sample2', 'Sample3', 'Sample5', 'Sample6')[4]
 pt_spanish_a2_ids <- c('Sample2', 'Sample3', 'Sample5', 'Sample6')[4]
 pt_spanish_b1_ids <- c('Sample2', 'Sample3', 'Sample5', 'Sample6')[4]
 pt_spanish_b2_ids <- c('Sample2', 'Sample3', 'Sample5', 'Sample6')[4]
-pt_spanish_all_ids <- c(pt_spanish_a1_ids, pt_spanish_a2_ids, pt_spanish_b1_ids, pt_spanish_b2_ids)
+pt_spanish_all_ids <- c(pt_spanish_a1_ids, pt_spanish_a2_ids, pt_spanish_b1_ids, pt_spanish_b2_ids)[1]
 
 
 
