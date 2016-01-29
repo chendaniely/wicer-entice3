@@ -73,7 +73,7 @@ s_location <- segment_s_x(config_pt_bp_s, 110, 56)
 
 segment_d_x <- function(d_value, d_value_base, base_x_value){
     if (d_value < 68) {d_value <- 68}
-    if (d_value > 110) {d_value <- 110}
+    if (d_value > 104) {d_value <- 104}
     normalize_x <- d_value - d_value_base
     value <- base_x_value + (normalize_x * 0.95) #.855
 }
