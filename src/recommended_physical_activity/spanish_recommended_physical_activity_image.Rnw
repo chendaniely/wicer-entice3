@@ -47,8 +47,7 @@ moderate_exercise_plot <- ggplot(data = df) +
              fill=color_blue_bargraph_cloverleaf,
              width = .5) +
     scale_x_discrete(limits = c(x_axis_names[1], x_axis_names[2])) +
-    scale_y_continuous(expand = c(0,0), limits = c(0, max_y),
-                       breaks = seq(0, max_y, plyr::round_any(max_y, 10) * 0.1)) +
+    scale_y_continuous(expand = c(0,0), limits = c(0, max_y)) +
     geom_text(aes(x = x_axis_names,
                   y = text_y,
                   label = text), size = 15) +
