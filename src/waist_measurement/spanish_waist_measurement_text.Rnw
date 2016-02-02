@@ -13,7 +13,7 @@ source('src/waist_measurement/waist_measurement_setup.R')
 \Huge Medida de Cintura
 \end{center}
 
-\Large Su medida de cintura fue de \Sexpr{config_pt_waist_in} pulgadas.\\
+\Large Su medida de cintura fue de \Sexpr{round(config_pt_waist_in, 0)} pulgadas.\\
 
 \Large Para \Sexpr{tolower(get_men_women(config_pt_sex, 'spanish', 'for'))},
 medidas por encima de \Sexpr{waist_higher}

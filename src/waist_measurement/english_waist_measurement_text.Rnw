@@ -21,7 +21,7 @@ if (tolower(config_pt_sex) == "male" | config_pt_sex == 1) {
 \Huge Waist Measurement
 \end{center}
 
-\Large Your waist measurement was \Sexpr{config_pt_waist_in} inches.\\
+\Large Your waist measurement was \Sexpr{round(config_pt_waist_in, 0)} inches.\\
 
 \Large For \Sexpr{tolower(get_men_women(config_pt_sex))},
 measurements above \Sexpr{waist_higher} inches are associated with higher
