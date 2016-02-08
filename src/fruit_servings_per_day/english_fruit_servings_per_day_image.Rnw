@@ -24,7 +24,7 @@ ggplot(data = df) +
     scale_y_continuous(expand = c(0,0), limits = c(0, y_axix_range)) +
     geom_text(aes(x = x_axis_names,
                   y = text_y,
-                  label = text), size = 10) +
+                  label = round(value, 1)), size = 10) +
     theme_bw() +
     ylab("servings\n") +
     xlab("") +
