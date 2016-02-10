@@ -13,7 +13,7 @@ source('src/minutes_moderate_exercise/minutes_moderate_exercise_setup.R')
 \Huge{Minutos por Semana de Actividad Física Moderada}
 \end{center}
 
-\Huge Usted informó que hizo alrededor de \Sexpr{round(df[df$variable == 'pt', 'value'], 0)}
+\Huge Usted informó que hizo alrededor de \Sexpr{round(df[df$variable == 'pt', 'text'], 0)}
 minutos de actividad física moderada por semana.\\
 
 \Sexpr{get_men_women(config_pt_sex, 'spanish')}
