@@ -192,7 +192,7 @@ dev.off()
 \begin{minipage}[b]{0.5\linewidth}
 \begin{center}
 \begin{figure}[H]
-\centerline{\includegraphics[scale=1.25, trim=30 40 30 40, clip=true]{anxious_30}}
+\centerline{\includegraphics[scale=1.25, trim=30 40 20 30, clip=true]{anxious_30}}
 \end{figure}
 \Huge \textbf{You}\\
 \Huge \textit{\Sexpr{config_pt_anxious_30 } days}\\
@@ -204,7 +204,7 @@ dev.off()
 \centering
 \begin{center}
 \begin{figure}[H]
-\centerline{\includegraphics[scale=1.25, trim=30 40 30 60, clip=true]{sex_age_anxious_30}}
+\centerline{\includegraphics[scale=1.25, trim=30 40 20 30, clip=true]{sex_age_anxious_30}}
 \end{figure}
 \Huge Other \Sexpr{tolower(get_men_women(config_pt_sex))} in\\
 \Huge your age group\\
