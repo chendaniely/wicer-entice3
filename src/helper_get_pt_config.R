@@ -28,8 +28,8 @@ source('src/helper_group_calculations.R')
 #######################################
 
 # for entice3
-#data_pt <- read_excel('test_data/Dummy infographics data.xlsx')
-data_pt <- read_excel('test_data/WICER comprehension test.xlsx')
+# data_pt <- read_excel('test_data/Dummy infographics data.xlsx')
+data_pt <- read_excel('../test_data/WICER comprehension test.xlsx')
 data_pt <- na.omit(data_pt)
 
 names(data_pt)[1] <- 'name'
@@ -298,4 +298,3 @@ data_config_pt_cloverleaf_overall <-
 data_config_pt_cloverleaf_physical <-
     calculate_cloverleaf_physical_value(moderate_value = data_pt_selected$mod_amount_minwk,
                                         vigorous_value = data_pt_selected$vig_amount_minwk)
-
