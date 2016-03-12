@@ -45,8 +45,6 @@ source('src/helper.R')
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
-\renewcommand{\familydefault}{\sfdefault}
-
 \usepackage{fix-cm}
 \makeatletter
 \newcommand\HUGE{\@setfontsize\Huge{50}{60}}
@@ -64,6 +62,13 @@ source('src/helper.R')
 % \rfoot{}
 
 \pagenumbering{gobble}
+
+\usepackage{xltxtra}
+\setmainfont{MyriadPro_Regular.otf}[
+Path = /usr/share/fonts/OTF/,
+BoldFont = MyriadPro_Bold.otf,
+ItalicFont = MyriadPro_It.otf,
+BoldItalicFont  = MyriadPro_BoldIt.otf]
 
 \begin{document}
 

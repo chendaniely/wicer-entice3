@@ -33,6 +33,7 @@ source('src/helper.R')
 \usepackage[landscape]{geometry}
 \usepackage{fullpage}
 \setlength{\parindent}{0pt}
+
 \usepackage{svg}
 \usepackage[justification=centering]{caption}
 \usepackage{float}
@@ -44,8 +45,6 @@ source('src/helper.R')
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-
-\renewcommand{\familydefault}{\sfdefault}
 
 \usepackage{fix-cm}
 \makeatletter
@@ -65,6 +64,14 @@ source('src/helper.R')
 
 \pagenumbering{gobble}
 
+\usepackage{xltxtra}
+\setmainfont{MyriadPro_Regular.otf}[
+Path = /usr/share/fonts/OTF/,
+BoldFont = MyriadPro_Bold.otf,
+ItalicFont = MyriadPro_It.otf,
+BoldItalicFont  = MyriadPro_BoldIt.otf]
+
+
 \begin{document}
 
 <<>>=
@@ -73,6 +80,9 @@ t(as.matrix(data_pt_selected))
 print(getwd())
 print(data_config_pt_name)
 @
+\Huge
+the quick brown fox jumps over the lazy dog\\
+THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
 
 \newpage
 
