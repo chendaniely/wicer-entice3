@@ -8,7 +8,7 @@
 @
 
 \begin{center}
-\Huge Days feeling sad, blue, or depressed in the last 30 days
+\Huge{\textbf{Days feeling sad, blue, or depressed in the last 30 days}}
 \end{center}
 
 \Large You reported feeling sad, blue, or depressed for \Sexpr{config_pt_depressed_30} out of 30 days.\\

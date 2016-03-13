@@ -8,7 +8,7 @@
 @
 
 \begin{center}
-\Huge \textbf{Days feeling sad, blue, or depressed in the last 30 days}\\
+\Huge{\textbf{Days feeling sad, blue, or depressed in the last 30 days}}
 \end{center}
 
 <<depressed>>=

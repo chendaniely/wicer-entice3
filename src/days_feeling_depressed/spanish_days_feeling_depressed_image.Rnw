@@ -8,7 +8,7 @@
 @
 
 \begin{center}
-\Huge \textbf{Días entre los últimos 30 días sintiéndose triste, deprimido, o melancólico}\\
+\Huge{\textbf{Días entre los últimos 30 días sintiéndose\\ triste, deprimido, o melancólico}}
 \end{center}
 
 <<depressed>>=

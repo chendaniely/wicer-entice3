@@ -8,7 +8,7 @@
 @
 
 \begin{center}
-\Huge Días entre los últimos 30 días sintiéndose triste, deprimido, o melancólico
+\Huge{\textbf{Días entre los últimos 30 días sintiéndose\\ triste, deprimido, o melancólico}}
 \end{center}
 
 \Large Usted informó que se sintió triste, \Sexpr{spanish_blue(config_pt_sex)}
