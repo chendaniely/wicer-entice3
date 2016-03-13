@@ -8,7 +8,7 @@
 @
 
 \begin{center}
-\Huge Days feeling worried, tense, or anxious in the last 30 days
+\Huge{\textbf{Days feeling worried, tense, or anxious in the last 30 days}}
 \end{center}
 
 \Large You reported feeling worried, tense, or anxious for \Sexpr{config_pt_anxious_30} out of 30 days.\\

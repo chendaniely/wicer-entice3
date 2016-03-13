@@ -8,7 +8,7 @@
 @
 
 \begin{center}
-\Huge Días entre los últimos 30 días sintiéndose preocupado, ansioso, o tenso\\
+\Huge{\textbf{Días entre los últimos 30 días\\ sintiéndose preocupado, ansioso, o tenso}}
 \end{center}
 
 \Large Usted informó que se sintió
