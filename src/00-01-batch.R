@@ -13,9 +13,9 @@ source('src/00-00-batch_setup.R')
 # Enter patient ID and generate document
 ###############################################################################
 
-#
-# English
-#
+###########
+# English #
+###########
 pt_english_a1_ids <- c('Sample1', 'Sample4', 'Sample6')
 source('src/create_english_a1.R')
 
@@ -37,9 +37,9 @@ pt_english_all_ids <- c(pt_english_a1_ids, pt_english_a2_ids, pt_english_b1_ids,
 source('src/create_english_text_and_figs.R')
 
 
-#
-# Spanish
-#
+###########
+# Spanish #
+###########
 pt_spanish_a1_ids <- c('Sample2', 'Sample3', 'Sample5', 'Sample6')
 source('src/create_spanish_a1.R')
 
