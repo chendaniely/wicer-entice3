@@ -2,7 +2,7 @@
 \Sexpr{set_parent('src/master.Rnw')}
 
 \begin{center}
-\Large{\textbf{Body Mass Index (BMI)}}\\
+\Huge{\textbf{Body Mass Index (BMI)}}\\
 kg/m$^2$
 \end{center}
 
@@ -36,7 +36,7 @@ ggplot(data = dummy, aes(x = x, y = y)) +
 @
 
 \begin{center}
-Body Mass Index (BMI) uses your height and weight to estimate how much body
-fat you have.
+\large{Body Mass Index (BMI) uses your height and weight to estimate how much body
+fat you have.}
 \end{center}
 \newpage

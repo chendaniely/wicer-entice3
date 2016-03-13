@@ -2,7 +2,7 @@
 \Sexpr{set_parent('src/master.Rnw')}
 
 \begin{center}
-\Large{\textbf{Índice de Masa Corporal (BMI)}}\\
+\Huge{\textbf{Índice de Masa Corporal (BMI)}}\\
 kg/m$^2$
 \end{center}
 
@@ -40,10 +40,8 @@ ggplot(data = dummy, aes(x = x, y = y)) +
 @
 
 \begin{center}
-El índice de masa corporal (BMI
-en inglés) utiliza su estatura y
-peso para estimar cuanta grasa
-corporal usted tiene.
+El índice de masa corporal (BMI en inglés) utiliza su estatura y
+peso para estimar cuanta grasa corporal usted tiene.
 \end{center}
 
 \newpage

@@ -2,7 +2,7 @@
 \Sexpr{set_parent('src/master.Rnw')}
 
 \begin{center}
-\Large{\textbf{Índice de Masa Corporal (BMI)}}\\
+\Huge{\textbf{Índice de Masa Corporal (BMI)}}\\
 kg/m$^2$
 \end{center}
 
