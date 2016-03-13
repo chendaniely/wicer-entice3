@@ -9,7 +9,7 @@ for (id in pt_spanish_all_ids) {
     setwd('src/')
 
     tryCatch({
-        knit2pdf(input = '01-03-spanish-all.Rnw', encoding = 'UTF-8')
+        knit2pdf(input = '01-03-spanish-all.Rnw', encoding = 'UTF-8', compiler = 'xelatex')
     }, error = function(e){print(e)})
 
     setwd('../')

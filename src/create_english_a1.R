@@ -11,7 +11,7 @@ for (id in pt_english_a1_ids) {
     setwd('src/')
 
     tryCatch({
-        knit2pdf(input = '01-02-english-A1.Rnw')
+        knit2pdf(input = '01-02-english-A1.Rnw', compiler = 'xelatex')
     }, error = function(e){print(e)})
 
     setwd('../')
