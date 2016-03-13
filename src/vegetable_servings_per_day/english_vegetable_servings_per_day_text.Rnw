@@ -10,7 +10,7 @@ source('src/vegetable_servings_per_day/vegetable_servings_per_day_setup.R')
 @
 
 \begin{center}
-\Huge{Vegetable Servings per Day}
+\Huge{\textbf{Vegetable Servings per Day}}
 \end{center}
 
 \Huge{You reported eating about \Sexpr{df[df$variable == 'pt', 'text']} servings

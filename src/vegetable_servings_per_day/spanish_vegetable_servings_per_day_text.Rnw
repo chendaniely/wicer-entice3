@@ -10,7 +10,7 @@ source('src/vegetable_servings_per_day/vegetable_servings_per_day_setup.R')
 @
 
 \begin{center}
-\Huge{Porciones de Vegetales por Día}
+\Huge{\textbf{Porciones de Vegetales por Día}}
 \end{center}
 
 \Huge Usted informó que comió alrededor de \Sexpr{df[df$variable == 'pt', 'text']}

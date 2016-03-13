@@ -9,7 +9,12 @@
 source('src/vegetable_servings_per_day/vegetable_servings_per_day_setup.R')
 @
 
-<<vegetable_plot>>=
+\begin{center}
+\HUGE{\textbf{Porciones de Vegetales por Día}}\\
+\vspace{1cm}
+\end{center}
+
+<<vegetable_plot, fig.height=5.5>>=
 x_axis_names <- c('\nUsted\n\n',
                   sprintf('\n%s\nde la misma edad\nque usted',
                           get_men_women(config_pt_sex, 'spanish')),
@@ -29,7 +34,7 @@ ggplot(data = df) +
     theme_bw() +
     ylab("porciones\n") +
     xlab("") +
-    labs(title = "Porciones de Vegetales por Día\n") +
+    # labs(title = "Porciones de Vegetales por Día\n") +
     theme(panel.border = element_blank(),
           panel.grid.major.x = element_blank(),
           panel.grid.minor = element_blank(),
