@@ -9,7 +9,11 @@
 source('src/minutes_moderate_exercise/minutes_moderate_exercise_setup.R')
 @
 
-<<moderate_exercise_plot>>=
+\begin{center}
+\Huge{\textbf{Sus Minutos por Semana de Actividad Física Moderada}}
+\end{center}
+
+<<moderate_exercise_plot, fig.height=5.5>>=
 x_axis_names <- c('\nUsted',
                   sprintf('\n%s de la\nmisma edad que usted',
                           get_men_women(config_pt_sex, 'spanish')))
@@ -32,7 +36,7 @@ moderate_exercise_plot <- ggplot(data = df) +
     theme_bw() +
     ylab("minutos\n") +
     xlab("") +
-    labs(title="Sus Minutos por Semana de Actividad Física Moderada\n") +
+    # labs(title="Sus Minutos por Semana de Actividad Física Moderada\n") +
     theme(panel.border = element_blank(),
           panel.grid.major.x = element_blank(),
           panel.grid.minor.y = element_blank(),

@@ -10,7 +10,7 @@ source('src/minutes_moderate_exercise/minutes_moderate_exercise_setup.R')
 @
 
 \begin{center}
-\Huge{Minutes of Moderate Physical Activity per Week}
+\Huge{\textbf{Minutes of Moderate Physical Activity per Week}}
 \end{center}
 
 \Huge{You reported doing about \Sexpr{round(df[df$variable == 'pt', 'text'], 0)} minutes of
