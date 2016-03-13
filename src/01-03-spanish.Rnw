@@ -50,7 +50,7 @@ source('src/helper.R', encoding = "UTF-8")
 
 \usepackage{fix-cm}
 \makeatletter
-\newcommand\HUGE{\@setfontsize\Huge{50}{60}}
+\newcommand\HUGE{\@setfontsize\Huge{45}{60}}
 \makeatother
 
 \pagestyle{fancy}
