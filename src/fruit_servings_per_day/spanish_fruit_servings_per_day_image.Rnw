@@ -9,6 +9,10 @@
 source('src/fruit_servings_per_day/fruit_servings_per_day_setup.R')
 @
 
+\begin{center}
+\Huge{\textbf{Porciones de Frutas por Día}}
+\end{center}
+
 <<fruit_plot>>=
 x_axis_names <- c('\nUsted',
                   sprintf('\n%s\nde la misma edad\nque usted',
@@ -24,13 +28,12 @@ ggplot(data = df) +
     scale_x_discrete(limits = x_axis_names) +
     scale_y_continuous(expand = c(0,0), limits = c(0, max(df$value + 1))) +
     geom_text(aes(x = x_axis_names,
-                  # y = ifelse(value <= 0.3, value + 0.12, value / 2),
                   y = text_y,
                   label = round(text, 1)), size = 10) +
     theme_bw() +
     ylab("porciones\n") +
     xlab("") +
-    labs(title = "Porciones de Frutas por Día\n") +
+    # labs(title = "Porciones de Frutas por Día\n") +
     theme(panel.border = element_blank(),
           plot.title = element_text(size = rel(3)),
           panel.grid.major.x = element_blank(),
@@ -43,6 +46,5 @@ ggplot(data = df) +
               colour = color_green_referencerange_bargraph_colverleaf,
               size = 2))
 @
-
 
 \newpage

@@ -9,6 +9,10 @@
 source('src/fruit_servings_per_day/fruit_servings_per_day_setup.R')
 @
 
+\begin{center}
+\Huge{\textbf{Fruit Servings per Day}}
+\end{center}
+
 <<fruit_plot>>=
 x_axis_names <- c('\nYou\n',
                   sprintf('\nOther %s\nin your age group', get_men_women(config_pt_sex)),
@@ -28,11 +32,11 @@ ggplot(data = df) +
     theme_bw() +
     ylab("servings\n") +
     xlab("") +
-    labs(title = "Fruit Servings per Day\n") +
+    # labs(title = "Fruit Servings per Day\n") +
     theme(panel.border = element_blank(),
           plot.title = element_text(size = rel(3)),
           panel.grid.major.x = element_blank(),
-          panel.grid.minor = element_blank(),
+          panel.grid.minor.y = element_blank(),
           axis.title.x = element_text(size = 20),
           axis.text.x  = element_text(size = 20),
           axis.title.y = element_text(size = 20),

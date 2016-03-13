@@ -10,7 +10,7 @@ source('src/fruit_servings_per_day/fruit_servings_per_day_setup.R')
 @
 
 \begin{center}
-\Huge{Porciones de Frutas por Día}
+\Huge{\textbf{Porciones de Frutas por Día}}
 \end{center}
 
 \Huge Usted informó que comió alrededor de \Sexpr{round(df[df$variable == 'pt', 'value'], 1)}
