@@ -9,7 +9,7 @@
 source('src/waist_measurement/waist_measurement_setup.R')
 @
 
-<<waist_plot>>=
+<<waist_plot, fig.height=6.5>>=
 indicator_bounds <- calculate_waist_indicator_bounds(config_pt_waist_in,
                                                      config_pt_sex)
 cat_text_coords <- calculate_waist_cat_coord(config_pt_waist_in, config_pt_sex)

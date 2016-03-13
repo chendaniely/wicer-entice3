@@ -9,16 +9,8 @@
 source('src/waist_measurement/waist_measurement_setup.R')
 @
 
-<<>>=
-if (tolower(config_pt_sex) == "male" | config_pt_sex == 1) {
-    waist_higher <- 40
-} else if (tolower(config_pt_sex) == "female" | config_pt_sex == 2) {
-    waist_higher <- 35
-}
-@
-
 \begin{center}
-\Huge Waist Measurement
+\Huge{\textbf{Waist Measurement}}
 \end{center}
 
 \Large Your waist measurement was \Sexpr{round(config_pt_waist_in, 0)} inches.\\

@@ -9,7 +9,7 @@
 source('src/waist_measurement/waist_measurement_setup.R')
 @
 
-<<waist_plot>>=
+<<waist_plot, fig.height=6.5>>=
 indicator_bounds <- calculate_waist_indicator_bounds(config_pt_waist_in,
                                                      config_pt_sex)
 cat_text_coords <- calculate_waist_cat_coord(config_pt_waist_in, config_pt_sex)
@@ -31,14 +31,6 @@ ggplot(data = dummy, aes(x = x, y = y)) +
     annotate("text", label = paste0(round(config_pt_waist_in, 0), '"'),
              x = cat_text_coords$x,
              y = cat_text_coords$y)
-@
-
-<<>>=
-if (tolower(config_pt_sex) == "male" | config_pt_sex == 1) {
-    waist_higher <- 40
-} else if (tolower(config_pt_sex) == "female" | config_pt_sex == 2) {
-    waist_higher <- 35
-}
 @
 
 \newpage

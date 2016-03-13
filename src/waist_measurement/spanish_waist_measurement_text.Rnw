@@ -10,7 +10,7 @@ source('src/waist_measurement/waist_measurement_setup.R')
 @
 
 \begin{center}
-\Huge Medida de Cintura
+\Huge{\textbf{Medida de Cintura}}
 \end{center}
 
 \Large Su medida de cintura fue de \Sexpr{round(config_pt_waist_in, 0)} pulgadas.\\
