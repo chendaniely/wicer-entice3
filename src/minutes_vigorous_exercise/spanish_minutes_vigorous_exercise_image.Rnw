@@ -9,7 +9,12 @@
 source('src/minutes_vigorous_exercise/minutes_vigorous_exercise_setup.R')
 @
 
-<<vigorous_exercise_plot>>=
+\begin{center}
+\Huge{\textbf{Minutos por Semana de Actividad Física Vigorosa}}
+\vspace{1cm}
+\end{center}
+
+<<vigorous_exercise_plot, fig.height=5.5>>=
 x_axis_names <- c('\nUsted',
                   sprintf('\n%s de la\nmisma edad que usted',
                           get_men_women(config_pt_sex, 'spanish')))
@@ -32,7 +37,7 @@ ggplot(data = df) +
     theme_bw() +
     ylab("minutos\n") +
     xlab("") +
-    labs(title = "Minutos por Semana de Actividad Física Vigorosa\n") +
+    # labs(title = "Minutos por Semana de Actividad Física Vigorosa\n") +
     theme(panel.border = element_blank(),
           panel.grid.major.x = element_blank(),
           panel.grid.minor.y = element_blank(),

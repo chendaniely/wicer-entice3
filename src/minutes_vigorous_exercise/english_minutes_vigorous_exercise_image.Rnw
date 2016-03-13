@@ -9,7 +9,12 @@
 source('src/minutes_vigorous_exercise/minutes_vigorous_exercise_setup.R')
 @
 
-<<vigorous_exercise_plot>>=
+\begin{center}
+\Huge{\textbf{Minutes of Vigorous Physical Activity per Week}}
+\vspace{1cm}
+\end{center}
+
+<<vigorous_exercise_plot, fig.height=5.5>>=
 x_axis_names <- c('\nYou',
                   sprintf('\nOther %s in your age group', tolower(get_men_women(config_pt_sex))))
 max_y <- max_y_activity(max(df$value))
@@ -31,7 +36,7 @@ ggplot(data = df) +
     theme_bw() +
     ylab("minutes\n") +
     xlab("") +
-    labs(title = "Minutes of Vigorous Physical Activity per Week\n") +
+    # labs(title = "Minutes of Vigorous Physical Activity per Week\n") +
     theme(panel.border = element_blank(),
           panel.grid.major.x = element_blank(),
           panel.grid.minor.y = element_blank(),
