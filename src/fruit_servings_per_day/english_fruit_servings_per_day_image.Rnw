@@ -10,10 +10,11 @@ source('src/fruit_servings_per_day/fruit_servings_per_day_setup.R')
 @
 
 \begin{center}
-\Huge{\textbf{Fruit Servings per Day}}
+\HUGE{\textbf{Fruit Servings per Day}}
+\vspace{1cm}
 \end{center}
 
-<<fruit_plot>>=
+<<fruit_plot, fig.height=5.5>>=
 x_axis_names <- c('\nYou\n',
                   sprintf('\nOther %s\nin your age group', get_men_women(config_pt_sex)),
                   '\nMinimum\nrecommended')
