@@ -10,7 +10,7 @@ source('src/composite_beverage_servings/composite_beverage_servings_setup.R')
 @
 
 \begin{center}
-\Huge{Porciones por Semana de Bebidas con Contenido de Azúcar}
+\Huge{\textbf{Porciones por Semana de Bebidas con Contenido de Azúcar}}
 \end{center}
 
 \Huge{Usted informó que tomó por semana:} \\

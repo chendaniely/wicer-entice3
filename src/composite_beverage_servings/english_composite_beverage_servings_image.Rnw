@@ -9,7 +9,12 @@
 source('src/composite_beverage_servings/composite_beverage_servings_setup.R')
 @
 
-<<composite_beverage_servings_plot>>=
+\begin{center}
+\Huge{\textbf{Servings per Week of Beverages Containing Sugar}}
+\vspace{1cm}
+\end{center}
+
+<<composite_beverage_servings_plot, fig.height=5.5>>=
 x_axis_names <- c('Regular (not diet)\nsoda',
                   '100%\npure juices',
                   'Sweetened\nor fruit drinks')
@@ -32,7 +37,7 @@ ggplot(data = df) +
                   y = text_y,
                   label = text), size = 10) +
     ylab("\nservings per week") +
-    labs(title = "Servings per Week of Beverages Containing Sugar\n") +
+    # labs(title = "Servings per Week of Beverages Containing Sugar\n") +
     theme(axis.line = element_line(size = 1),
           panel.border = element_blank(),
           panel.grid.major.y = element_blank(),

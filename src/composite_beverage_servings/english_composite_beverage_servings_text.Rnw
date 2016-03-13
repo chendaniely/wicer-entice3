@@ -10,7 +10,7 @@ source('src/composite_beverage_servings/composite_beverage_servings_setup.R')
 @
 
 \begin{center}
-\Huge{Servings per Week of Beverages Containing Sugar}
+\Huge{\textbf{Servings per Week of Beverages Containing Sugar}}
 \end{center}
 
 \Huge{Per week, you reported drinking:} \\

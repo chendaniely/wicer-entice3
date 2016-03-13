@@ -9,7 +9,12 @@
 source('src/composite_beverage_servings/composite_beverage_servings_setup.R')
 @
 
-<<composite_beverage_servings_plot>>=
+\begin{center}
+\LARGE{\textbf{Porciones por Semana de Bebidas con Contenido de Azúcar}}
+\vspace{1cm}
+\end{center}
+
+<<composite_beverage_servings_plot, fig.height=5.5>>=
 x_axis_names <- c('Sodas con azúcar\n(no de dieta)',
                   'Jugos de fruta\n100% naturales',
                   'Bebidas de frutas\no azucaradas')
@@ -32,7 +37,7 @@ ggplot(data = df) +
                   y = text_y,
                   label = text), size = 10) +
     ylab("\nporciones por semana") +
-    labs(title="Porciones por Semana de Bebidas con\nContenido de Azúcar\n") +
+    # labs(title="Porciones por Semana de Bebidas con\nContenido de Azúcar\n") +
     theme(axis.line = element_line(size = 1),
           panel.border = element_blank(),
           panel.grid.major.y = element_blank(),
