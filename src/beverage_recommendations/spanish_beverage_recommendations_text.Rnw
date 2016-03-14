@@ -12,7 +12,7 @@ source('src/beverage_recommendations/beverage_recommendations_setup.R')
 @
 
 \begin{center}
-\Huge{Porciones por Semana de Bebidas con Contenido de Azúcar}
+\Huge{\textbf{Porciones por Semana de Bebidas con Contenido de Azúcar}}
 \end{center}
 
 \Large{Usted informó que tomó por semana:

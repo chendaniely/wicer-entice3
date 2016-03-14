@@ -47,7 +47,7 @@ beverage_recommendation_plot <- ggplot(data = df) +
                   label = text), size = 15) +
     xlab(NULL) +
     ylab("servings\n") +
-    ggtitle("Your Servings per Week\nof Beverages Containing Sugar\n") +
+    # ggtitle("Your Servings per Week\nof Beverages Containing Sugar\n") +
     theme(panel.border = element_blank(),
           panel.grid.major.y = element_blank(),
           panel.grid.minor.y = element_blank(),
@@ -72,6 +72,11 @@ dev.off()
 
 \begin{figure}[H]
 \begin{minipage}[b]{0.45\linewidth}
+
+\begin{center}
+\Huge{\textbf{Your Servings per Week of Beverages Containing Sugar}}
+\end{center}
+\vspace{1cm}
 \centering
 \includegraphics[width=\textwidth]{beverage_recommendation_plot}
 
@@ -86,7 +91,7 @@ dev.off()
 \includegraphics[scale=0.75]{juice_box.png}
 
 \end{minipage}
-\hspace{0.5cm}
+%\hspace{0.5cm}
 \begin{minipage}[b]{0.45\linewidth}
 \centering
 \includegraphics[width=\textwidth]{beverage_recommendations}

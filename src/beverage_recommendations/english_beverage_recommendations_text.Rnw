@@ -14,7 +14,7 @@ source('src/beverage_recommendations/beverage_recommendations_setup.R')
 @
 
 \begin{center}
-\Huge{Servings per Week of Beverages Containing Sugar}
+\Huge{\textbf{Servings per Week of Beverages Containing Sugar}}
 \end{center}
 
 \Large{Per week, you reported drinking:
