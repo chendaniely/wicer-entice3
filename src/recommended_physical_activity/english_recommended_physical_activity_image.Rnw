@@ -71,7 +71,7 @@ moderate_exercise_plot <- ggplot(data = df) +
 @
 
 <<results='hide'>>=
-png(filename = 'src/recommended_physical_activity/moderate_exercise_plot.png', width = 800, height = 600)
+png(filename = 'src/recommended_physical_activity/moderate_exercise_plot.png', width = 800, height = 600, antialias = "subpixel")
 moderate_exercise_plot
 dev.off()
 @
@@ -79,8 +79,8 @@ dev.off()
 \begin{table}[H]
 \begin{minipage}[b]{0.47\linewidth}\centering
 
-\Large \textbf{Your Minutes per Week of Moderate Physical Activity}
-\vspace{15 mm}
+\Huge{\textbf{Your Minutes per Week of Moderate Physical Activity}}
+\vspace{1 cm}
 
 \begin{figure}[H]
 \includegraphics[scale=0.4]{moderate_exercise_plot}

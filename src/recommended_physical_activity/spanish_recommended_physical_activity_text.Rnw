@@ -78,7 +78,7 @@ dev.off()
 @
 
 \begin{center}
-\Huge{Sus Minutos por Semana de Actividad Física Moderada} \\
+\Huge{\textbf{Sus Minutos por Semana de Actividad Física Moderada}} \\
 \end{center}
 
 \Large Usted informó que hizo alrededor de \Sexpr{df[df$variable == 'pt', 'text']}

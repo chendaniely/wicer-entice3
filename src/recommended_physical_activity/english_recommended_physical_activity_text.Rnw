@@ -73,7 +73,7 @@ moderate_exercise_plot <- ggplot(data = df) +
 
 
 \begin{center}
-\Huge{Your Minutes per Week of Moderate Physical Activity} \\
+\Huge{\textbf{Your Minutes per Week of Moderate Physical Activity}} \\
 \end{center}
 
 \Large{You reported doing about \Sexpr{df[df$variable == 'pt', 'text']} minutes
