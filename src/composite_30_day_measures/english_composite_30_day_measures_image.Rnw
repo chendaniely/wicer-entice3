@@ -9,8 +9,13 @@
 source('src/composite_30_day_measures/composite_30_day_measures_setup.R')
 @
 
+\begin{center}
+\Huge{\textbf{Number of days in the last 30 days...}}
+\vspace{1cm}
+\end{center}
 
-<<composite_30_plot>>=
+
+<<composite_30_plot, fig.height=5.5>>=
 x_axis_names <- c('Feeling very healthy\nand full of energy',
                   'Physical health\nwas not good',
                   'Mental health\nwas not good')
@@ -32,7 +37,7 @@ ggplot(data = df) +
                   y = text_y,
                   label = text), size = 10) +
     ylab("\ndays") +
-    labs(title = "Number of days in the last 30 days...\n") +
+    # labs(title = "Number of days in the last 30 days...\n") +
     theme(axis.line = element_line(size = 1),
           panel.border = element_blank(),
           panel.grid.major.y = element_blank(),

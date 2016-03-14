@@ -9,7 +9,7 @@
 source('src/composite_30_day_measures/composite_30_day_measures_setup.R')
 @
 
-\Huge{Out of 30 days, you reported feeling:} \\
+\Huge{\textbf{Out of 30 days, you reported feeling:} \\
 
 \begin{itemize}
     \item very healthy and full of energy for \Sexpr{df[df$variable == 'healthy', 'text']} days,
