@@ -6,7 +6,7 @@
 @
 
 \begin{center}
-\Huge{Su Salud en General}
+\Huge{\textbf{Su Salud en General}}
 \end{center}
 
 \Large Usted informó que su salud en general estaba

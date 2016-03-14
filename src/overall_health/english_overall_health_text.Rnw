@@ -6,7 +6,7 @@
 @
 
 \begin{center}
-\Huge{Overall Health}
+\Huge{\textbf{Overall Health}}
 \end{center}
 
 \Large{You rated your overall health as
