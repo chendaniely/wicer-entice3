@@ -14,7 +14,7 @@ source('src/health_summary_control_panel/health_summary_control_panel_setup.R')
 \newpage
 
 \begin{center}
-\HUGE{\textbf{Resumen de Su Salud}}
+\Huge{\textbf{Resumen de Su Salud}}
 \end{center}
 
 \begin{itemize}

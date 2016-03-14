@@ -12,7 +12,7 @@ source('src/health_summary_control_panel/health_summary_control_panel_setup.R')
 @
 
 \begin{center}
-\HUGE{\textbf{Your Health Summary}}
+\Huge{\textbf{Your Health Summary}}
 \end{center}
 
 \begin{itemize}
