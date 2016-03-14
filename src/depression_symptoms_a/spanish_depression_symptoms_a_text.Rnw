@@ -12,7 +12,7 @@ source('src/depression_symptoms_a/depression_symptoms_a_setup.R')
 @
 
 \begin{center}
-\Huge{Síntomas de Depresión A}
+\Huge{\textbf{Síntomas de Depresión A}}
 \end{center}
 
 \Large{
