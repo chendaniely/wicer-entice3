@@ -8,7 +8,7 @@
 @
 
 \begin{center}
-\Huge{Salud en Comparación con el Ideal}
+\Huge{\textbf{Salud en Comparación con el Ideal}}
 \end{center}
 
 El nivel de actividad física ideal es excelente. Su nivel de actividad física fue

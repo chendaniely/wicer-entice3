@@ -8,7 +8,7 @@
 @
 
 \begin{center}
-\Huge{Health Compared to Ideal}
+\Huge{\textbf{Health Compared to Ideal}}
 \end{center}
 
 The ideal level of physical activity is excellent. Your level of physical activity was
