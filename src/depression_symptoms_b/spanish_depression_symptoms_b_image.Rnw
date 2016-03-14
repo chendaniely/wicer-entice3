@@ -11,9 +11,9 @@
 source('src/depression_symptoms_b/depression_symptoms_b_setup.R')
 @
 
-% \begin{center}
-% \Huge{Depression Symptoms B}
-% \end{center}
+\begin{center}
+\HUGE{\textbf{Síntomas de Depresión B}}
+\end{center}
 
 <<Depression Symptoms B>>=
 dummy <- data.frame(x=c(0,81), y=c(0, 81))
@@ -41,8 +41,8 @@ ggplot(data = dummy, aes(x = x, y = y)) +
     theme_nothing_text() +
     theme(legend.position = "none") +
     theme(axis.title = element_blank(), axis.text = element_blank()) +
-    theme(plot.title = element_text(size = 30, colour = "black")) +
-    labs(title = "Síntomas de Depresión B\n")
+    theme(plot.title = element_text(size = 30, colour = "black")) # +
+    # labs(title = "Síntomas de Depresión B\n")
 @
 
 \newpage

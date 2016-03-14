@@ -12,7 +12,7 @@ source('src/depression_symptoms_b/depression_symptoms_b_setup.R')
 @
 
 \begin{center}
-\Huge{Síntomas de Depresión B}
+\Huge{\textbf{Síntomas de Depresión B}}
 \end{center}
 
 \Large La puntación de síntomas de depresión tiene un rango de 10 (mejor) a 90 (peor). Una

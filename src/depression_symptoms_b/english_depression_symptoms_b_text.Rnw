@@ -11,12 +11,8 @@
 source('src/depression_symptoms_b/depression_symptoms_b_setup.R')
 @
 
-% \begin{center}
-% \Huge{Depression Symptoms B}
-% \end{center}
-
 \begin{center}
-\Huge{Depression Symptoms B}
+\Huge{\textbf{Depression Symptoms B}}
 \end{center}
 
 \Large{Depression symptom scores range from 10 (better) to 90 (worse).
