@@ -11,6 +11,9 @@
 source('src/anxiety_symptoms/anxiety_simptoms_setup.R')
 @
 
+\begin{center}
+\HUGE{\textbf{Anxiety Symptoms}}
+\end{center}
 
 <<Anxiety Symptoms Plot>>=
 arrow_start <- config_pt_anxiety - 10
@@ -28,8 +31,8 @@ ggplot(data = dummy, aes(x = x, y = y)) +
     theme_nothing_text() +
     theme(legend.position="none") +
     theme(axis.title = element_blank(), axis.text = element_blank()) +
-    theme(plot.title = element_text(size = 30, colour = "black")) +
-    labs(title = "Anxiety Symptoms\n")
+    theme(plot.title = element_text(size = 30, colour = "black")) # +
+    # labs(title = "Anxiety Symptoms\n")
 @
 
 \newpage

@@ -12,7 +12,7 @@ source('src/anxiety_symptoms/anxiety_simptoms_setup.R')
 @
 
 \begin{center}
-\Huge{Síntomas de Ansiedad}
+\Huge{\textbf{Síntomas de Ansiedad}}
 \end{center}
 
 \Large La puntación de síntomas de ansiedad tiene un rango de 10 (mejor) a 90 (peor). Una

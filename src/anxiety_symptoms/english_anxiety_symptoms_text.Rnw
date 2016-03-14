@@ -12,7 +12,7 @@ source('src/anxiety_symptoms/anxiety_simptoms_setup.R')
 @
 
 \begin{center}
-\Huge{Anxiety Symptoms}
+\Huge{\textbf{Anxiety Symptoms}}
 \end{center}
 
 \Large{Anxiety symptom scores range from 10 (better) to 90 (worse).
