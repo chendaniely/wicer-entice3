@@ -12,9 +12,9 @@ source('src/prolonged_stress/prolonged_stress_setup.R')
 @
 
 \begin{center}
-\Huge{\textbf{Estrés Prolongado}}
-
-(dura por lo menos 6 meses)
+\HUGE{\textbf{Estrés Prolongado}}\\
+\vspace{.25 cm}
+\LARGE{(dura por lo menos 6 meses)}
 \end{center}
 
 \vspace{2cm}
