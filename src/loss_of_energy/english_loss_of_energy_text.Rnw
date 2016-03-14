@@ -10,7 +10,7 @@ source('src/loss_of_energy/loss_of_energy_setup.R')
 @
 
 \begin{center}
-\Huge{Feeling Run Down}
+\Huge{\textbf{Feeling Run Down}}
 \end{center}
 
 \Large{You reported that, on average, you felt
