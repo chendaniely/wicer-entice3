@@ -47,7 +47,7 @@ beverage_recommendation_plot <- ggplot(data = df) +
                   label = text), size = 15) +
     xlab(NULL) +
     ylab("servings\n") +
-    # ggtitle("Your Servings per Week\nof Beverages Containing Sugar\n") +
+    ggtitle(" ") +
     theme(panel.border = element_blank(),
           panel.grid.major.y = element_blank(),
           panel.grid.minor.y = element_blank(),
