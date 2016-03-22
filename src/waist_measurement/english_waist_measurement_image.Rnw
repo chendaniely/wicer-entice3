@@ -1,6 +1,12 @@
 \Sexpr{opts_knit$set(self.contained=FALSE)}
 \Sexpr{set_parent('src/master.Rnw')}
 
+%\newgeometry{bottom=1cm}
+
+%\begin{center}
+%\Huge{\textbf{Waist Measurement}}
+%\end{center}
+
 <<>>=
 # print(getwd())
 @
@@ -25,12 +31,17 @@ ggplot(data = dummy, aes(x = x, y = y)) +
                       xmax = indicator_bounds$x_max,
                       ymin = indicator_bounds$y_min,
                       ymax = indicator_bounds$y_max) +
-    geom_text(aes(x = (indicator_bounds$x_min + indicator_bounds$x_max) / 2 - 0.1,
-                  y = (indicator_bounds$y_min + indicator_bounds$y_max) / 2 + 0.2,
-                  label = round(config_pt_waist_in, 0))) +
+    geom_text(aes(x = (indicator_bounds$x_min + indicator_bounds$x_max) / 2 - 0.15,
+                  y = (indicator_bounds$y_min + indicator_bounds$y_max) / 2 + 0.3,
+                  label = round(config_pt_waist_in, 0)),
+              size = 7) +
     annotate("text", label = paste0(round(config_pt_waist_in, 0), '"'),
              x = cat_text_coords$x,
-             y = cat_text_coords$y)
+             y = cat_text_coords$y,
+             size = 7) #+
+    #geom_rect(aes(xmin = 5, xmax = 15, ymin = 19, ymax = 20), color = 'black')
 @
+
+%\restoregeometry
 
 \newpage

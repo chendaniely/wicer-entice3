@@ -247,18 +247,18 @@ calculate_waist_cat_coord <- function(waist_value, pt_sex){
         coords <- list()
         coords$y <- y_coord
         if (pt_waist_cat == 'lower') {
-            coords$x <- 6.3
+            coords$x <- 6.0
         } else if (pt_waist_cat == 'higher') {
-            coords$x <- 13.5
+            coords$x <- 13.85
         }
     } else if (tolower(pt_sex) == 'female' | pt_sex == 2) {
         y_coord <- 13.5
         coords <- list()
         coords$y <- y_coord
         if (pt_waist_cat == 'lower') {
-            coords$x <- 6
+            coords$x <- 5.55
         } else if (pt_waist_cat == 'higher') {
-            coords$x <- 13.5
+            coords$x <- 13.85
         }
     }
     return(coords)
