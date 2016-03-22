@@ -31,12 +31,14 @@ ggplot(data = dummy, aes(x = x, y = y)) +
     annotation_custom(indicator_g,
                       indicator_bounds$x_min, indicator_bounds$x_max,
                       indicator_bounds$y_min, indicator_bounds$y_max) +
-    annotate("text", label = config_pt_bmi_value,
+    annotate("text", label = round(config_pt_bmi_value, 1),
              x = (indicator_bounds$x_min + indicator_bounds$x_max) / 2 - 0.1,
-             y = 0.3) +
-    annotate("text", label = config_pt_bmi_value,
+             y = 0.3,
+             size = 7) +
+    annotate("text", label = round(config_pt_bmi_value, 1),
              x = cat_text_coords$x,
-             y = cat_text_coords$y)
+             y = cat_text_coords$y,
+             size = 4)
 @
 
 \begin{center}

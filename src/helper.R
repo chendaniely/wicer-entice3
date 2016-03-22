@@ -172,7 +172,7 @@ calculate_bmi_cat_coord <- function(bmi_value, pt_sex){
         y_coord <- 15.5
         coords$y <- y_coord
         if (tolower(pt_bmi_cat) == 'underweight') {
-            coords$x <- 3.1
+            coords$x <- 2.9
         } else if (tolower(pt_bmi_cat) == 'normal') {
             coords$x <- 7.6
         } else if (tolower(pt_bmi_cat) == 'overweight') {
@@ -181,16 +181,16 @@ calculate_bmi_cat_coord <- function(bmi_value, pt_sex){
             coords$x <- 17.65
         }
     } else {
-        y_coord <- 15.0
+        y_coord <- 14.5
         coords$y <- y_coord
         if (tolower(pt_bmi_cat) == 'underweight') {
-            coords$x <- 2.8
+            coords$x <- 2.75
         } else if (tolower(pt_bmi_cat) == 'normal') {
             coords$x <- 7.6
         } else if (tolower(pt_bmi_cat) == 'overweight') {
             coords$x <- 12.8
         } else if (tolower(pt_bmi_cat) == 'obese') {
-            coords$x <- 17.65
+            coords$x <- 17.80
         }
     }
     return(coords)
