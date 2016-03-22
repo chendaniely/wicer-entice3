@@ -71,6 +71,8 @@ BoldFont = MyriadPro_Bold.otf,
 ItalicFont = MyriadPro_It.otf,
 BoldItalicFont  = MyriadPro_BoldIt.otf]
 
+\usepackage[none]{hyphenat}
+
 \begin{document}
 
 <<>>=
