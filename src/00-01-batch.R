@@ -1,4 +1,5 @@
 # make sure you run this line
+# to run a single line, select it and press 'ctrl+enter'
 
 source('src/00-00-batch_setup.R')
 
