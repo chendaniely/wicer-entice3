@@ -44,10 +44,10 @@ bmi_plot_small <- ggplot(data = dummy, aes(x = x, y = y)) +
     geom_point(alpha = 1/1000000000) +
     theme_nothing() +
     annotation_custom(base_image_g) +
-    annotate("text", label = config_pt_bmi_value, x = 5, y = 6.75, size = 7.5) +
-    annotate("text", label = config_pt_bmi_value,
+    annotate("text", label = round(config_pt_bmi_value, 1), x = 5, y = 7, size = 7.5, family = "Myriad Pro") +
+    annotate("text", label = round(config_pt_bmi_value, 1),
              x = bmi_cat_location_x(config_pt_bmi_cat),
-             y = 0.9, size = 7.5)
+             y = 0.9, size = 7.5, family = "Myriad Pro")
 
 png('src/risks_of_excess_weight/risks_excess_weight_left.png')
 bmi_plot_small
