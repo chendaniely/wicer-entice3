@@ -41,7 +41,7 @@ base_image_blood_pressure <- create_grob_from_png_dir(
 @
 
 <<fig.height=5.5>>=
-top_text_size <- 4
+top_text_size <- 4.5
 side_text_size <- 5.75
 side_text_x <- 35
 
@@ -56,7 +56,7 @@ ggplot(data = dummy, aes(x = x, y = y)) +
 
     annotate("text", label = "Saludable", x = 58, y = 95, size = top_text_size) +
     annotate("text", label = "Cuidado", x = 68, y = 95, size = top_text_size) +
-    annotate("text", label = "No Saludable", x = 78, y = 95, size = top_text_size) +
+    annotate("text", label = "No Saludable", x = 79, y = 95, size = top_text_size) +
 
     annotate("text", label = "            Estrés Prolongado", x = side_text_x + 1.2, y = 80, size = side_text_size) +
     annotate("text", label = "Índice de Masa Corporal (BMI)", x = side_text_x, y = 60, size = side_text_size) +
