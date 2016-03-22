@@ -37,8 +37,8 @@ ggplot(data = dummy, aes(x = x, y = y)) +
     geom_point(alpha = 1/1000000000) +
     theme_nothing() +
     annotation_custom(base_image_g) +
-    annotate("text", label = config_pt_bp_s, x = 1.31, y = 8.9, size = 7.5) +
-    annotate("text", label = config_pt_bp_d, x = 1.31, y = 8.2, size = 7.5) +
+    annotate("text", label = config_pt_bp_s, x = 1.23, y = 8.9, size = 7.5) +
+    annotate("text", label = config_pt_bp_d, x = 1.23, y = 8.2, size = 7.5) +
 
     geom_segment(aes(x = s_location, y = 3.55,
                      xend = s_location, yend = 3.75)) +
