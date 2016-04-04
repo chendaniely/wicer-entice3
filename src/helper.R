@@ -151,9 +151,9 @@ create_grob_from_png_dir <- function(png_dir){
 
 calculate_bmi_indicator_bounds <- function(bmi_value){
     if (bmi_value > 36) {
-        bmi_value <- 36
+        bmi_value <- 36.5
     } else if (bmi_value < 14) {
-        bmi_value <- 14
+        bmi_value <- 13.5
     }
     offset_from_15 <- (bmi_value - 15) * 0.9
     x_min <- 0.65 + offset_from_15
@@ -199,7 +199,7 @@ calculate_bmi_cat_coord <- function(bmi_value, pt_sex){
 calculate_waist_indicator_bounds <- function(waist_value, pt_sex){
     if (pt_sex == 1) {
         if (waist_value < 30.75) {
-            waist_value <- 30.75
+            waist_value <- 29.75
         } else if (waist_value > 49.25) {
             waist_value <- 49.25
         }
