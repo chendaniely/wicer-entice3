@@ -189,7 +189,7 @@ dev.off()
 @
 
 \begin{table}[H]
-\begin{minipage}[b]{0.5\linewidth}
+\begin{minipage}[t]{0.45\textwidth}
 \begin{center}
 \begin{figure}[H]
 \centerline{\includegraphics[scale=1.25, trim=30 40 20 30, clip=true]{anxious_30}}
@@ -199,8 +199,8 @@ dev.off()
 \phantom{Empty space to have images align}
 \end{center}
 \end{minipage}
-\hspace{0.5cm}
-\begin{minipage}[b]{0.5\linewidth}
+\pagebreak
+\begin{minipage}[t]{0.45\textwidth}
 \centering
 \begin{center}
 \begin{figure}[H]
