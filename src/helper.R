@@ -201,13 +201,13 @@ calculate_waist_indicator_bounds <- function(waist_value, pt_sex){
         if (waist_value < 30.75) {
             waist_value <- 29.75
         } else if (waist_value > 49.25) {
-            waist_value <- 49.25
+            waist_value <- 50.25
         }
     } else {
         if (waist_value < 25.75) {
-            waist_value <- 25.75
+            waist_value <- 24.75
         } else if (waist_value > 44.25) {
-            waist_value <- 44.25
+            waist_value <- 45.25
         }
     }
 
