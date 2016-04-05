@@ -70,16 +70,16 @@ ggplot(data = dummy, aes(x = x, y = y)) +
     annotation_custom(other_4_g, xmin = 68, xmax = 83, ymin = 15, ymax = 50) +
     annotation_custom(other_5_g, xmin = 84, xmax = 99, ymin = 15, ymax = 50) +
 
-    annotate("text", label = "Usted", x = 10, y = 75, fontface = "bold", size = 10) +
+    annotate("text", label = "Usted", x = 7, y = 79, fontface = "bold", size = 10) +
     annotate("text", label = get_overall_health_text(config_pt_overall, 'spanish'),
-             x = 10, y = 65, fontface = "italic", size = 7) +
+             x = 7, y = 69, fontface = "italic", size = 7) +
 
     annotate("text",
-             label = sprintf("%s\nde la misma\nedad que\nusted",
+             label = sprintf("%s de\nla misma edad\nque usted",
                              get_men_women(config_pt_sex, 'spanish')),
-             x = 10, y = 30, size = 7) +
+             x = 7, y = 32, size = 7) +
     annotate("text", label = get_overall_health_text(config_sex_age_overall, 'spanish'),
-             x = 10, y = 10, fontface = "italic", size = 7)
+             x = 7, y = 15, fontface = "italic", size = 7)
 
 @
 
