@@ -29,6 +29,7 @@ ggplot(data = dummy, aes(x = x, y = y)) +
                       indicator_bounds$y_min, indicator_bounds$y_max) +
     annotate("text", label = round(config_pt_bmi_value, 1),
              x = (indicator_bounds$x_min + indicator_bounds$x_max) / 2 - 0.1,
+             fontface = "bold",
              y = 0.3,
              size = 7) +
     annotate("text", label = round(config_pt_bmi_value, 1),

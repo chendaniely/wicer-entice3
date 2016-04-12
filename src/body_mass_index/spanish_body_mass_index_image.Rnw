@@ -34,6 +34,7 @@ ggplot(data = dummy, aes(x = x, y = y)) +
     annotate("text", label = round(config_pt_bmi_value, 1),
              x = (indicator_bounds$x_min + indicator_bounds$x_max) / 2 - 0.1,
              y = 0.3,
+             fontface = "bold",
              size = 7) +
     annotate("text", label = round(config_pt_bmi_value, 1),
              x = cat_text_coords$x,
