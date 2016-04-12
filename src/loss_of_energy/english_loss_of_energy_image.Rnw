@@ -1,9 +1,14 @@
 \Sexpr{set_parent('src/master.Rnw')}
 \Sexpr{opts_knit$set(self.contained=FALSE)}
+\graphicspath{{./loss_of_energy/}}
 
 <<>>=
 # print(getwd())
 @
+
+\begin{center}
+\HUGE{\textbf{Feeling Run Down}}
+\end{center}
 
 <<>>=
 source('src/loss_of_energy/loss_of_energy_setup.R')
@@ -29,7 +34,7 @@ mylabels <- c(label_you_1,
               label_other_sex_age
 )
 
-ggplot(data = dummy, aes(x = x, y = y)) +
+g <-ggplot(data = dummy, aes(x = x, y = y)) +
     geom_point(alpha = 1/1000000000) +
     annotation_custom(center_text_g, ymin = 0.5) +
     annotation_custom(pt_battery_g,
@@ -56,5 +61,13 @@ ggplot(data = dummy, aes(x = x, y = y)) +
     xlab(NULL) +
     ylab(NULL)
 @
+
+<<>>=
+ggsave(filename = 'src/loss_of_energy/loss_of_energy.png')
+@
+
+\begin{center}
+ \hspace*{-1.75cm}\includegraphics[trim={0 0 0 2cm},clip]{loss_of_energy}
+\end{center}
 
 \newpage
