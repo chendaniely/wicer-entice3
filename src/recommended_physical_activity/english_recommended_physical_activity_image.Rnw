@@ -65,7 +65,7 @@ moderate_exercise_plot <- ggplot(data = df) +
           plot.title = element_text(size = rel(2)),
           axis.title.x = element_text(size = 40),
           axis.text.x  = element_text(size = 40),
-          axis.title.y = element_text(size = 10),
+          axis.title.y = element_text(size = 40),
           axis.text.y  = element_text(size = 40),
           axis.line = element_line(colour = color_blue_bargraph_cloverleaf,
                                    size = 2))
