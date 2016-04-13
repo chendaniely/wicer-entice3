@@ -28,7 +28,7 @@ file.copy(from = 'EnTICE3_2/Beverage Recommendations/Juice box_2.png',
 
 <<>>=
 x_axis_names <- c('\nRegular\n(not diet) soda',
-                  '\n100% pure juices')
+                  '\n100% pure\njuices')
 
 beverage_recommendation_plot <- ggplot(data = df) +
     theme_bw() +
@@ -93,11 +93,11 @@ dev.off()
 %\hspace{0.5cm}
 \begin{minipage}[b]{0.45\linewidth}
 \begin{center}
-\Huge{\textbf{Beverage Recommendations}}
+\Huge{\textbf{Beverage\\ Recommendations}}
 \end{center}
 \vspace{2cm}
 \centering
-\includegraphics[width=\textwidth,trim={0 0 0 2.5cm},clip]{beverage_recommendations}
+\includegraphics[width=\textwidth,trim={0 0 0 2.25cm},clip]{beverage_recommendations}
 \end{minipage}
 \end{figure}
 
