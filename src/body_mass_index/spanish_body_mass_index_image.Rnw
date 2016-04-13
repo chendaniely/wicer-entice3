@@ -40,7 +40,7 @@ ggplot(data = dummy, aes(x = x, y = y)) +
              x = cat_text_coords$x,
              y = cat_text_coords$y,
              fontface = "bold",
-             size = 4)
+             size = 6)
 @
 
 \begin{center}
