@@ -34,49 +34,6 @@ df$text_y <- sapply(X = df$text, FUN = y_axis_text_height,
                     min_bar_height, min_center_bar_height, 'exercise_recommendations_small')
 @
 
-<<>>=
-x_axis_names <- c('\nUsted\n',
-                  sprintf('\n%s de la\nmisma edad que usted',
-                          get_men_women(config_pt_sex, 'spanish')))
-max_y <- max_y_activity(max(df$value), allowed_min = 180)
-
-moderate_exercise_plot <- ggplot(data = df) +
-    geom_bar(aes(x = x_axis_names, y = value),
-             stat = "identity",
-             color=color_blue_bargraph_cloverleaf,
-             fill=color_blue_bargraph_cloverleaf,
-             width = .5) +
-    scale_x_discrete(limits = c(x_axis_names[1], x_axis_names[2])) +
-    scale_y_continuous(expand = c(0,0), limits = c(0, max_y),
-                       breaks = seq(0, max_y, 30)) +
-    geom_text(aes(x = x_axis_names,
-                  y = text_y,
-                  label = text), size = 15) +
-    geom_hline(yintercept = 150, linetype = "longdash") +
-    geom_text(aes(x = x_axis_names[2], y = 150, vjust = -.25,
-                  label='Recomendación Mínima'), size = rel(10)) +
-    theme_bw() +
-    ylab("minutos\n") +
-    xlab("") +
-    # labs(title="Sus Minutos por Semana de Actividad Física Moderada") +
-    theme(panel.border = element_blank(),
-          panel.grid.major.x = element_blank(),
-          panel.grid.minor.y = element_blank(),
-          plot.title = element_text(size = rel(2)),
-          axis.title.x = element_text(size = 40),
-          axis.text.x  = element_text(size = 40),
-          axis.title.y = element_text(size = 40),
-          axis.text.y  = element_text(size = 40),
-          axis.line = element_line(colour = color_blue_bargraph_cloverleaf,
-                                   size = 2))
-@
-
-<<results='hide'>>=
-png(filename = 'src/recommended_physical_activity/moderate_exercise_plot.png', width = 800, height = 600)
-moderate_exercise_plot
-dev.off()
-@
-
 \begin{center}
 \Huge{\textbf{Sus Minutos por Semana de Actividad Física Moderada}} \\
 \end{center}
