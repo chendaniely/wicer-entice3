@@ -98,13 +98,13 @@ ggplot(data = dummy, aes(x = x, y = y)) +
     annotate("text", label = config_pt_bp_d, x = stoplight_d_number_pos$x, y = stoplight_d_number_pos$y, size = 12.75, color = 'black', fontface="bold") +
     annotate("text", label = config_pt_bp_s, x = stoplight_s_number_pos$x, y = stoplight_s_number_pos$y, size = 12, color = 'white') +
     annotate("text", label = config_pt_bp_d, x = stoplight_d_number_pos$x, y = stoplight_d_number_pos$y, size = 12, color = 'white') +
-        geom_segment(aes(x = s_location, y = 28,
-                     xend = s_location, yend = 26)) +
-    annotate("text", label = config_pt_bp_s, x = s_location, y =30, , size = 5) +
+        geom_segment(aes(x = s_location, y = 29,
+                     xend = s_location, yend = 27)) +
+    annotate("text", label = config_pt_bp_s, x = s_location, y =31, size = 5) +
 
-    geom_segment(aes(x = d_location, y = 6,
-                     xend = d_location, yend = 4)) +
-    annotate("text", label = config_pt_bp_d, x = d_location, y = 8, , size = 5) +
+    geom_segment(aes(x = d_location, y = 7,
+                     xend = d_location, yend = 5)) +
+    annotate("text", label = config_pt_bp_d, x = d_location, y = 9, size = 5) +
     xlab(NULL) +
     ylab(NULL) +
     theme(axis.title.x = element_blank(),
