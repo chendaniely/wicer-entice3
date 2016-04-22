@@ -77,25 +77,29 @@ moderate_exercise_plot
 dev.off()
 @
 
+\newgeometry{left=.5in,right=.5in}
+
 \begin{table}[H]
 \begin{minipage}[b]{0.47\linewidth}\centering
-
 \Huge{\textbf{Your Minutes per Week of Moderate Physical Activity}}
 \vspace{1 cm}
 
 \begin{figure}[H]
-\includegraphics[scale=0.4, width=\linewidth]{moderate_exercise_plot}
+\includegraphics[scale=0.37, width=\linewidth]{moderate_exercise_plot}
 \end{figure}
 
 \end{minipage}
 \hspace{0.5cm}
 \begin{minipage}[b]{0.45\linewidth}
-\centering
-
+%\centering
+\hfill
 \begin{figure}[H]
 \includegraphics[scale=0.6]{recommended_physical_activity}
 \end{figure}
 \end{minipage}
 \end{table}
+
+\restoregeometry
+
 
 \newpage
