@@ -84,7 +84,7 @@ dev.off()
 \vspace{1 cm}
 
 \begin{figure}[H]
-\includegraphics[scale=0.4]{moderate_exercise_plot}
+\includegraphics[scale=0.4, width=\linewidth]{moderate_exercise_plot}
 \end{figure}
 
 \end{minipage}
