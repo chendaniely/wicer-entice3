@@ -36,7 +36,7 @@ df$text_y <- sapply(X = df$text, FUN = y_axis_text_height,
 
 <<>>=
 x_axis_names <- c('\nUsted\n',
-                  sprintf('\n%s de la\nmisma edad que usted',
+                  sprintf('\n%s\nde la misma\nedad que usted',
                           get_men_women(config_pt_sex, 'spanish')))
 max_y <- max_y_activity(max(df$value), allowed_min = 180)
 
