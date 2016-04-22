@@ -53,7 +53,6 @@ moderate_exercise_plot <- ggplot(data = df) +
                   label = text), size = 15) +
     geom_hline(yintercept = 150, linetype = "longdash") +
     geom_text(aes(x = x_axis_names[2], y = 150, vjust = -.25,
-                  #hjust = -0.000000000000000000000000000000000001,
                   label = 'Recommended Minimum'), size = rel(10)) +
     theme_bw() +
     ylab("minutes\n") +
@@ -72,7 +71,7 @@ moderate_exercise_plot <- ggplot(data = df) +
 @
 
 <<results='hide'>>=
-png(filename = 'src/recommended_physical_activity/moderate_exercise_plot.png', width = 800, height = 600, antialias = "subpixel")
+png(filename = 'src/recommended_physical_activity/moderate_exercise_plot.png', width = 900, height = 600)
 moderate_exercise_plot
 dev.off()
 @
@@ -100,6 +99,5 @@ dev.off()
 \end{table}
 
 \restoregeometry
-
 
 \newpage
