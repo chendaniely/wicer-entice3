@@ -7,7 +7,7 @@
 @
 
 \begin{center}
-\HUGE{\textbf{Feeling Run Down}}
+\Huge{\textbf{Sintiéndose Agotado}}
 \end{center}
 
 <<>>=
