@@ -74,14 +74,15 @@ y_axis_range <- function(max_value, plot_type) {
 y_axis_text_height <- function(value, min_bar_height, min_center_bar_height, plot_type) {
     if (plot_type == 'fruit_servings_per_day') {
         if (value <= min_center_bar_height) {
-            y <- value + min_center_bar_height / 2
-            y
+            y <- value + min_center_bar_height / 1.55# + min_center_bar_height / 2
+            return(y)
         }
         if (value <= min_bar_height) {
             zero <- (value + min_center_bar_height)
-            (y + zero) / 2
+            #(y + zero) / 2
+            return(zero)
         } else {
-            value / 2
+            return(value / 2)
         }
     } else if (plot_type == 'composite_beverage_servings') {
         if (value <= min_center_bar_height) {
