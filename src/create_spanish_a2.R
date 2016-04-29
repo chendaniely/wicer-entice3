@@ -2,24 +2,37 @@
 # spanish A2
 ###############################################################################
 for (id in pt_spanish_a2_ids) {
-    pt_id <- id
-    pt_spanish <- id # pt name
-    pt_english <- pt_spanish
-    data_config_pt_language <- 'spanish'
-    print(id)
-    print(pt_id)
-    output_file_name <- sprintf('output/spanish/%s-A2.pdf', pt_id)
-    setwd('src/')
+    tryCatch(expr = {
+        pt_id <- id
+        pt_english <- id # pt name
+        data_config_pt_language <- 'spanish'
+        print(id)
+        print(pt_id)
 
-    tryCatch({
-        knit2pdf(input = '01-04-spanish-A2.Rnw', encoding = 'UTF-8', compiler = 'xelatex')
-    }, error = function(e){print(e)})
+        rnw_base_name <- '01-04-spanish-A2'
+        rnw_file_name <- paste0(rnw_base_name, '.Rnw')
+        copy_from <- (paste0('src/', rnw_base_name, '.pdf'))
+        output_file_name <- sprintf('output/spanish/%s-A2.pdf', pt_id)
 
-    setwd('../')
-    if (!dir.exists('output/spanish')) {
-        dir.create('output/spanish')
+        setwd(global_create_documents_directory)
+        cat(getwd(), '\n')
+        cat('\nStarting: ', rnw_base_name, '\n')
+        knit2pdf(input = rnw_file_name, encoding = 'UTF-8', compiler = 'xelatex')
+        cat('\nFinished: ', rnw_base_name, '\n')
+    }, error = {
+        function(e){
+            print(e)
+        }
+    }, finally = {
+        setwd(global_working_directory)
+        cat(getwd(), '\n')
+    })
+
+    if (!dir.exists('output/english')) {
+        dir.create('output/english')
     }
-    file.copy(from = 'src/01-04-spanish-A2.pdf', to = output_file_name, overwrite = TRUE)
+
+    file.copy(from = copy_from, to = output_file_name, overwrite = TRUE)
     clean_images()
     clean_knitr(data_config_pt_language)
 }

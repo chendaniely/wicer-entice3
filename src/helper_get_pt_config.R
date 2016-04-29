@@ -28,7 +28,7 @@ source('src/helper_group_calculations.R')
 #######################################
 
 # for entice3
-data_pt <- read_excel('../test_data/Dummy infographics data.xlsx')
+data_pt <- read_excel(global_data_location)
 #data_pt <- read_excel('../test_data/WICER comprehension test.xlsx')
 data_pt <- na.omit(data_pt)
 

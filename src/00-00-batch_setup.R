@@ -19,3 +19,7 @@ pt_spanish_a2_ids <- c()
 pt_spanish_b1_ids <- c()
 pt_spanish_b2_ids <- c()
 pt_spanish_all_ids <- c(pt_spanish_a1_ids, pt_spanish_a2_ids, pt_spanish_b1_ids, pt_spanish_b2_ids)
+
+global_working_directory <- normalizePath(getwd())
+global_create_documents_directory <- normalizePath(paste0(global_working_directory, '/src'))
+
