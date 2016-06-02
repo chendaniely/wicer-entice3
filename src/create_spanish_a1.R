@@ -12,7 +12,7 @@ for (id in pt_spanish_a1_ids) {
         rnw_base_name <- '01-04-spanish-A1'
         rnw_file_name <- paste0(rnw_base_name, '.Rnw')
         copy_from <- (paste0('src/', rnw_base_name, '.pdf'))
-        output_file_name <- sprintf('output/english/%s-A1.pdf', pt_id)
+        output_file_name <- sprintf('output/spanish/%s-A1.pdf', pt_id)
 
         setwd(global_create_documents_directory)
         cat(getwd(), '\n')
