@@ -3,7 +3,7 @@
 
 source('src/00-00-batch_setup.R')
 
-global_data_location <- '../test_data/Dummy infographics data.xlsx'
+global_data_location <- './test_data/Dummy infographics data.xlsx'
 
 if (file.exists(global_data_location)) {
     print(paste(global_data_location, 'exists'))

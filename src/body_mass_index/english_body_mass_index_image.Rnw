@@ -18,8 +18,8 @@ source('src/body_mass_index/body_mass_index_setup.R')
 ggplot(data = dummy, aes(x = x, y = y)) +
     geom_point(alpha = 1/1000000000) +
     theme_nothing() +
-    theme(panel.grid.major = element_line(colour = "blue"),
-          panel.grid.minor = element_line(colour = "blue")) +
+    #theme(panel.grid.major = element_line(colour = "blue"),
+    #      panel.grid.minor = element_line(colour = "blue")) +
     scale_x_continuous(breaks = seq(0, 21, 1)) +
     annotation_custom(base_image_g,
                       xmin = -Inf, xmax = Inf,
