@@ -3,7 +3,11 @@
 
 source('src/00-00-batch_setup.R')
 
-global_data_location <- './test_data/Dummy infographics data.xlsx'
+# This line is for Dan
+# global_data_location <- '../test_data/Dummy infographics data.xlsx'
+
+# This line is for CUMC
+global_data_location <- './test_data/WICER comprehension test.xlsx'
 
 if (file.exists(global_data_location)) {
     print(paste(global_data_location, 'exists'))
