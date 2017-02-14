@@ -104,15 +104,15 @@ calculate_cloverleaf_mental_value <- function(mental_value){
 calculate_cloverleaf_overall_value <- function(overall_value){
     if (is.na(overall_value)){
         return("Poor")
-    } else if (overall_value == 1){ ## TODO SHOULD BE 5 or 6
+    } else if (overall_value == 5 | overall_value == 6){
         return("Poor")
-    } else if (overall_value == 2){ ## TODO SHOULD BE 4
+    } else if (overall_value == 4){
         return("Fair")
-    } else if (overall_value == 3){ ## TODO should be 3
+    } else if (overall_value == 3){
         return("Good")
-    } else if (overall_value == 4){ ## TODO SHOULD BE 2
+    } else if (overall_value == 2){
         return("Very Good")
-    } else if (overall_value == 5){ ## TODO SHOULD BE 1
+    } else if (overall_value == 1){
         return("Excellent")
     }
 }
